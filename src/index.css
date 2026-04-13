@@ -402,6 +402,51 @@ img {
   gap: 14px;
 }
 
+.skillset-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.skillset-intro-card,
+.skill-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.skillset-intro-card {
+  padding: 28px;
+  position: sticky;
+  top: 24px;
+}
+
+.skillset-intro-card h3,
+.skill-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+}
+
+.skillset-intro-card p,
+.skill-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.skillset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  padding: 24px;
+}
+
 .logo-tile {
   margin: 0;
   min-height: 148px;
@@ -502,9 +547,18 @@ img {
 
 @media (max-width: 1100px) {
   .hero,
+  .skillset-panel,
   .experience-grid,
   .contact-panel {
     grid-template-columns: 1fr;
+  }
+
+  .skillset-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skillset-intro-card {
+    position: static;
   }
 
   .logo-grid {
@@ -555,9 +609,15 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .skillset-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-panel,
   .signal-card,
   .about-card,
+  .skillset-intro-card,
+  .skill-card,
   .portfolio-card,
   .service-card,
   .process-card {

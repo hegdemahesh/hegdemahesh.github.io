@@ -1,17 +1,6 @@
 import React from 'react';
 import maheshLogo from '../maheshLogo.svg';
 import heroPortrait from '../maheshBgRemoved02.png';
-import reactLogo from '../react.png';
-import reduxLogo from '../redux.png';
-import nextLogo from '../next.png';
-import angularLogo from '../angular.png';
-import ionicLogo from '../ionicbig.png';
-import tailwindLogo from '../tailwind.png';
-import nodeLogo from '../node.png';
-import photoshopLogo from '../photoshop.png';
-import aiLogo from '../ai.png';
-import xdLogo from '../xd.png';
-import threeDsLogo from '../3ds.png';
 import nessLogo from '../ness.png';
 import moonraftLogo from '../moonraft.png';
 import ustLogo from '../UST.png';
@@ -61,18 +50,37 @@ const services = [
   },
 ];
 
-const skills = [
-  ['React', reactLogo],
-  ['Redux', reduxLogo],
-  ['Next.js', nextLogo],
-  ['Angular', angularLogo],
-  ['Ionic', ionicLogo],
-  ['Tailwind CSS', tailwindLogo],
-  ['Node.js', nodeLogo],
-  ['Photoshop', photoshopLogo],
-  ['Illustrator AI', aiLogo],
-  ['Adobe XD', xdLogo],
-  ['3DS Max', threeDsLogo],
+const skillGroups = [
+  {
+    title: 'Product and UX craft',
+    text:
+      'UI/UX consulting, interaction design, human interface thinking, rapid prototyping, and design systems shaped for real delivery teams.',
+    items: ['UI/UX consulting', 'interaction design', 'rapid prototyping', 'design systems'],
+  },
+  {
+    title: 'Frontend delivery stack',
+    text:
+      'Hands-on execution across modern JavaScript application work, from component architecture to production-ready interface builds.',
+    items: ['React', 'Next.js', 'Redux', 'Angular', 'Ionic', 'Tailwind CSS', 'Node.js'],
+  },
+  {
+    title: 'Visual and interface tooling',
+    text:
+      'Interface exploration and production support using established design and visualization tools from earlier product and consulting work.',
+    items: ['Adobe Photoshop', 'Illustrator', 'Adobe XD', '3DS Max'],
+  },
+  {
+    title: 'Leadership and architecture',
+    text:
+      'The resume thread is consistent: Technology Consultant, Tech Lead, and Software Architect roles focused on making product quality and engineering practicality work together.',
+    items: ['frontend architecture', 'technical leadership', 'software architecture', 'product delivery'],
+  },
+];
+
+const skillSignals = [
+  '14+ years across IT, UX, and frontend product delivery',
+  'Postgraduate specialization in Human Interface Design and Development',
+  'Bridges consulting, design thinking, and hands-on implementation',
 ];
 
 const companies = [
@@ -241,17 +249,45 @@ export default function App() {
 
         <section className="stack-section" id="stack">
           <div className="section-heading section-heading-wide">
-            <p className="eyebrow">Stack</p>
-            <h2>Tools and frameworks used to move ideas into real interfaces.</h2>
+            <p className="eyebrow">Skillset</p>
+            <h2>Less logo wallpaper, more proof of what I can bring into the room.</h2>
+            <p className="section-intro">
+              My recent skillset combines product design thinking, modern frontend execution, and
+              the consulting depth reflected throughout my resume and delivery experience.
+            </p>
           </div>
 
-          <div className="logo-grid">
-            {skills.map(([name, src]) => (
-              <figure key={name} className="logo-tile">
-                <img src={src} alt={name} />
-                <figcaption>{name}</figcaption>
-              </figure>
-            ))}
+          <div className="skillset-panel">
+            <div className="skillset-intro-card">
+              <p className="card-kicker">Current focus</p>
+              <h3>Designing useful products and building the interfaces that make them real.</h3>
+              <p>
+                The strongest value sits in the overlap: UI/UX consulting, frontend architecture,
+                rapid prototyping, and implementation leadership that keeps teams moving from idea
+                to shipped experience.
+              </p>
+
+              <ul className="signal-list" aria-label="Skillset highlights">
+                {skillSignals.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="skillset-grid">
+              {skillGroups.map((group) => (
+                <article key={group.title} className="skill-card">
+                  <p className="card-kicker">Skill area</p>
+                  <h3>{group.title}</h3>
+                  <p>{group.text}</p>
+                  <ul className="tag-list" aria-label={`${group.title} skills`}>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
