@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "hegdemahesh2023",
-    "public": ".",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       ".firebaserc",
