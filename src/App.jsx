@@ -98,6 +98,52 @@ const highlights = [
   'Frontend architecture for production-ready product experiences',
 ];
 
+const projectShowcase = [
+  {
+    title: 'FAB Marketplace asset',
+    description:
+      'Creative product and visual asset listed on FAB, showcasing branded interface and motion-ready design work.',
+    category: 'Creative commerce',
+    href: 'https://www.fab.com/listings/61330bc0-48db-4d21-89df-9efb27943003',
+    cta: 'View asset',
+  },
+  {
+    title: 'Healthcare product UI',
+    description:
+      'React-based interface work for critical care and anesthesia workflow design, blending clinical clarity with frontend delivery.',
+    category: 'Healthcare product',
+    href: '#contact',
+    cta: 'Learn more',
+  },
+  {
+    title: 'Design system architecture',
+    description:
+      'Cross-platform component and design system work for modern frontend teams, including React, Angular, and Web Components.',
+    category: 'System design',
+    href: '#contact',
+    cta: 'Discuss the approach',
+  },
+];
+
+const resumeHighlights = [
+  'Senior Technical Lead for React/Node.js healthcare UI at Cyient Limited',
+  'Co-Founder and Director at Technoyana Digital Transformation Services',
+  'UI Architect and frontend leader for enterprise clients including Cisco, UST Global, and Moonraft',
+  '14+ years of delivery experience spanning consulting, product delivery, and interactive technology',
+];
+
+const awards = [
+  'Certificate of Appreciation for Contribution towards “Inspiring People”, UST Global 2018',
+  'Certificate of Appreciation for Contribution to “Putting Client First”, UST Global 2016',
+  'Certificate of Appreciation for “Living the Values”, UST Global 2015',
+  'Appreciation from Cisco for the facility dashboard project, 2010',
+];
+
+const education = [
+  'MS in Computing, Robert Gordon University, Scotland',
+  'BE in Electronics and Communication, Bapuji Institute of Engineering & Technology',
+];
+
 const process = [
   {
     step: '01',
@@ -139,6 +185,7 @@ export default function App() {
 
         <nav className="nav-links" aria-label="Primary">
           <a href="#work">Work</a>
+          <a href="#showcase">Showcase</a>
           <a href="#services">Services</a>
           <a href="#stack">Stack</a>
           <a href="#experience">Experience</a>
@@ -158,8 +205,8 @@ export default function App() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                View Portfolio Focus
+              <a className="button button-primary" href="#showcase">
+                Browse Work Showcase
               </a>
               <a className="button button-secondary" href="#contact">
                 Discuss a Project
@@ -185,6 +232,35 @@ export default function App() {
               <span>Core value</span>
               <p>move from concept to working product without losing design quality</p>
             </div>
+          </div>
+        </section>
+
+        <section className="showcase-section" id="showcase">
+          <div className="section-heading section-heading-wide">
+            <p className="eyebrow">Work Showcase</p>
+            <h2>Interactive work samples, visual assets, and product delivery highlights.</h2>
+            <p className="section-intro">
+              A rotating front-page gallery for product design, frontend architecture, and creative technology projects.
+            </p>
+          </div>
+
+          <div className="showcase-grid">
+            {projectShowcase.map((project) => (
+              <a
+                key={project.title}
+                className="showcase-card"
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <p className="card-kicker">{project.category}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="showcase-footer">
+                  <span>{project.cta}</span>
+                </div>
+              </a>
+            ))}
           </div>
         </section>
 
@@ -287,6 +363,49 @@ export default function App() {
                   </ul>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="resume-section" id="resume">
+          <div className="section-heading section-heading-wide">
+            <p className="eyebrow">Resume & awards</p>
+            <h2>Career highlights, recognitions, and education captured in one place.</h2>
+          </div>
+
+          <div className="resume-grid">
+            <article className="resume-card">
+              <p className="card-kicker">Career snapshot</p>
+              <h3>Hands-on leadership across product design, frontend architecture, and creative delivery.</h3>
+              <ul className="resume-list">
+                {resumeHighlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <div className="resume-panel">
+              <article className="award-card">
+                <p className="card-kicker">Awards</p>
+                <ul className="award-list">
+                  {awards.map((award) => (
+                    <li key={award}>{award}</li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className="education-card">
+                <p className="card-kicker">Education</p>
+                <ul className="education-list">
+                  {education.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+
+              <a className="button button-primary resume-button" href="/RESUME.md" target="_blank" rel="noreferrer">
+                View full resume
+              </a>
             </div>
           </div>
         </section>

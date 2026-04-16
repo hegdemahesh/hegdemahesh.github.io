@@ -307,6 +307,109 @@ img {
   line-height: 1.8;
 }
 
+.showcase-section,
+.resume-section {
+  padding: 24px 0 76px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  perspective: 1200px;
+}
+
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(245, 235, 222, 0.9));
+  box-shadow: var(--shadow);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+  transform-style: preserve-3d;
+}
+
+.showcase-card:hover {
+  transform: translateY(-10px) rotateX(4deg) rotateY(-6deg);
+  border-color: rgba(181, 78, 49, 0.22);
+  box-shadow: 0 42px 86px rgba(84, 53, 31, 0.18);
+}
+
+.showcase-card h3 {
+  margin: 0 0 18px;
+  font-size: 1.35rem;
+}
+
+.showcase-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+
+.showcase-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: var(--accent-deep);
+  font-weight: 700;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.resume-card,
+.award-card,
+.education-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+
+.resume-card h3 {
+  margin: 0 0 18px;
+  font-size: 1.3rem;
+}
+
+.resume-list,
+.award-list,
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.resume-list li,
+.award-list li,
+.education-list li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.resume-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.resume-button {
+  justify-self: start;
+  width: fit-content;
+  margin-top: 10px;
+}
+
 .section-heading h2,
 .contact-panel h2 {
   margin: 0;
