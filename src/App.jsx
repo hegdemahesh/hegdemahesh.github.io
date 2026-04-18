@@ -78,7 +78,7 @@ const skillGroups = [
 ];
 
 const skillSignals = [
-  '14+ years across IT, UX, and frontend product delivery',
+  '16+ years across IT, UX, and frontend product delivery',
   'Postgraduate specialization in Human Interface Design and Development',
   'Bridges consulting, design thinking, and hands-on implementation',
 ];
@@ -129,7 +129,7 @@ const resumeHighlights = [
   'Senior Technical Lead for React/Node.js healthcare UI at Cyient Limited',
   'Co-Founder and Director at Technoyana Digital Transformation Services',
   'UI Architect and frontend leader for enterprise clients including Cisco, UST Global, and Moonraft',
-  '14+ years of delivery experience spanning consulting, product delivery, and interactive technology',
+  '16+ years of delivery experience spanning consulting, product delivery, and interactive technology',
 ];
 
 const awards = [
@@ -163,7 +163,7 @@ const process = [
 ];
 
 const experienceSignals = [
-  '14+ years in IT, product delivery, and software architecture',
+  '16+ years in IT, product delivery, and software architecture',
   'Roles spanning Technology Consultant, Tech Lead, and Software Architect',
   'Experience working with enterprise and product-focused teams across multiple industries',
 ];
@@ -225,7 +225,7 @@ export default function App() {
               <img src={heroPortrait} alt="Maheshchandra Hegde portrait" />
             </div>
             <div className="stat-card stat-card-top">
-              <span>14+ years</span>
+              <span>16+ years</span>
               <p>across consulting, UI delivery, frontend architecture, and product execution</p>
             </div>
             <div className="stat-card stat-card-bottom">
@@ -273,7 +273,6 @@ export default function App() {
           <div className="portfolio-grid">
             {portfolioThemes.map((theme) => (
               <article key={theme.title} className="portfolio-card">
-                <p className="card-kicker">Portfolio theme</p>
                 <h3>{theme.title}</h3>
                 <p>{theme.summary}</p>
                 <ul className="tag-list" aria-label={`${theme.title} topics`}>
