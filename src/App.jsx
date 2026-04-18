@@ -50,39 +50,6 @@ const services = [
   },
 ];
 
-const skillGroups = [
-  {
-    title: 'Product and UX craft',
-    text:
-      'UI/UX consulting, interaction design, human interface thinking, rapid prototyping, and design systems shaped for real delivery teams.',
-    items: ['UI/UX consulting', 'interaction design', 'rapid prototyping', 'design systems'],
-  },
-  {
-    title: 'Frontend delivery stack',
-    text:
-      'Hands-on execution across modern JavaScript application work, from component architecture to production-ready interface builds.',
-    items: ['React', 'Next.js', 'Redux', 'Angular', 'Ionic', 'Tailwind CSS', 'Node.js'],
-  },
-  {
-    title: 'Visual and interface tooling',
-    text:
-      'Interface exploration and production support using established design and visualization tools from earlier product and consulting work.',
-    items: ['Adobe Photoshop', 'Illustrator', 'Adobe XD', '3DS Max'],
-  },
-  {
-    title: 'Leadership and architecture',
-    text:
-      'The resume thread is consistent: Technology Consultant, Tech Lead, and Software Architect roles focused on making product quality and engineering practicality work together.',
-    items: ['frontend architecture', 'technical leadership', 'software architecture', 'product delivery'],
-  },
-];
-
-const skillSignals = [
-  '16+ years across IT, UX, and frontend product delivery',
-  'Postgraduate specialization in Human Interface Design and Development',
-  'Bridges consulting, design thinking, and hands-on implementation',
-];
-
 const companies = [
   ['Ness', nessLogo],
   ['Moonraft', moonraftLogo],
@@ -187,7 +154,6 @@ export default function App() {
           <a href="#work">Work</a>
           <a href="#showcase">Showcase</a>
           <a href="#services">Services</a>
-          <a href="#stack">Stack</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -319,50 +285,6 @@ export default function App() {
                 <p>{item.text}</p>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="stack-section" id="stack">
-          <div className="section-heading section-heading-wide">
-            <p className="eyebrow">Skillset</p>
-            <h2>Less logo wallpaper, more proof of what I can bring into the room.</h2>
-            <p className="section-intro">
-              My recent skillset combines product design thinking, modern frontend execution, and
-              the consulting depth reflected throughout my resume and delivery experience.
-            </p>
-          </div>
-
-          <div className="skillset-panel">
-            <div className="skillset-intro-card">
-              <p className="card-kicker">Current focus</p>
-              <h3>Designing useful products and building the interfaces that make them real.</h3>
-              <p>
-                The strongest value sits in the overlap: UI/UX consulting, frontend architecture,
-                rapid prototyping, and implementation leadership that keeps teams moving from idea
-                to shipped experience.
-              </p>
-
-              <ul className="signal-list" aria-label="Skillset highlights">
-                {skillSignals.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="skillset-grid">
-              {skillGroups.map((group) => (
-                <article key={group.title} className="skill-card">
-                  <p className="card-kicker">Skill area</p>
-                  <h3>{group.title}</h3>
-                  <p>{group.text}</p>
-                  <ul className="tag-list" aria-label={`${group.title} skills`}>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 
