@@ -174,10 +174,6 @@ function parseResumeMarkdown(markdown) {
 }
 
 function getContactHref(item) {
-  if (typeof item !== 'string' || !item.trim()) {
-    return null;
-  }
-
   const normalized = item.replaceAll(/[()\s-]/g, '');
 
   if (item.includes('@')) {
@@ -263,7 +259,6 @@ export default function ResumePage() {
   const extraSkills = resume.skills.slice(3);
   const careerSpan = getCareerSpan(resume.experience);
   const emailHref = resume.contact.find((item) => item.includes('@'));
-  const primaryContactHref = getContactHref(emailHref);
 
   return (
     <div className="resume-page-shell">
@@ -295,10 +290,10 @@ export default function ResumePage() {
             <p className="eyebrow">Resume</p>
             <h1>{resume.name}</h1>
             <p className="resume-hero-title">{resume.title}</p>
-            <p className="resume-hero-text">{resume.skills[0] || resume.title}</p>
+            <p className="resume-hero-text">{resume.skills[0]}</p>
 
             <div className="resume-hero-actions">
-              <a className="button button-primary" href={primaryContactHref || '#contact'}>
+              <a className="button button-primary" href={getContactHref(emailHref) || '#contact'}>
                 Contact by email
               </a>
               <a className="button button-secondary" href="#experience">
