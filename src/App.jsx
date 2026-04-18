@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import ResumePage from './ResumePage';
 import maheshLogo from '../maheshLogo.svg';
 import heroPortrait from '../maheshBgRemoved02.png';
 import nessLogo from '../ness.png';
@@ -170,7 +168,7 @@ const experienceSignals = [
   'Experience working with enterprise and product-focused teams across multiple industries',
 ];
 
-function HomePage() {
+export default function App() {
   return (
     <div className="page-shell">
       <div className="background-orb background-orb-left" />
@@ -404,9 +402,9 @@ function HomePage() {
                 </ul>
               </article>
 
-              <Link className="button button-primary resume-button" to="/resume">
+              <a className="button button-primary resume-button" href="/RESUME.md" target="_blank" rel="noreferrer">
                 View full resume
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -487,14 +485,5 @@ function HomePage() {
         <span>React rebuild foundation deployed on Firebase Hosting</span>
       </footer>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/resume" element={<ResumePage />} />
-    </Routes>
   );
 }
