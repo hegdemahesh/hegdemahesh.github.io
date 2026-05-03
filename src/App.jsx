@@ -10,6 +10,37 @@ import caeLogo from '../cae.png';
 import linkedinLogo from '../logo-linkedin.svg';
 import facebookLogo from '../logo-facebook.svg';
 
+const latestVentures = [
+  {
+    title: 'Founder & Creative Technologist',
+    company: 'Srushtilabs.com',
+    period: 'Jan 2026 - Present',
+    duration: '5 mos',
+    location: 'Bengaluru, Karnataka, India',
+    mode: 'Hybrid',
+    summary:
+      'Building an AI-assisted modular 3D asset platform focused on game-ready, low-poly collections for Unreal Engine, Unity, and visualization workflows.',
+    details: [
+      'Generative AI, retopology, and PBR texturing pipelines for production-ready modular asset bundles.',
+      'Cultural-heritage and modern-design libraries, including South Indian temple ruins collections and reusable environment kits.',
+    ],
+  },
+  {
+    title: 'Founder & Product Design Lead',
+    company: 'Twitan.com',
+    period: 'Nov 2025 - Present',
+    duration: '7 mos',
+    location: 'Bengaluru, Karnataka, India',
+    mode: 'Hybrid',
+    summary:
+      'Leading an AI-driven sports product studio creating scoring, event-management, and player-tracking platforms with clear UX and modular product foundations.',
+    details: [
+      'Flagship products include Shutlify for badminton and Twicket for cricket, focused on match operations and performance tracking.',
+      'Combines product design, software engineering, and automation to support academies, coaches, players, and audience engagement.',
+    ],
+  },
+];
+
 const portfolioThemes = [
   {
     title: 'Prototype to Product',
@@ -63,33 +94,6 @@ const highlights = [
   'UI/UX consulting grounded in delivery realities',
   'Rapid prototyping that helps teams move with confidence',
   'Frontend architecture for production-ready product experiences',
-];
-
-const projectShowcase = [
-  {
-    title: 'FAB Marketplace asset',
-    description:
-      'Creative product and visual asset listed on FAB, showcasing branded interface and motion-ready design work.',
-    category: 'Creative commerce',
-    href: 'https://www.fab.com/listings/61330bc0-48db-4d21-89df-9efb27943003',
-    cta: 'View asset',
-  },
-  {
-    title: 'Healthcare product UI',
-    description:
-      'React-based interface work for critical care and anesthesia workflow design, blending clinical clarity with frontend delivery.',
-    category: 'Healthcare product',
-    href: '#contact',
-    cta: 'Learn more',
-  },
-  {
-    title: 'Design system architecture',
-    description:
-      'Cross-platform component and design system work for modern frontend teams, including React, Angular, and Web Components.',
-    category: 'System design',
-    href: '#contact',
-    cta: 'Discuss the approach',
-  },
 ];
 
 const resumeHighlights = [
@@ -152,7 +156,6 @@ export default function App() {
 
         <nav className="nav-links" aria-label="Primary">
           <a href="#work">Work</a>
-          <a href="#showcase">Showcase</a>
           <a href="#services">Services</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
@@ -171,8 +174,8 @@ export default function App() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#showcase">
-                Browse Work Showcase
+              <a className="button button-primary" href="#work">
+                Explore My Work
               </a>
               <a className="button button-secondary" href="#contact">
                 Discuss a Project
@@ -198,35 +201,6 @@ export default function App() {
               <span>Core value</span>
               <p>move from concept to working product without losing design quality</p>
             </div>
-          </div>
-        </section>
-
-        <section className="showcase-section" id="showcase">
-          <div className="section-heading section-heading-wide">
-            <p className="eyebrow">Work Showcase</p>
-            <h2>Interactive work samples, visual assets, and product delivery highlights.</h2>
-            <p className="section-intro">
-              A rotating front-page gallery for product design, frontend architecture, and creative technology projects.
-            </p>
-          </div>
-
-          <div className="showcase-grid">
-            {projectShowcase.map((project) => (
-              <a
-                key={project.title}
-                className="showcase-card"
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <p className="card-kicker">{project.category}</p>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="showcase-footer">
-                  <span>{project.cta}</span>
-                </div>
-              </a>
-            ))}
           </div>
         </section>
 
@@ -347,6 +321,33 @@ export default function App() {
                 <img src={src} alt={name} />
                 <figcaption>{name}</figcaption>
               </figure>
+            ))}
+          </div>
+
+          <div className="venture-grid">
+            {latestVentures.map((venture) => (
+              <article key={venture.company} className="venture-card">
+                <div className="venture-header">
+                  <div>
+                    <p className="card-kicker">Latest venture</p>
+                    <h3>{venture.title}</h3>
+                    <p className="venture-company">{venture.company}</p>
+                  </div>
+                  <div className="venture-meta">
+                    <span>{venture.period}</span>
+                    <span>{venture.duration}</span>
+                  </div>
+                </div>
+                <p className="venture-location">
+                  {venture.location} · {venture.mode}
+                </p>
+                <p>{venture.summary}</p>
+                <ul className="venture-list">
+                  {venture.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
 

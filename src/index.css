@@ -305,56 +305,8 @@ img {
   line-height: 1.8;
 }
 
-.showcase-section,
 .resume-section {
   padding: 24px 0 76px;
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  perspective: 1200px;
-}
-
-.showcase-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 32px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(245, 235, 222, 0.9));
-  box-shadow: var(--shadow);
-  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
-  transform-style: preserve-3d;
-}
-
-.showcase-card:hover {
-  transform: translateY(-10px) rotateX(4deg) rotateY(-6deg);
-  border-color: rgba(181, 78, 49, 0.22);
-  box-shadow: 0 42px 86px rgba(84, 53, 31, 0.18);
-}
-
-.showcase-card h3 {
-  margin: 0 0 18px;
-  font-size: 1.35rem;
-}
-
-.showcase-card p {
-  color: var(--muted);
-  line-height: 1.8;
-  margin: 0 0 22px;
-}
-
-.showcase-footer {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  color: var(--accent-deep);
-  font-weight: 700;
 }
 
 .resume-grid {
@@ -525,8 +477,89 @@ img {
 }
 
 .company-grid .logo-tile img {
-  width: 92px;
-  height: 60px;
+  width: 68px;
+  height: 44px;
+}
+
+.venture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.venture-card {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 251, 246, 0.92), rgba(242, 230, 217, 0.86));
+  box-shadow: var(--shadow);
+}
+
+.venture-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.venture-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.venture-company,
+.venture-location,
+.venture-meta span,
+.venture-list li {
+  color: var(--muted);
+}
+
+.venture-company {
+  margin: 8px 0 0;
+  font-weight: 700;
+}
+
+.venture-meta {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  text-align: right;
+  font-size: 0.88rem;
+}
+
+.venture-location {
+  margin: 16px 0 12px;
+  font-size: 0.95rem;
+}
+
+.venture-card > p:last-of-type {
+  margin: 0;
+}
+
+.venture-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.venture-list li {
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+
+.venture-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
 }
 
 .about-card {
@@ -597,6 +630,7 @@ img {
 
 @media (max-width: 1100px) {
   .hero,
+  .venture-grid,
   .experience-grid,
   .contact-panel {
     grid-template-columns: 1fr;
@@ -653,11 +687,21 @@ img {
   .contact-panel,
   .signal-card,
   .about-card,
+  .venture-card,
   .skillset-intro-card,
   .skill-card,
   .portfolio-card,
   .service-card,
   .process-card {
     padding: 22px;
+  }
+
+  .venture-header {
+    flex-direction: column;
+  }
+
+  .venture-meta {
+    justify-items: start;
+    text-align: left;
   }
 }
