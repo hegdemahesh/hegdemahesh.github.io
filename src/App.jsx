@@ -139,6 +139,17 @@ const experienceSignals = [
   'Experience working with enterprise and product-focused teams across multiple industries',
 ];
 
+const voxelForgeHighlights = [
+  'Visualize 3D environments before generation.',
+  'Modify, refine, or delete assets seamlessly.',
+  'Download complete packages with multiple LODs, ready for integration.',
+];
+
+const personalBlend = [
+  'Design, machinery, visualization, and CAD',
+  'Software engineering and application development',
+];
+
 export default function App() {
   return (
     <div className="page-shell">
@@ -201,6 +212,65 @@ export default function App() {
               <span>Core value</span>
               <p>move from concept to working product without losing design quality</p>
             </div>
+          </div>
+        </section>
+
+        <section className="announcement-section" id="voxelforge">
+          <article className="announcement-card">
+            <p className="eyebrow">New Release</p>
+            <h2>VoxelForge AI is now live.</h2>
+            <p>
+              We are excited to announce the release of <strong>VoxelForge AI</strong>, our
+              next-generation AI tool for creating optimized, game-ready, retopologized modular
+              3D assets with just a few lines of text.
+            </p>
+            <ul className="announcement-list" aria-label="VoxelForge AI capabilities">
+              {voxelForgeHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="bio-section" id="about-me">
+          <div className="section-heading section-heading-wide">
+            <p className="eyebrow">About Me</p>
+            <h2>A practical blend of engineering, design, and AI-driven software development.</h2>
+          </div>
+
+          <div className="bio-grid">
+            <article className="bio-card">
+              <p>
+                I come from an agriculturist and entrepreneurial family. My father runs a
+                small-scale industry building stone temples and stone artifacts.
+              </p>
+              <p>
+                Although I am an <strong>Electronics Engineer by education</strong>, I have spent
+                decades working as a <strong>software engineer</strong> across UI development with
+                React, Angular, and JavaScript, user interface design, AI integration in software
+                applications, and Google Cloud, Firebase, and Firestore.
+              </p>
+            </article>
+
+            <article className="bio-card">
+              <p>
+                Alongside my professional career, I have also contributed to my father's business
+                by designing CNC machines, building custom software, visualizing products in 3D,
+                and mastering CAD drawings.
+              </p>
+              <p>
+                This unique combination has given me deep expertise in two domains:
+              </p>
+              <ul className="announcement-list" aria-label="Expertise domains">
+                {personalBlend.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>
+                Together, these skills position me as a rare blend of talent that bridges the
+                worlds of engineering, design, and AI-driven software development.
+              </p>
+            </article>
           </div>
         </section>
 
