@@ -158,7 +158,7 @@ img {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 5vw, 4.125rem);
+  font-size: clamp(2.112rem, 4.224vw, 4.092rem);
   line-height: 0.92;
   max-width: 10ch;
 }
