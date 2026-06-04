@@ -12,31 +12,31 @@ import facebookLogo from '../logo-facebook.svg';
 
 const latestVentures = [
   {
-    title: 'Founder & Creative Technologist',
-    company: 'Srushtilabs.com',
+    title: 'VoxelForge AI - modular 3D asset pipeline consulting',
+    company: 'Srushtilabs',
     period: 'Jan 2026 - Present',
     duration: '5 mos',
     location: 'Bengaluru, Karnataka, India',
     mode: 'Hybrid',
     summary:
-      'Building an AI-assisted modular 3D asset platform focused on game-ready, low-poly collections for Unreal Engine, Unity, and visualization workflows.',
+      'Built modular 3D asset workflows for game and visualization teams to move from concept to production-ready output faster.',
     details: [
-      'Generative AI, retopology, and PBR texturing pipelines for production-ready modular asset bundles.',
-      'Cultural-heritage and modern-design libraries, including South Indian temple ruins collections and reusable environment kits.',
+      'Integrated generative AI, retopology, and PBR texturing into repeatable production pipelines.',
+      'Enabled reusable environment kits with clean LOD-ready exports for Unreal Engine and Unity teams.',
     ],
   },
   {
-    title: 'Founder & Product Design Lead',
-    company: 'Twitan.com',
+    title: 'Twitan.com - AI-driven sports product UX consulting',
+    company: 'Twitan',
     period: 'Nov 2025 - Present',
     duration: '7 mos',
     location: 'Bengaluru, Karnataka, India',
     mode: 'Hybrid',
     summary:
-      'Leading an AI-driven sports product studio creating scoring, event-management, and player-tracking platforms with clear UX and modular product foundations.',
+      'Designed and shipped product UX for AI-assisted sports management workflows used by academies, coaches, and operations teams.',
     details: [
-      'Flagship products include Shutlify for badminton and Twicket for cricket, focused on match operations and performance tracking.',
-      'Combines product design, software engineering, and automation to support academies, coaches, players, and audience engagement.',
+      'Shaped product direction for Shutlify and Twicket to streamline match operations and player performance tracking.',
+      'Aligned product design, engineering execution, and automation to reduce delivery friction across releases.',
     ],
   },
 ];
@@ -45,7 +45,7 @@ const portfolioThemes = [
   {
     title: 'Prototype to Product',
     summary:
-      'Early-stage product shaping, interaction design, and frontends that help teams validate ideas before overinvesting in process.',
+      'Early-stage product shaping, interaction design, and frontend execution that helps teams validate ideas before overinvesting.',
     bullets: ['UI direction', 'working prototypes', 'MVP delivery'],
   },
   {
@@ -65,19 +65,23 @@ const portfolioThemes = [
 const services = [
   {
     title: 'UI/UX Consulting',
-    text: 'Product structure, interaction design, and clearer decision-making during fast-moving delivery cycles.',
+    text: 'Clarify product direction, reduce ambiguity, and guide teams through fast-moving delivery cycles with user-centric design decisions.',
   },
   {
     title: 'Rapid Prototyping',
-    text: 'Clickable interfaces and working app layers that align teams earlier and reduce rework later.',
+    text: 'Create clickable prototypes and working app layers that align stakeholders early, cut rework costs, and validate ideas before scaling.',
   },
   {
-    title: 'Frontend Leadership',
-    text: 'Architecture, implementation guidance, and hands-on execution across modern JavaScript frameworks.',
+    title: 'Frontend Architecture & Leadership',
+    text: 'Provide architecture guidance and hands-on execution across React, Angular, and modern JavaScript frameworks to ensure maintainability and speed.',
   },
   {
     title: 'Design-to-Code Systems',
-    text: 'Reusable UI building blocks that keep product quality high without slowing teams down.',
+    text: 'Build reusable UI components and design systems that keep product quality high while enabling faster team execution.',
+  },
+  {
+    title: 'AI-Assisted Product Development',
+    text: 'Integrate generative AI workflows for 3D assets, automation, and prototyping to help teams innovate without slowing delivery.',
   },
 ];
 
@@ -91,9 +95,30 @@ const companies = [
 ];
 
 const highlights = [
-  'UI/UX consulting grounded in delivery realities',
-  'Rapid prototyping that helps teams move with confidence',
-  'Frontend architecture for production-ready product experiences',
+  'Scalable UI/UX systems designed for speed and clarity',
+  'Rapid prototypes that align stakeholders and reduce rework',
+  'Frontend leadership that connects architecture and execution',
+];
+
+const impactSignals = [
+  'Earlier stakeholder alignment through prototype-first product validation',
+  'Reduced rework by translating product ambiguity into clear UX and engineering decisions',
+  'Reusable frontend systems that improve quality while preserving delivery velocity',
+];
+
+const consultingPackages = [
+  {
+    title: 'UX Audit Sprint',
+    text: 'A focused short engagement to identify UX friction, clarify product priorities, and define actionable improvements.',
+  },
+  {
+    title: 'Prototype-to-Delivery Track',
+    text: 'From concept framing to interactive prototypes and implementation-ready frontend structure for faster release confidence.',
+  },
+  {
+    title: 'Fractional Frontend Leadership',
+    text: 'Ongoing architecture and execution guidance for teams scaling React and Angular products without sacrificing UX quality.',
+  },
 ];
 
 const resumeHighlights = [
@@ -134,7 +159,7 @@ const process = [
 ];
 
 const experienceSignals = [
-  '16+ years in IT, product delivery, and software architecture',
+  '18+ years in IT, product delivery, and software architecture',
   'Roles spanning Technology Consultant, Tech Lead, and Software Architect',
   'Experience working with enterprise and product-focused teams across multiple industries',
 ];
@@ -166,26 +191,30 @@ export default function App() {
         </a>
 
         <nav className="nav-links" aria-label="Primary">
-          <a href="#work">Work</a>
+          <a href="#workproof">Work</a>
           <a href="#services">Services</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#engage">Engage Me</a>
         </nav>
       </header>
 
       <main>
         <section className="hero" id="home">
           <div className="hero-copy">
-            <p className="eyebrow">Portfolio</p>
-            <h1>I help teams ship better product experiences, faster.</h1>
+            <p className="eyebrow">Consulting Practice</p>
+            <h1>
+              Helping teams accelerate product delivery with clear UX, scalable frontend systems,
+              and AI-driven innovation.
+            </h1>
             <p className="hero-text">
-              Maheshchandra Hegde is a UI/UX consultant and frontend leader focused on turning
-              product ideas into usable, production-ready interfaces. The work sits at the
-              intersection of design thinking, rapid prototyping, and modern frontend execution.
+              I consult with startups and enterprises to bridge product thinking and engineering
+              execution, moving from concept to production without losing design quality.
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">
+              <a className="button button-primary" href="#portfolio">
                 Explore My Work
               </a>
               <a className="button button-secondary" href="#contact">
@@ -205,24 +234,24 @@ export default function App() {
               <img src={heroPortrait} alt="Maheshchandra Hegde portrait" />
             </div>
             <div className="stat-card stat-card-top">
-              <span>16+ years</span>
-              <p>across consulting, UI delivery, frontend architecture, and product execution</p>
+              <span>18+ years</span>
+              <p>across consulting, UX strategy, frontend architecture, and product execution</p>
             </div>
             <div className="stat-card stat-card-bottom">
-              <span>Core value</span>
-              <p>move from concept to working product without losing design quality</p>
+              <span>Engagement focus</span>
+              <p>short UX audits, rapid prototypes, and frontend leadership for delivery teams</p>
             </div>
           </div>
         </section>
 
-        <section className="announcement-section" id="voxelforge">
+        <section className="announcement-section" id="workproof">
           <article className="announcement-card">
-            <p className="eyebrow">New Release</p>
-            <h2>VoxelForge AI is now live.</h2>
+            <p className="eyebrow">Consulting Proof Point</p>
+            <h2>VoxelForge AI turned concept sketches into production-ready 3D systems.</h2>
             <p>
-              We are excited to announce the release of <strong>VoxelForge AI</strong>, our
-              next-generation AI tool for creating optimized, game-ready, retopologized modular
-              3D assets with just a few lines of text.
+              VoxelForge AI demonstrates how AI-assisted product development can move quickly from
+              idea to operational capability. The platform was shaped to help studios produce
+              modular, game-ready assets with repeatable quality.
             </p>
             <ul className="announcement-list" aria-label="VoxelForge AI capabilities">
               {voxelForgeHighlights.map((item) => (
@@ -234,32 +263,31 @@ export default function App() {
 
         <section className="bio-section" id="about-me">
           <div className="section-heading section-heading-wide">
-            <p className="eyebrow">About Me</p>
-            <h2>A practical blend of engineering, design, and AI-driven software development.</h2>
+            <p className="eyebrow">Why teams hire me</p>
+            <h2>Consulting support for teams that need speed without compromising product quality.</h2>
           </div>
 
           <div className="bio-grid">
             <article className="bio-card">
               <p>
-                I come from an agriculturist and entrepreneurial family. My father runs a
-                small-scale industry building stone temples and stone artifacts.
+                Organizations bring me in when they need to move from concept to production
+                without losing design quality. I combine 18+ years of frontend architecture and
+                UX consulting with hands-on product execution.
               </p>
               <p>
-                Although I am an <strong>Electronics Engineer by education</strong>, I have spent
-                decades working as a <strong>software engineer</strong> across UI development with
-                React, Angular, and JavaScript, user interface design, AI integration in software
-                applications, and Google Cloud, Firebase, and Firestore.
+                The focus is practical delivery: clear product direction, implementation-ready UI
+                strategy, and architecture guidance that helps teams accelerate releases while
+                keeping user experience sharp.
               </p>
             </article>
 
             <article className="bio-card">
               <p>
-                Alongside my professional career, I have also contributed to my father's business
-                by designing CNC machines, building custom software, visualizing products in 3D,
-                and mastering CAD drawings.
+                Teams value a rare cross-functional blend that connects product design, frontend
+                engineering, and AI-enabled workflows into one execution path.
               </p>
               <p>
-                This unique combination has given me deep expertise in two domains:
+                This blend combines deep expertise across two connected domains:
               </p>
               <ul className="announcement-list" aria-label="Expertise domains">
                 {personalBlend.map((item) => (
@@ -267,17 +295,17 @@ export default function App() {
                 ))}
               </ul>
               <p>
-                Together, these skills position me as a rare blend of talent that bridges the
-                worlds of engineering, design, and AI-driven software development.
+                Together, these capabilities reduce handoff friction and improve outcomes for
+                product, design, and engineering teams.
               </p>
             </article>
           </div>
         </section>
 
-        <section className="portfolio-section" id="work">
+        <section className="portfolio-section" id="portfolio">
           <div className="section-heading">
-            <p className="eyebrow">Selected Focus</p>
-            <h2>A stronger portfolio starts by showing the kind of work I help teams ship.</h2>
+            <p className="eyebrow">Portfolio</p>
+            <h2>Consulting-led work that translates product intent into scalable delivery.</h2>
           </div>
 
           <div className="portfolio-grid">
@@ -293,15 +321,24 @@ export default function App() {
               </article>
             ))}
           </div>
+
+          <article className="about-card impact-card">
+            <p className="eyebrow">Client Impact</p>
+            <ul className="announcement-list">
+              {impactSignals.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
         </section>
 
         <section className="services-section" id="services">
           <div className="section-heading section-heading-wide">
             <p className="eyebrow">Services</p>
-            <h2>What teams typically bring me in for.</h2>
+            <h2>Consulting services designed to improve speed, quality, and delivery confidence.</h2>
             <p className="section-intro">
-              The value is not only visual design or code delivery in isolation. It is the ability
-              to connect product thinking, interface quality, and implementation speed in one flow.
+              Engagements are structured to help teams make better product decisions earlier,
+              deliver confidently, and scale frontend quality across releases.
             </p>
           </div>
 
@@ -310,6 +347,22 @@ export default function App() {
               <article key={service.title} className="service-card">
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="services-section" id="engage">
+          <div className="section-heading section-heading-wide">
+            <p className="eyebrow">Consulting Packages</p>
+            <h2>Engagement options based on scope, speed, and team needs.</h2>
+          </div>
+
+          <div className="service-grid">
+            {consultingPackages.map((pkg) => (
+              <article key={pkg.title} className="service-card">
+                <h3>{pkg.title}</h3>
+                <p>{pkg.text}</p>
               </article>
             ))}
           </div>
@@ -399,7 +452,7 @@ export default function App() {
               <article key={venture.company} className="venture-card">
                 <div className="venture-header">
                   <div>
-                    <p className="card-kicker">Latest venture</p>
+                    <p className="card-kicker">Consulting case</p>
                     <h3>{venture.title}</h3>
                     <p className="venture-company">{venture.company}</p>
                   </div>
@@ -426,7 +479,7 @@ export default function App() {
               <p className="eyebrow">About Mahesh</p>
               <p>
                 Maheshchandra Hegde is a postgraduate from RGU, Scotland, specializing in Human
-                Interface Design and Development. He has spent more than 14 years delivering work
+                Interface Design and Development. He has spent more than 18 years delivering work
                 across consulting, technical leadership, and software architecture, with a clear
                 emphasis on usable product experiences.
               </p>
@@ -447,11 +500,10 @@ export default function App() {
           <div className="contact-panel">
             <div>
               <p className="eyebrow">Contact</p>
-              <h2>Looking for someone who can bridge product thinking and frontend execution?</h2>
+              <h2>Let us discuss your project and define the right consulting engagement.</h2>
               <p>
-                This redesigned home page is the first stronger portfolio pass. The next evolution
-                can add detailed case studies, project stories, testimonials, and a sharper
-                services page if needed.
+                I offer consulting engagements ranging from short UX audits to full frontend
+                architecture leadership for product teams that need speed, clarity, and execution.
               </p>
             </div>
 
