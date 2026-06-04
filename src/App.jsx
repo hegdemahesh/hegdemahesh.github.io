@@ -39,7 +39,6 @@ export default function App() {
         <nav className="nav-links" aria-label="Primary">
           <a href="#what">What I Do</a>
           <a href="#companies">Companies</a>
-          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -51,6 +50,16 @@ export default function App() {
               I help teams design and ship clear, usable product experiences. My work combines UI
               design, frontend architecture, and practical delivery support.
             </p>
+
+            <div className="hero-contact" aria-label="Contact links">
+              <a href="mailto:hid.mahesh@gmail.com">hid.mahesh@gmail.com</a>
+              <a href="tel:+919535253329">+91 9535253329</a>
+              <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank" rel="noreferrer">
+                <img src={linkedinLogo} alt="LinkedIn" />
+                {' '}
+                LinkedIn
+              </a>
+            </div>
           </div>
 
           <div className="hero-visual">
@@ -79,18 +88,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="contact">
-          <h2>Let us discuss your project.</h2>
-          <div className="contact-links">
-            <a href="mailto:hid.mahesh@gmail.com">hid.mahesh@gmail.com</a>
-            <a href="tel:+919535253329">+91 9535253329</a>
-            <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank" rel="noreferrer">
-              <img src={linkedinLogo} alt="LinkedIn" />
-              {' '}
-              LinkedIn
-            </a>
-          </div>
-        </section>
       </main>
 
       <footer className="footer">© 2026 Maheshchandra Hegde</footer>

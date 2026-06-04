@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 :root {
   --bg: #0d1117;
@@ -26,7 +26,32 @@ body {
     radial-gradient(circle at 100% 0%, rgba(109, 156, 255, 0.12), transparent 30%),
     var(--bg);
   color: var(--text);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -10% -10% -10% -10%;
+  background:
+    radial-gradient(44% 38% at 16% 18%, rgba(242, 153, 74, 0.07), transparent 72%),
+    radial-gradient(36% 32% at 82% 24%, rgba(91, 192, 190, 0.06), transparent 72%),
+    radial-gradient(40% 34% at 50% 78%, rgba(130, 156, 255, 0.05), transparent 72%);
+  filter: blur(24px);
+  animation: ambientDrift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ambientDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, -1.5%, 0) scale(1.03);
+  }
 }
 
 a {
@@ -40,6 +65,8 @@ img {
 }
 
 .page-shell {
+  position: relative;
+  z-index: 1;
   max-width: 980px;
   margin: 0 auto;
   padding: 20px;
@@ -67,7 +94,7 @@ img {
 .brand strong,
 h1,
 h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--heading);
 }
 
@@ -132,6 +159,31 @@ h1 {
   line-height: 1.65;
   color: var(--muted);
   max-width: 54ch;
+}
+
+.hero-contact {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-size: 0.84rem;
+}
+
+.hero-contact img {
+  width: 16px;
+  height: 16px;
 }
 
 .hero-visual {
@@ -222,31 +274,6 @@ h2 {
   color: var(--muted);
   font-size: 0.8rem;
   text-align: center;
-}
-
-.contact-links {
-  margin-top: 12px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text);
-  font-size: 0.86rem;
-}
-
-.contact-links img {
-  width: 16px;
-  height: 16px;
 }
 
 .footer {
