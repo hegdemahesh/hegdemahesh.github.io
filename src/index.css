@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
 :root {
   --bg: #0d1117;
@@ -26,7 +26,8 @@ body {
     radial-gradient(circle at 100% 0%, rgba(109, 156, 255, 0.12), transparent 30%),
     var(--bg);
   color: var(--text);
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.04rem;
   position: relative;
   overflow-x: hidden;
 }
@@ -94,19 +95,20 @@ img {
 .brand strong,
 h1,
 h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Fraunces', serif;
   color: var(--heading);
 }
 
 .brand strong {
   display: block;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .brand span {
   display: block;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
 }
 
 .nav-links {
@@ -114,7 +116,7 @@ h2 {
   gap: 12px;
   flex-wrap: wrap;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
 }
 
 .nav-links a {
@@ -147,16 +149,17 @@ h2 {
 
 h1 {
   margin: 0;
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  line-height: 1.06;
-  font-weight: 700;
+  font-size: clamp(1.62rem, 3.05vw, 2.24rem);
+  line-height: 1.1;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 .hero-text {
   margin: 10px 0 0;
-  font-size: 0.94rem;
-  line-height: 1.65;
+  font-size: 1.02rem;
+  line-height: 1.72;
+  font-weight: 400;
   color: var(--muted);
   max-width: 54ch;
 }
@@ -178,7 +181,8 @@ h1 {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
-  font-size: 0.84rem;
+  font-size: 0.91rem;
+  font-weight: 400;
 }
 
 .hero-contact img {
@@ -210,9 +214,9 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-  line-height: 1.15;
-  font-weight: 600;
+  font-size: clamp(1.28rem, 2.35vw, 1.64rem);
+  line-height: 1.2;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
@@ -228,7 +232,8 @@ h2 {
   color: var(--muted);
   position: relative;
   padding-left: 16px;
-  font-size: 0.93rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .simple-list li::before {
@@ -272,7 +277,8 @@ h2 {
 .logo-tile figcaption {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -280,7 +286,7 @@ h2 {
   margin-top: 16px;
   padding: 6px 0 16px;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   text-align: center;
 }
 
