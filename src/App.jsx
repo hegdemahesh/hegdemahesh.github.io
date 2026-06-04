@@ -32,7 +32,7 @@ export default function App() {
           <img src={maheshLogo} alt="Maheshchandra Hegde logo" />
           <div>
             <strong>Maheshchandra Hegde</strong>
-            <span>UI/UX Consultant</span>
+            <span>UI/UX Consultant · Frontend Architect · Product Strategist</span>
           </div>
         </a>
 
