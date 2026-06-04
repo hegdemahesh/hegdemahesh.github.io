@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className="page-shell">
       <header className="topbar">
-        <a className="brand" href="#home" aria-label="Maheshchandra Hegde home">
+        <a className="brand" href="#home">
           <img src={maheshLogo} alt="Maheshchandra Hegde logo" />
           <div>
             <strong>Maheshchandra Hegde</strong>
