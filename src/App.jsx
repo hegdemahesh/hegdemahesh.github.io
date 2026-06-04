@@ -46,7 +46,6 @@ export default function App() {
       <main>
         <section className="hero" id="home">
           <div className="hero-copy">
-            <p className="eyebrow">Portfolio</p>
             <h1>UI/UX and Frontend Consulting</h1>
             <p className="hero-text">
               I help teams design and ship clear, usable product experiences. My work combines UI
@@ -60,7 +59,6 @@ export default function App() {
         </section>
 
         <section className="section" id="what">
-          <p className="eyebrow">What I Do</p>
           <h2>Simple, focused support for product teams.</h2>
           <ul className="simple-list" aria-label="Services">
             {services.map((item) => (
@@ -70,7 +68,6 @@ export default function App() {
         </section>
 
         <section className="section" id="companies">
-          <p className="eyebrow">Companies I Worked With</p>
           <h2>Experience across consulting and enterprise teams.</h2>
           <div className="logo-grid">
             {companies.map(([name, src]) => (
@@ -83,13 +80,13 @@ export default function App() {
         </section>
 
         <section className="section" id="contact">
-          <p className="eyebrow">Contact Me</p>
           <h2>Let us discuss your project.</h2>
           <div className="contact-links">
             <a href="mailto:hid.mahesh@gmail.com">hid.mahesh@gmail.com</a>
             <a href="tel:+919535253329">+91 9535253329</a>
             <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank" rel="noreferrer">
               <img src={linkedinLogo} alt="LinkedIn" />
+              {' '}
               LinkedIn
             </a>
           </div>

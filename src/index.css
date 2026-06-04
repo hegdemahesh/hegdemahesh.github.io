@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Proza+Libre:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 :root {
   --bg: #0d1117;
-  --surface: #131a23;
-  --surface-2: #1a2431;
   --text: #e5e9f0;
   --muted: #a5b0be;
   --line: #283548;
   --accent: #5bc0be;
-  --shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  --heading: #88b4ff;
 }
 
 * {
@@ -28,7 +26,7 @@ body {
     radial-gradient(circle at 100% 0%, rgba(109, 156, 255, 0.12), transparent 30%),
     var(--bg);
   color: var(--text);
-  font-family: 'Proza Libre', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 a {
@@ -69,7 +67,8 @@ img {
 .brand strong,
 h1,
 h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Manrope', sans-serif;
+  color: var(--heading);
 }
 
 .brand strong {
@@ -107,11 +106,7 @@ h2 {
 }
 
 .hero-copy {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: var(--shadow);
+  padding: 8px 0;
 }
 
 .eyebrow {
@@ -138,28 +133,23 @@ h1 {
 }
 
 .hero-visual {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 8px;
-  box-shadow: var(--shadow);
+  padding: 0;
 }
 
 .hero-visual img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
   object-fit: cover;
   object-position: center top;
 }
 
 .section {
   margin-top: 14px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: var(--shadow);
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding: 16px 0;
 }
 
 h2 {
@@ -205,7 +195,7 @@ h2 {
   margin: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: var(--surface-2);
+  background: rgba(255, 255, 255, 0.02);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +232,7 @@ h2 {
   padding: 0 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
+  background: transparent;
   color: var(--text);
   font-size: 0.86rem;
 }
