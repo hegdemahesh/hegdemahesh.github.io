@@ -49,5 +49,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Fallback for GitHub Pages if the repository is configured to serve unbuilt root (/) instead of GitHub Actions
+      if (location.hostname.endsWith('github.io') && document.querySelector('script[src*="/src/main.jsx"]')) {
+        location.replace('/docs/' + location.search + location.hash);
+      }
+    </script>
   </body>
 </html>
