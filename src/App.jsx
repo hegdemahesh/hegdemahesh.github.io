@@ -1,5 +1,6 @@
 import React from 'react';
 import maheshLogo from '../maheshLogo.svg';
+import maheshPortrait from '../maheshBgRemoved01.png';
 import nessLogo from '../ness.png';
 import moonraftLogo from '../moonraft.png';
 import ustLogo from '../UST.png';
@@ -250,58 +251,63 @@ export default function App() {
             </div>
           </div>
 
-          {/* Hero Right: Venture Showcase Card (Replacing previous portrait photo) */}
+          {/* Hero Right: Founder Portrait & Studio Showcase */}
           <div className="hero-showcase">
-            <div className="showcase-card">
-              <div className="showcase-header">
-                <div className="showcase-status">
+            <div className="hero-portrait-card">
+              <div className="portrait-frame">
+                <div className="portrait-ambient-glow" aria-hidden="true"></div>
+                <img
+                  src={maheshPortrait}
+                  alt="Maheshchandra Hegde, Founder & CTO"
+                  className="portrait-img"
+                  loading="eager"
+                  width="380"
+                  height="420"
+                />
+                <div className="portrait-badge badge-status">
                   <span className="live-indicator" aria-hidden="true"></span>
-                  Active Studio Operations
+                  <span>Founder & CTO</span>
                 </div>
-                <div className="showcase-est">Est. 2021</div>
-              </div>
-
-              <div className="showcase-technoyana">
-                <TechnoyanaLogo height={28} textColor="#0f172a" />
-                <p className="showcase-sub">
-                  Digital Transformation Services Private Limited
-                </p>
-              </div>
-
-              <div className="showcase-divisions">
-                <div className="division-pill">
-                  <div className="div-icon div-srushti" aria-hidden="true">3D</div>
-                  <div>
-                    <strong>Srushtilabs</strong>
-                    <span>Spatial AI & Voxelforge AI</span>
-                  </div>
-                </div>
-                <div className="division-pill">
-                  <div className="div-icon div-twitan" aria-hidden="true">OS</div>
-                  <div>
-                    <strong>Twitan</strong>
-                    <span>Shutlify & Twicket SaaS</span>
-                  </div>
+                <div className="portrait-badge badge-exp">
+                  <strong>18+</strong>
+                  <span>Yrs Tech Leadership</span>
                 </div>
               </div>
 
-              <div className="showcase-metrics">
-                <div className="metric-item">
-                  <div className="metric-num">18+</div>
-                  <div className="metric-lbl">Years Experience</div>
+              <div className="portrait-details">
+                <div className="portrait-brand-row">
+                  <TechnoyanaLogo height={22} textColor="#0f172a" />
+                  <span className="portrait-est">Est. 2021</span>
                 </div>
-                <div className="metric-item">
-                  <div className="metric-num">3</div>
-                  <div className="metric-lbl">Flagship Divisions</div>
-                </div>
-                <div className="metric-item">
-                  <div className="metric-num">3D + AI</div>
-                  <div className="metric-lbl">Core Architecture</div>
-                </div>
-              </div>
 
-              <div className="showcase-footer">
-                <span className="photo-notice">New executive portrait updating soon</span>
+                <div className="portrait-venture-pills">
+                  <a
+                    href="https://srushtilabs.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mini-venture-pill"
+                    aria-label="Srushtilabs: Spatial AI & Voxelforge AI (opens in new tab)"
+                  >
+                    <span className="pill-dot dot-srushti" aria-hidden="true">3D</span>
+                    <div>
+                      <strong>Srushtilabs</strong>
+                      <span>Spatial AI</span>
+                    </div>
+                  </a>
+                  <a
+                    href="https://twitan.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mini-venture-pill"
+                    aria-label="Twitan: Shutlify & Twicket SaaS (opens in new tab)"
+                  >
+                    <span className="pill-dot dot-twitan" aria-hidden="true">OS</span>
+                    <div>
+                      <strong>Twitan</strong>
+                      <span>Sports SaaS</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
