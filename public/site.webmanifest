@@ -1,0 +1,26 @@
+{
+  "name": "Maheshchandra Hegde — Founder & CTO",
+  "short_name": "Mahesh Hegde",
+  "description": "Founder & CTO building AI-driven 3D asset platforms, spatial computing solutions, and high-reliability SaaS at Technoyana, Srushtilabs, and Twitan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

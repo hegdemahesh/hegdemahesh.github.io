@@ -7,11 +7,12 @@
   --surface-subtle: #f8fafc;
   --text: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-muted: #475569;
   --line: #e2e8f0;
   --line-strong: #cbd5e1;
   --primary: #0284c7;
   --primary-hover: #0369a1;
+  --primary-dark: #0369a1;
   --primary-light: #e0f2fe;
   --brand-blue: #0070ba;
   --brand-cyan: #38bdf8;
@@ -31,6 +32,79 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* ============================================================
+   ACCESSIBILITY UTILITIES & FOCUS STYLES (WCAG 2.1 / 2.2 AA)
+   ============================================================ */
+
+/* Skip to Content bypass link */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 20px;
+  background: var(--text);
+  color: #ffffff !important;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  z-index: 10000;
+  box-shadow: var(--shadow-lg);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  transition: top 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 16px;
+}
+
+/* Screen reader only utility (WCAG 1.1.1 / 4.1.2) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Main landmark focus management */
+#main-content:focus {
+  outline: none;
+}
+
+/* Global focus-visible indicator */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btn:focus-visible,
+.venture-btn:focus-visible,
+.post-link:focus-visible,
+.venture-ext-link:focus-visible,
+.logo-badge-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
 }
 
 html {
@@ -128,7 +202,7 @@ img {
   font-family: var(--font-tech);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--primary-dark);
   letter-spacing: -0.01em;
 }
 
@@ -193,7 +267,7 @@ img {
   padding: 5px 14px;
   border-radius: var(--radius-pill);
   background: var(--primary-light);
-  color: var(--primary);
+  color: var(--primary-dark);
   font-family: var(--font-tech);
   font-size: 0.78rem;
   font-weight: 700;
@@ -575,7 +649,7 @@ img {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--primary-dark);
   margin-bottom: 6px;
 }
 
@@ -1237,3 +1311,79 @@ img {
     align-items: flex-start;
   }
 }
+
+/* ============================================================
+   ACCESSIBILITY: REDUCED MOTION (WCAG 2.2.2 & 2.3.3)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .skip-link {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY: HIGH CONTRAST / FORCED COLORS MODE
+   ============================================================ */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 2px !important;
+  }
+
+  .btn,
+  .venture-badge,
+  .eyebrow-badge,
+  .division-pill,
+  .metric-item,
+  .venture-card,
+  .post-card,
+  .exp-card,
+  .topbar {
+    border: 1px solid ButtonText !important;
+  }
+}
+
+/* ============================================================
+   PRINT STYLESHEET (Clean resume / portfolio export)
+   ============================================================ */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .topbar,
+  .skip-link,
+  .posts-banner,
+  .hero-cta-group,
+  .contact-actions {
+    display: none !important;
+  }
+
+  .page-shell {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .venture-card,
+  .post-card,
+  .exp-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+  }
+}
+

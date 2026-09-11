@@ -9,6 +9,7 @@ export default function TechnoyanaLogo({ height = 36, textColor = '#0f172a', cla
         version="1.2"
         id="technoyana-svg-logo"
         style={{ height: `${height}px`, width: 'auto', display: 'block' }}
+        role="img"
         aria-label="Technoyana Logo"
       >
         <defs>

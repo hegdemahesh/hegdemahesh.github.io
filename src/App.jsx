@@ -55,6 +55,7 @@ const technoyanaPosts = [
   {
     id: 'news-1',
     date: 'August 1, 2026',
+    dateTime: '2026-08-01',
     category: 'Product & R&D Update',
     author: 'SrushtiLabs Team',
     title: 'SrushtiLabs Showcases Voxelforge AI for Game-Ready 3D Asset Bundles',
@@ -67,6 +68,7 @@ const technoyanaPosts = [
   {
     id: 'news-2',
     date: 'July 15, 2026',
+    dateTime: '2026-07-15',
     category: 'Corporate News',
     author: 'Leadership Team',
     title: 'Technoyana Engineering Updates & Product Roadmap',
@@ -79,6 +81,7 @@ const technoyanaPosts = [
   {
     id: 'news-3',
     date: 'June 20, 2026',
+    dateTime: '2026-06-20',
     category: 'Product Update',
     author: 'Sports Tech Team',
     title: 'Twitan Sports Suite Introduces Shutlify & Twicket Platforms',
@@ -171,17 +174,22 @@ const expertisePillars = [
 export default function App() {
   return (
     <div className="page-shell">
+      {/* Accessibility: Skip-to-content bypass link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <header className="topbar">
-        <a className="brand" href="#home">
-          <img src={maheshLogo} alt="Maheshchandra Hegde logo" />
+        <a className="brand" href="#home" aria-label="Maheshchandra Hegde, home">
+          <img src={maheshLogo} alt="" aria-hidden="true" width="40" height="40" />
           <div className="brand-text">
             <strong>Maheshchandra Hegde</strong>
             <span className="brand-title">Founder & CTO · Technoyana</span>
           </div>
         </a>
 
-        <nav className="nav-links" aria-label="Primary">
+        <nav className="nav-links" aria-label="Primary navigation">
           <a href="#ventures">Ventures</a>
           <a href="#recent-posts">Recent Posts</a>
           <a href="#experience">Experience</a>
@@ -190,7 +198,7 @@ export default function App() {
         </nav>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex="-1">
         {/* Hero Section */}
         <section className="hero" id="home">
           <div className="hero-copy">
@@ -212,7 +220,7 @@ export default function App() {
             <div className="hero-cta-group">
               <a href="#ventures" className="btn btn-primary">
                 Explore Ventures
-                <span className="btn-arrow">→</span>
+                <span className="btn-arrow" aria-hidden="true">→</span>
               </a>
               <a href="#recent-posts" className="btn btn-secondary">
                 Technoyana Posts & News
@@ -220,21 +228,22 @@ export default function App() {
               <a
                 href="https://www.linkedin.com/in/maheshchandrahegde/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="btn btn-linkedin"
+                aria-label="LinkedIn Profile (opens in new tab)"
               >
-                <img src={linkedinLogo} alt="LinkedIn" />
-                LinkedIn Profile
+                <img src={linkedinLogo} alt="" aria-hidden="true" width="18" height="18" />
+                <span>LinkedIn Profile</span>
               </a>
             </div>
 
             <div className="quick-contact-row" aria-label="Quick contact">
               <a href="mailto:hid.mahesh@gmail.com" className="quick-contact-link">
-                <span className="icon-dot"></span>
+                <span className="icon-dot" aria-hidden="true"></span>
                 hid.mahesh@gmail.com
               </a>
               <a href="tel:+919535253329" className="quick-contact-link">
-                <span className="icon-dot"></span>
+                <span className="icon-dot" aria-hidden="true"></span>
                 +91 9535253329
               </a>
               <span className="quick-contact-loc">Bengaluru, Karnataka, India</span>
@@ -246,7 +255,7 @@ export default function App() {
             <div className="showcase-card">
               <div className="showcase-header">
                 <div className="showcase-status">
-                  <span className="live-indicator"></span>
+                  <span className="live-indicator" aria-hidden="true"></span>
                   Active Studio Operations
                 </div>
                 <div className="showcase-est">Est. 2021</div>
@@ -261,14 +270,14 @@ export default function App() {
 
               <div className="showcase-divisions">
                 <div className="division-pill">
-                  <div className="div-icon div-srushti">3D</div>
+                  <div className="div-icon div-srushti" aria-hidden="true">3D</div>
                   <div>
                     <strong>Srushtilabs</strong>
                     <span>Spatial AI & Voxelforge AI</span>
                   </div>
                 </div>
                 <div className="division-pill">
-                  <div className="div-icon div-twitan">OS</div>
+                  <div className="div-icon div-twitan" aria-hidden="true">OS</div>
                   <div>
                     <strong>Twitan</strong>
                     <span>Shutlify & Twicket SaaS</span>
@@ -299,10 +308,10 @@ export default function App() {
         </section>
 
         {/* Flagship Ventures Section */}
-        <section className="section" id="ventures">
+        <section className="section" id="ventures" aria-labelledby="ventures-heading">
           <div className="section-header">
             <div className="section-eyebrow">TECHNOLOGY LEADERSHIP & VENTURES</div>
-            <h2>Technoyana & Flagship Divisions</h2>
+            <h2 id="ventures-heading">Technoyana & Flagship Divisions</h2>
             <p className="section-desc">
               Powering modern enterprise solutions, generative 3D asset engineering, and domain-specific SaaS platforms.
             </p>
@@ -316,11 +325,12 @@ export default function App() {
                   <a
                     href={division.website}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="venture-ext-link"
-                    title={`Visit ${division.websiteLabel}`}
+                    title={`Visit ${division.websiteLabel} (opens in new tab)`}
+                    aria-label={`Visit ${division.websiteLabel} (opens in new tab)`}
                   >
-                    {division.websiteLabel} ↗
+                    {division.websiteLabel} <span aria-hidden="true">↗</span>
                   </a>
                 </div>
 
@@ -328,7 +338,7 @@ export default function App() {
                 <p className="venture-subtitle">{division.subtitle}</p>
                 <p className="venture-description">{division.description}</p>
 
-                <div className="venture-pillars">
+                <div className="venture-pillars" aria-label="Key Pillars">
                   {division.pillars.map((pillar) => (
                     <span key={pillar} className="pillar-tag">
                       {pillar}
@@ -340,10 +350,11 @@ export default function App() {
                   <a
                     href={division.website}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="venture-btn"
+                    aria-label={`Visit ${division.websiteLabel} (opens in new tab)`}
                   >
-                    Visit {division.websiteLabel}
+                    Visit {division.websiteLabel} <span className="sr-only">(opens in new tab)</span>
                   </a>
                 </div>
               </div>
@@ -352,12 +363,18 @@ export default function App() {
         </section>
 
         {/* Recent Posts from technoyana.in */}
-        <section className="section section-highlight" id="recent-posts">
+        <section className="section section-highlight" id="recent-posts" aria-labelledby="posts-heading">
           <div className="section-header">
             <div className="section-eyebrow">TECHNOYANA.IN INSIGHTS & UPDATES</div>
             <div className="header-with-logo">
-              <h2>Recent Posts & News</h2>
-              <a href="https://technoyana.in/" target="_blank" rel="noreferrer" className="logo-badge-link">
+              <h2 id="posts-heading">Recent Posts & News</h2>
+              <a
+                href="https://technoyana.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="logo-badge-link"
+                aria-label="Visit Technoyana.in website (opens in new tab)"
+              >
                 <TechnoyanaLogo height={24} textColor="#0f172a" />
               </a>
             </div>
@@ -371,7 +388,7 @@ export default function App() {
               <article key={post.id} className="post-card">
                 <div className="post-meta">
                   <span className="post-category">{post.category}</span>
-                  <time className="post-date">{post.date}</time>
+                  <time className="post-date" dateTime={post.dateTime}>{post.date}</time>
                 </div>
 
                 <h3 className="post-title">{post.title}</h3>
@@ -382,10 +399,11 @@ export default function App() {
                   <a
                     href={post.link}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="post-link"
+                    aria-label={`${post.linkLabel}: ${post.title} (opens in new tab)`}
                   >
-                    {post.linkLabel} →
+                    {post.linkLabel} <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </article>
@@ -400,19 +418,20 @@ export default function App() {
             <a
               href="https://technoyana.in/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="btn btn-primary"
+              aria-label="Visit Technoyana.in (opens in new tab)"
             >
-              Visit Technoyana.in ↗
+              Visit Technoyana.in <span aria-hidden="true">↗</span>
             </a>
           </div>
         </section>
 
         {/* Core Expertise Section */}
-        <section className="section" id="expertise">
+        <section className="section" id="expertise" aria-labelledby="expertise-heading">
           <div className="section-header">
             <div className="section-eyebrow">COMPETENCIES & CAPABILITIES</div>
-            <h2>Pillars of Architectural Expertise</h2>
+            <h2 id="expertise-heading">Pillars of Architectural Expertise</h2>
             <p className="section-desc">
               Bridging high-performance UI/UX systems with scalable full-stack pipelines and spatial technologies.
             </p>
@@ -429,10 +448,10 @@ export default function App() {
         </section>
 
         {/* Career & Consulting Experience */}
-        <section className="section" id="experience">
+        <section className="section" id="experience" aria-labelledby="experience-heading">
           <div className="section-header">
             <div className="section-eyebrow">TRACK RECORD & LEADERSHIP</div>
-            <h2>Enterprise & Consulting Experience</h2>
+            <h2 id="experience-heading">Enterprise & Consulting Experience</h2>
             <p className="section-desc">
               Proven track record across global tech enterprises, startups, and specialized engineering consultancies.
             </p>
@@ -458,16 +477,16 @@ export default function App() {
         </section>
 
         {/* Client & Enterprise Recognition */}
-        <section className="section" id="companies">
+        <section className="section" id="companies" aria-labelledby="companies-heading">
           <div className="section-header">
             <div className="section-eyebrow">TRUSTED BY GLOBAL TEAMS</div>
-            <h2>Enterprise Consulting & Client History</h2>
+            <h2 id="companies-heading">Enterprise Consulting & Client History</h2>
           </div>
 
           <div className="logo-grid">
             {clientLogos.map(([name, src]) => (
               <figure key={name} className="logo-tile">
-                <img src={src} alt={name} />
+                <img src={src} alt="" aria-hidden="true" loading="lazy" />
                 <figcaption>{name}</figcaption>
               </figure>
             ))}
@@ -475,9 +494,9 @@ export default function App() {
         </section>
 
         {/* Contact Section */}
-        <section className="section contact-section" id="contact">
+        <section className="section contact-section" id="contact" aria-labelledby="contact-heading">
           <div className="contact-box">
-            <h2>Let’s Build Something Exceptional</h2>
+            <h2 id="contact-heading">Let’s Build Something Exceptional</h2>
             <p>
               Interested in AI-driven 3D workflows, spatial computing architectures, or enterprise product engineering?
               Feel free to connect.
@@ -493,11 +512,12 @@ export default function App() {
               <a
                 href="https://www.linkedin.com/in/maheshchandrahegde/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="btn btn-linkedin"
+                aria-label="Connect on LinkedIn (opens in new tab)"
               >
-                <img src={linkedinLogo} alt="LinkedIn" />
-                Connect on LinkedIn
+                <img src={linkedinLogo} alt="" aria-hidden="true" width="18" height="18" />
+                <span>Connect on LinkedIn</span>
               </a>
             </div>
           </div>
@@ -511,11 +531,19 @@ export default function App() {
             <strong>Maheshchandra Hegde</strong>
             <p>Founder & CTO · Technoyana Digital Transformation Services Pvt. Ltd.</p>
           </div>
-          <div className="footer-links">
-            <a href="https://technoyana.in" target="_blank" rel="noreferrer">technoyana.in</a>
-            <a href="https://srushtilabs.com" target="_blank" rel="noreferrer">srushtilabs.com</a>
-            <a href="https://twitan.com" target="_blank" rel="noreferrer">twitan.com</a>
-            <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <div className="footer-links" aria-label="Footer navigation links">
+            <a href="https://technoyana.in" target="_blank" rel="noopener noreferrer">
+              technoyana.in <span className="sr-only">(opens in new tab)</span>
+            </a>
+            <a href="https://srushtilabs.com" target="_blank" rel="noopener noreferrer">
+              srushtilabs.com <span className="sr-only">(opens in new tab)</span>
+            </a>
+            <a href="https://twitan.com" target="_blank" rel="noopener noreferrer">
+              twitan.com <span className="sr-only">(opens in new tab)</span>
+            </a>
+            <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank" rel="noopener noreferrer">
+              LinkedIn <span className="sr-only">(opens in new tab)</span>
+            </a>
           </div>
         </div>
         <div className="footer-bottom">
