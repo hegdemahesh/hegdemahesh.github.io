@@ -1,6 +1,6 @@
 # Technical Work Experience & Final Interview Presentation Package
 **Candidate**: Maheshchandra Hegde  
-**Current Role / Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
+**Current Role / Headline**: Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com  
 **Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
 **Websites & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
 **Submission Recipient**: `talent@obayashi.org`  
