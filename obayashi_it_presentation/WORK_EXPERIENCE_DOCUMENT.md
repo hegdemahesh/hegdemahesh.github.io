@@ -3,7 +3,6 @@
 **Current Role / Headline**: Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com  
 **Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
 **Web & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
-**Submission For**: Senior Manager – IT Final Interview | [talent@obayashi.org](mailto:talent@obayashi.org)  
 
 ---
 
@@ -11,14 +10,11 @@
 
 **Maheshchandra Hegde** is an innovative technologist and product strategist with **18+ years of experience** architecting end-to-end digital products, interactive 3D experiences, and domain-specific SaaS platforms. 
 
-He serves as Co-Founder and Technology Leader at **Technoyana Digital Transformation Services Pvt. Ltd.**, driving product architecture and creative technical vision across flagship divisions:
-- **Twitan.com**: AI-driven sports tournament management application & operational SaaS suite (Shutlify badminton OS).
-- **Srushtilabs.com**: Generative AI & modular 3D computing platform for games, simulations, and 3D visualization.
+He serves as Co-Founder and Technology Leader at **Technoyana Digital Transformation Services Pvt. Ltd.**, driving product architecture, cloud scalability, and creative technical vision.
 
-### Academic & Architectural Foundation
+### Academic & Technical Foundation
 - **Postgraduate Degree**: Master of Science (M.S.) in Computing from **Robert Gordon University, Scotland, UK** (2005–2006), specializing in Human Interface Design and Development.
 - **Undergraduate Degree**: Bachelor of Engineering (B.E.) in **Electronics and Communication (ECE)** from Bapuji Institute of Engineering and Technology, Davanagere (1999–2003).
-- **Architectural Heritage**: Growing up assisting his architect father in his architectural studio provided his earliest foundation in architectural drawings, building elevations, spatial planning, drafting, and CAD. This early exposure sparked a lifelong passion and deep fluency in CAD, 3D visualization, spatial geometry, and user-centered design.
 - **Core Technology Stack**: React, TypeScript, Angular, Web Components (LitElement), Node.js, Firebase/GCP, AWS, interactive 3D (WebGL, Three.js, PBR texturing), automated mesh retopology, and design-to-code automation.
 
 ---
