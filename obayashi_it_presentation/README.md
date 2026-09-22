@@ -9,8 +9,8 @@
 
 | File | Type | Description |
 | :--- | :--- | :--- |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 11-slide 16:9 widescreen executive slide deck crafted to Obayashi corporate visual standards. Editable in Microsoft PowerPoint. |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | Pristine vector export of the 11 slides for email attachment and submission. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 12-slide 16:9 widescreen executive slide deck crafted to Obayashi corporate visual standards. Editable in Microsoft PowerPoint. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | Pristine vector export of the 12 slides for email attachment and submission. |
 | **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Comprehensive 4-page written executive report covering all 6 required sections with tables, metric badges, and the 90-day roadmap. |
 | **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete text narrative, telephone interview speaking notes, and question-answer cheat sheet. |
 | **[`build_presentation.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/build_presentation.py)** | Python Script | Generates the PowerPoint deck using `python-pptx`. |
@@ -24,7 +24,8 @@
 
 1. **Project Overview & Objectives**:
    - **Project 1 (Philips Healthcare / Cyient)**: Mission-critical clinical software (ICCA), 24/7 ICU availability, zero downtime, FDA/HIPAA compliance.
-   - **Project 2 (Technoyana Digital)**: Distributed SaaS & cloud platforms, edge-resilient offline-first synchronization, spatial 3D pipelines (relevant to BIM/Digital Twins).
+   - **Project 2 (Technoyana Digital)**: Distributed SaaS & cloud platforms, edge-resilient offline-first synchronization.
+   - **Project 3 (Voxelforge AI, ayam3d & 50+ 3D Projects)**: Visualizer expert track record across 50+ architectural visualization, CAE flight simulation & CAD projects, paired with current cutting-edge generative 3D pipelines (Voxelforge AI low-poly generation & ayam3d mesh retopology) directly accelerating Obayashi's BIM, Digital Twins, and Smart Construction.
 2. **Your Role & Core Responsibilities**:
    - Mapped directly to Obayashi's job description across 4 pillars: IT Strategy & Architecture, Infrastructure & BCP/DR, Cybersecurity & Access Governance, Team Leadership & Vendor/Budget Control.
 3. **Major Achievements & Milestones**:

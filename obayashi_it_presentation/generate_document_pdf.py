@@ -1,6 +1,7 @@
 """
 Script to generate a beautifully styled Executive PDF Document from WORK_EXPERIENCE_DOCUMENT.md
 Uses Headless Microsoft Edge / Google Chrome built into Windows.
+Updated with 3D Visualizer Expert Pedigree (50+ Projects), Voxelforge AI & ayam3d.
 """
 
 import os
@@ -14,7 +15,7 @@ html_content = """<!DOCTYPE html>
 <style>
   @page {
     size: A4 portrait;
-    margin: 18mm 16mm 18mm 16mm;
+    margin: 16mm 14mm 16mm 14mm;
     @bottom-right {
       content: counter(page);
     }
@@ -22,114 +23,120 @@ html_content = """<!DOCTYPE html>
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #1e293b;
-    line-height: 1.55;
-    font-size: 10.5pt;
+    line-height: 1.5;
+    font-size: 10pt;
     margin: 0;
     padding: 0;
   }
   .header-container {
     border-bottom: 3px solid #004e96;
-    padding-bottom: 14px;
-    margin-bottom: 22px;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
   .corp-name {
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 800;
     letter-spacing: 1.5px;
     color: #cc2229;
     text-transform: uppercase;
   }
   .doc-title {
-    font-size: 19pt;
+    font-size: 18pt;
     font-weight: 800;
     color: #0f1e36;
     margin: 4px 0 2px 0;
   }
   .doc-subtitle {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 600;
     color: #004e96;
   }
   .candidate-meta {
     text-align: right;
-    font-size: 9.5pt;
+    font-size: 9pt;
     color: #475569;
-    line-height: 1.4;
+    line-height: 1.35;
   }
   .candidate-meta strong {
     color: #0f1e36;
-    font-size: 10.5pt;
+    font-size: 10pt;
   }
   h2 {
     color: #0f1e36;
-    font-size: 13pt;
+    font-size: 12pt;
     border-left: 4px solid #004e96;
     padding-left: 8px;
-    margin-top: 22px;
-    margin-bottom: 10px;
+    margin-top: 18px;
+    margin-bottom: 8px;
     page-break-after: avoid;
   }
   h3 {
     color: #004e96;
-    font-size: 11pt;
-    margin-top: 14px;
-    margin-bottom: 6px;
+    font-size: 10.5pt;
+    margin-top: 12px;
+    margin-bottom: 5px;
     page-break-after: avoid;
   }
   p {
-    margin: 6px 0;
+    margin: 5px 0;
     text-align: justify;
   }
   ul {
-    margin: 6px 0 10px 20px;
+    margin: 5px 0 8px 18px;
     padding: 0;
   }
   li {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 12px 0;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0;
   }
   .card {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 12px 14px;
+    padding: 10px 12px;
     page-break-inside: avoid;
   }
   .card h4 {
-    margin: 0 0 6px 0;
+    margin: 0 0 5px 0;
     color: #004e96;
-    font-size: 10.5pt;
+    font-size: 10pt;
   }
   .card p {
     margin: 0;
-    font-size: 9.5pt;
+    font-size: 9pt;
     color: #334155;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 14px 0;
-    font-size: 9.5pt;
+    margin: 12px 0;
+    font-size: 9pt;
     page-break-inside: avoid;
   }
   th {
     background: #0f1e36;
     color: #ffffff;
     font-weight: 700;
-    padding: 8px 10px;
+    padding: 7px 9px;
     text-align: left;
     border: 1px solid #0f1e36;
   }
   td {
-    padding: 7px 10px;
+    padding: 6px 9px;
     border: 1px solid #cbd5e1;
     vertical-align: top;
   }
@@ -139,55 +146,55 @@ html_content = """<!DOCTYPE html>
   .stat-badge {
     font-weight: 800;
     color: #004e96;
-    font-size: 11pt;
+    font-size: 10.5pt;
     white-space: nowrap;
   }
   .callout {
     background: #eff6ff;
     border-left: 4px solid #0284c7;
-    padding: 10px 14px;
+    padding: 9px 12px;
     border-radius: 0 6px 6px 0;
-    margin: 12px 0;
-    font-size: 9.5pt;
+    margin: 10px 0;
+    font-size: 9pt;
   }
   .roadmap-box {
     background: #0f1e36;
     color: #ffffff;
     border-radius: 6px;
-    padding: 14px 16px;
-    margin: 14px 0;
+    padding: 12px 14px;
+    margin: 12px 0;
     page-break-inside: avoid;
   }
   .roadmap-box h3 {
     color: #38bdf8;
     margin-top: 0;
-    font-size: 11pt;
+    font-size: 10.5pt;
     border-bottom: 1px solid #334155;
-    padding-bottom: 6px;
+    padding-bottom: 5px;
   }
   .roadmap-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 8px;
   }
   .roadmap-col {
     background: #182b49;
-    padding: 10px;
+    padding: 8px;
     border-radius: 4px;
-    font-size: 9pt;
+    font-size: 8.5pt;
   }
   .roadmap-col strong {
     color: #67e8f9;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .roadmap-col ul {
     margin: 0;
-    padding-left: 14px;
+    padding-left: 12px;
   }
   .roadmap-col li {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     color: #cbd5e1;
   }
   .page-break {
@@ -211,24 +218,24 @@ html_content = """<!DOCTYPE html>
   </div>
 </div>
 
-<p><strong>Executive Overview:</strong> A comprehensive technical experience portfolio mapping over 20 years of technology leadership, systems architecture, mission-critical infrastructure, and IT governance directly to the operational mandates of Obayashi Corporation.</p>
+<p><strong>Executive Overview:</strong> A comprehensive technical portfolio mapping over 20 years of enterprise technology leadership, mission-critical infrastructure, and 3D visualization / spatial AI engineering (Voxelforge AI, ayam3d, 50+ industry projects) directly to the operational and digital construction mandates of Obayashi Corporation.</p>
 
 <div class="grid-2">
   <div class="card">
-    <h4>Enterprise Systems & High Availability</h4>
-    <p>Proven track record engineering safety-critical platforms (Philips Healthcare / Cyient) with 99.95%+ uptime, automated failover, and zero-loss offline data resilience (Technoyana).</p>
+    <h4>Enterprise Systems & Mission-Critical Reliability</h4>
+    <p>Proven track record engineering safety-critical platforms (Philips Healthcare / Cyient) with 99.95%+ uptime, automated failover, and zero-loss offline field data resilience (Technoyana).</p>
   </div>
   <div class="card">
-    <h4>Cybersecurity, Risk & Compliance</h4>
+    <h4>3D Spatial Tech & Digital Construction (BIM)</h4>
+    <p>Visualizer expert across 50+ architectural, simulation, and CAD projects. Currently pioneering <strong>Voxelforge AI</strong> (generative 3D low-poly) and <strong>ayam3d</strong> (mesh synthesis & retopology) for real-time digital twins.</p>
+  </div>
+  <div class="card">
+    <h4>Cybersecurity, Access & Risk Governance</h4>
     <p>Deep expertise in Zero-Trust Network Access (ZTNA), RBAC, ISO 27001 standards, vulnerability remediation, and continuous disaster recovery readiness.</p>
   </div>
   <div class="card">
-    <h4>Project Execution & Digital Innovation</h4>
-    <p>Extensive experience modernizing legacy systems, managing agile cross-functional squads, and developing spatial 3D/BIM-aligned technologies.</p>
-  </div>
-  <div class="card">
     <h4>Vendor Governance & Fiscal Discipline</h4>
-    <p>Demonstrated capability managing multi-vendor contracts, cloud infrastructures (AWS/Azure), SLAs, and driving significant recurring CapEx/OpEx cost reductions.</p>
+    <p>Demonstrated capability managing multi-vendor contracts, cloud infrastructures (AWS/Azure), SLAs, and driving significant recurring CapEx/OpEx cost reductions (22% savings).</p>
   </div>
 </div>
 
@@ -244,15 +251,26 @@ html_content = """<!DOCTYPE html>
   <li><strong>Modular Architecture Modernization:</strong> Transition legacy monolithic modules into scalable micro-frontends and standardized API communication layers, accelerating release cadence without regression risk.</li>
 </ul>
 
-<h3>Project 2: High-Availability Cloud Modernization & Edge-Resilient Platform (Technoyana Digital)</h3>
+<h3>Project 2: High-Availability Cloud Modernization & Edge Resilience (Technoyana Digital)</h3>
 <p><strong>Role & Tenure:</strong> Co-Founder & Director of Technology / Architecture Lead (May 2021 – Oct 2023; Strategic Advisor)<br>
-<strong>Scope & Scale:</strong> Distributed multi-tenant platforms (Twitan Sports OS, automated bracket engines, and spatial AI pipelines) operating across physical venues with degraded cellular networks.<br>
+<strong>Scope & Scale:</strong> Distributed multi-tenant platforms (Twitan Sports OS) operating across physical arenas with degraded cellular networks.<br>
 <strong>Core Objectives:</strong></p>
 <ul>
   <li><strong>Offline-First Field Resilience:</strong> Engineer a zero-loss offline architecture using local client persistence and Service Workers that allows uninterrupted field operations during network outages, synchronizing automatically when reconnected <em>(directly applicable to Obayashi's remote construction sites)</em>.</li>
   <li><strong>Cloud Cost & Infrastructure Governance:</strong> Directed cloud infrastructure roadmaps across AWS, Firebase, and serverless architectures, automating scaling and reducing recurring cloud expenditures by 22%.</li>
-  <li><strong>Spatial & 3D Engineering (Srushtilabs):</strong> Researched and deployed automated 3D mesh workflows and WebGL visualization pipelines—establishing direct technical continuity with Obayashi’s Building Information Modeling (BIM) and Digital Twin roadmaps.</li>
 </ul>
+
+<h3>Project 3: Spatial Computing, Generative 3D Pipelines & 50+ Visualization Projects (Voxelforge AI & ayam3d)</h3>
+<p><strong>Role & Tenure:</strong> Founder, Lead Spatial Architect & 3D Visualizer Expert (Ongoing R&D & Production)<br>
+<strong>Flagship Platforms:</strong></p>
+<ul>
+  <li><strong>Voxelforge AI (<a href="https://voxelforge.ai">voxelforge.ai</a>):</strong> AI-assisted generative 3D asset pipeline producing game-ready, low-poly modular 3D assets for WebGL, Unity, and Unreal Engine. Automates prompt-to-3D synthesis and real-time polygon reduction for browser-based digital twin rendering.</li>
+  <li><strong>ayam3d (<a href="https://srushtilabs.com">ayam3d</a>):</strong> Advanced spatial computing R&D in automated 3D mesh synthesis, intelligent retopology, and PBR texturing. Converts heavy raw 3D scans and photogrammetry point clouds into lightweight, real-time assets.</li>
+  <li><strong>50+ Industry 3D Projects Track Record:</strong> Delivered 35+ architectural visualization and 3D animated walkthrough projects for commercial/residential developments, created military and civil flight simulator 3D terrain databases at <strong>CAE Simulation Technologies</strong>, and engineered interactive 3D physical campus dashboards at <strong>Cisco Systems</strong>.</li>
+  <li><strong>Obayashi Synergy:</strong> Directly bridges the gap between traditional IT infrastructure and Obayashi’s BIM (Building Information Modeling), 3D point cloud streaming, and Digital Twin roadmaps.</li>
+</ul>
+
+<div class="page-break"></div>
 
 <h2>2. Role & Core Responsibilities</h2>
 
@@ -262,7 +280,7 @@ html_content = """<!DOCTYPE html>
     <ul>
       <li>Formulated multi-year enterprise technology roadmaps aligning IT investments with corporate growth.</li>
       <li>Established standardized IT governance policies, coding standards, and change management protocols.</li>
-      <li>Conducted Architecture Review Boards (ARBs) to eliminate technical debt and prevent vendor lock-in.</li>
+      <li>Conducted Architecture Review Boards (ARBs) to eliminate technical debt and validate tech selection.</li>
     </ul>
   </div>
   <div class="card">
@@ -274,32 +292,30 @@ html_content = """<!DOCTYPE html>
     </ul>
   </div>
   <div class="card">
-    <h4>Cybersecurity, Access Control & Risk</h4>
+    <h4>3D Spatial Tech & Digital Construction (BIM)</h4>
     <ul>
-      <li>Enforced Zero-Trust principles, role-based access control (RBAC), and mandatory multi-factor authentication (MFA).</li>
-      <li>Executed vulnerability scans (SAST/DAST), code audits, and third-party vendor risk assessments.</li>
-      <li>Maintained disaster containment playbooks and compliance with ISO 27001 and industry safety standards.</li>
+      <li>Architected high-performance computing infra for heavy 3D CAD/BIM model distribution and GPU virtualization.</li>
+      <li>Automated 3D mesh retopology pipelines (Voxelforge AI, ayam3d) to convert raw 3D scans for mobile inspection.</li>
+      <li>Bridged civil engineers, BIM managers, and IT systems across Common Data Environments (CDE).</li>
     </ul>
   </div>
   <div class="card">
-    <h4>Team Leadership, Vendors & Budgets</h4>
+    <h4>Cybersecurity, Team & Vendor Governance</h4>
     <ul>
-      <li>Led, mentored, and developed cross-functional squads across development, infrastructure, and QA.</li>
-      <li>Governed multi-vendor contracts, CSP relationships, and enforced strict SLA compliance.</li>
-      <li>Optimized CapEx/OpEx allocations through license rationalization and cloud cost management.</li>
+      <li>Enforced Zero-Trust principles, role-based access control (RBAC), and mandatory multi-factor authentication.</li>
+      <li>Led cross-functional squads across development, DevOps, 3D graphics, and QA.</li>
+      <li>Governed multi-vendor contracts, CSP relationships (AWS/Azure), and cut cloud spend by 22%.</li>
     </ul>
   </div>
 </div>
-
-<div class="page-break"></div>
 
 <h2>3. Major Achievements & Measurable Milestones</h2>
 
 <table>
   <thead>
     <tr>
-      <th style="width: 25%;">Milestone / Metric</th>
-      <th style="width: 15%;">Result</th>
+      <th style="width: 26%;">Milestone / Metric</th>
+      <th style="width: 14%;">Result</th>
       <th style="width: 60%;">Operational Context & Measurable Impact</th>
     </tr>
   </thead>
@@ -307,12 +323,17 @@ html_content = """<!DOCTYPE html>
     <tr>
       <td><strong>Critical System Availability</strong></td>
       <td><span class="stat-badge">99.95%+</span></td>
-      <td>Maintained 24/7 continuous uptime across clinical ICU operations and high-traffic event workloads without single-point failures.</td>
+      <td>Maintained 24/7 continuous uptime across clinical ICU operations and high-traffic workloads without single-point failures.</td>
     </tr>
     <tr>
       <td><strong>Edge Data Preservation</strong></td>
       <td><span class="stat-badge">100%</span></td>
       <td>Zero data loss recorded during remote venue network dropouts using offline-first state engine and transactional event queueing.</td>
+    </tr>
+    <tr>
+      <td><strong>3D & Spatial Projects</strong></td>
+      <td><span class="stat-badge">50+ Projects</span></td>
+      <td>Delivered across architectural visualization, CAD drafting, flight simulation visual databases, and generative 3D AI pipelines.</td>
     </tr>
     <tr>
       <td><strong>Release Velocity</strong></td>
@@ -325,47 +346,50 @@ html_content = """<!DOCTYPE html>
       <td>Reduced recurring monthly cloud spend through proactive rightsizing, autoscaling policies, idle asset pruning, and license audits.</td>
     </tr>
     <tr>
+      <td><strong>3D Asset File Size Reduction</strong></td>
+      <td><span class="stat-badge">75% Saved</span></td>
+      <td>Slashed 3D asset payload sizes using Voxelforge AI / ayam3d retopology algorithms, enabling 60 FPS mobile WebGL rendering.</td>
+    </tr>
+    <tr>
       <td><strong>Incident MTTR</strong></td>
       <td><span class="stat-badge">40% Faster</span></td>
       <td>Cut Mean-Time-To-Resolution (MTTR) by implementing proactive synthetic monitoring and standardized incident escalation runbooks.</td>
-    </tr>
-    <tr>
-      <td><strong>Security Audit Cleanliness</strong></td>
-      <td><span class="stat-badge">Zero Highs</span></td>
-      <td>Successfully cleared rigorous enterprise and healthcare security audits with zero unresolved high-severity vulnerabilities.</td>
     </tr>
   </tbody>
 </table>
 
 <h2>4. Challenges Faced & Resolutions Implemented</h2>
 
-<div class="card" style="margin-bottom: 12px;">
+<div class="card" style="margin-bottom: 10px;">
   <h4>Challenge 1: Severe Network Fluctuation & Remote Field Disconnections</h4>
   <p><strong>Context:</strong> Remote venues and distributed client sites frequently suffered from unstable cellular coverage, local Wi-Fi interference, and sudden ISP dropouts, risking broken transactions and user data loss.<br>
-  <strong>Resolution:</strong> Re-architected data ingestion to an <strong>Offline-First model</strong> using client-side IndexedDB persistence and Service Workers. Implemented an optimistic UI pattern with an automated transactional replay queue. When offline, transactions are stored locally with cryptographic timestamps; upon reconnection, the queue replays in the background with deterministic conflict resolution.<br>
+  <strong>Resolution:</strong> Re-architected data ingestion to an <strong>Offline-First model</strong> using client-side IndexedDB persistence and Service Workers. Implemented an optimistic UI pattern with an automated transactional replay queue that resynchronizes once the network reconnects.<br>
   <strong>Impact:</strong> 100% data preservation, zero operator workflow interruptions, seamless user experience.</p>
 </div>
 
-<div class="card" style="margin-bottom: 12px;">
-  <h4>Challenge 2: Architectural Fragility & High Downtime Risk in Monolithic Legacy Systems</h4>
-  <p><strong>Context:</strong> Critical enterprise applications were bound within monolithic codebases where simple updates risked triggering cascading failures across unrelated modules, leading to long testing cycles and deployment anxiety.<br>
-  <strong>Resolution:</strong> Decomposed the monolith into decoupled <strong>micro-frontends</strong> and standardized REST/WebSocket API contracts. Established automated test pipelines and canary / blue-green deployments with instant rollback capability.<br>
-  <strong>Impact:</strong> Reduced regression risks to near zero, cut deployment release cycles by 35%, and enabled independent modular upgrades.</p>
+<div class="card" style="margin-bottom: 10px;">
+  <h4>Challenge 2: Heavy 3D Asset Bandwidth Saturation & Mobile Device Crashes</h4>
+  <p><strong>Context:</strong> Delivering multi-gigabyte 3D CAD/BIM models, architectural scans, and unoptimized polygonal meshes to mobile tablets in the field caused severe browser lag, memory overflows, and lengthy download times over cellular networks.<br>
+  <strong>Resolution:</strong> Leveraged <strong>Voxelforge AI</strong> and <strong>ayam3d</strong> retopology algorithms to establish an automated 3D optimization pipeline: progressive Level of Detail (LOD) generation, polygon decimation, draw-call batching, and PBR texture atlas compression, paired with WebGL progressive streaming shaders.<br>
+  <strong>Impact:</strong> Slashed 3D asset download size by 75%, eliminated mobile browser memory crashes, and achieved smooth 60 FPS interactive rendering on standard mobile tablets.</p>
 </div>
 
-<div class="card" style="margin-bottom: 12px;">
+<div class="card" style="margin-bottom: 10px;">
   <h4>Challenge 3: Complex Multi-Vendor Dependencies & SLA Enforcement Gaps</h4>
   <p><strong>Context:</strong> Proliferation of disjointed third-party cloud tools, software licenses, and ISP vendors led to finger-pointing during service degradation, lack of unified visibility, and unchecked budget leakage.<br>
   <strong>Resolution:</strong> Designed and deployed an <strong>IT Operational & SLA Governance Dashboard</strong> providing real-time telemetry on vendor uptime, latency, and support turnaround times. Renegotiated MSAs to tie vendor billing directly to SLA compliance scores and automated the termination of idle cloud instances.<br>
   <strong>Impact:</strong> Slashed incident MTTR by 40% and trimmed recurring monthly infrastructure expenditures by 22%.</p>
 </div>
 
+<div class="page-break"></div>
+
 <h2>5. Lessons Learned & Operational Best Practices</h2>
 <ul>
   <li><strong>Design for Failure & Network Resilience from Day 1:</strong> In mission-critical operations—whether in clinical hospital wards or remote construction job sites—assuming continuous 100% network uptime is an architectural flaw. Systems must inherently feature local caching, asynchronous retry queues, and graceful degradation modes.</li>
+  <li><strong>Unify 3D Engineering Realities with Corporate IT Strategy:</strong> In a tier-1 construction corporation, IT is no longer just back-office software; it is the vital infrastructure enabling heavy 3D BIM coordination, drone photogrammetry, virtual reality safety drills, and digital twins. IT leadership must understand 3D graphics pipelines and geometry optimization to provision computing resources that empower engineering teams.</li>
   <li><strong>Cybersecurity Must Be Cultural, Not Merely a Perimeter Firewall:</strong> Modern enterprise defense requires the Zero-Trust paradigm: continuous verification, least-privilege access, automated multi-factor authentication, and regular staff hygiene training. Protecting intellectual property and project blueprints requires data-level encryption and access auditability.</li>
   <li><strong>Proactive Observability Over Reactive Incident Response:</strong> An IT organization should never learn about a system outage from an end-user ticket. Automated synthetic transactions, threshold-based health alerts, and centralized log telemetry enable IT teams to resolve 80% of system degradation before business operations are affected.</li>
-  <li><strong>Bridging Field Realities with Executive Strategy:</strong> Effective IT leadership is achieved in the field. Understanding the daily friction points of site engineers and project managers ensures technology investments solve tangible business problems and deliver measurable ROI.</li>
+  <li><strong>Bridging Field Realities with Executive Strategy:</strong> Effective IT leadership is achieved on the job site. Understanding the daily friction points of site engineers and BIM managers ensures technology investments solve tangible business problems and deliver measurable ROI.</li>
 </ul>
 
 <h2>6. Suggestions for Future Process Improvements (Tailored for Obayashi Corporation)</h2>
@@ -376,8 +400,8 @@ html_content = """<!DOCTYPE html>
     <p>Develop containerized, pre-configured site IT units featuring dual-SIM bonded 5G/satellite SD-WAN, localized edge caching nodes, biometric access control, and ruggedized Wi-Fi 6 mesh. Enables full job-site IT commissioning within 48 hours via Zero-Touch Provisioning (ZTP).</p>
   </div>
   <div class="card">
-    <h4>2. Cloud BIM & Common Data Environment (CDE) Acceleration</h4>
-    <p>Deploy localized on-site BIM caching nodes paired with WebGL-based progressive 3D rendering pipelines. Allows field engineers to inspect multi-gigabyte 3D models and digital twins on mobile tablets with zero latency, synchronizing annotations back to corporate CDE asynchronously.</p>
+    <h4>2. Cloud BIM & CDE Acceleration Node (Powered by Spatial 3D Tech)</h4>
+    <p>Deploy localized on-site BIM caching nodes paired with <strong>Voxelforge AI / ayam3d retopology algorithms</strong> and WebGL progressive 3D rendering. Allows field engineers to inspect multi-gigabyte 3D models and digital twins on mobile tablets with zero latency.</p>
   </div>
   <div class="card">
     <h4>3. Subcontractor Zero-Trust Security Mesh</h4>
@@ -396,7 +420,7 @@ html_content = """<!DOCTYPE html>
       <strong>Days 1 – 30: Discovery & Baseline</strong>
       <ul>
         <li>Audit all IT infrastructure, multi-site networks & cloud tenancies.</li>
-        <li>Interview site project managers & business heads for pain points.</li>
+        <li>Interview site project managers & BIM leads for pain points.</li>
         <li>Review cybersecurity posture, MFA enforcement & DR readiness.</li>
         <li>Benchmark IT budget expenditures, vendor contracts & SLAs.</li>
       </ul>
@@ -414,15 +438,15 @@ html_content = """<!DOCTYPE html>
       <strong>Days 61 – 90: Modernization & Growth</strong>
       <ul>
         <li>Present 2-3 Year IT Strategy aligned with corporate goals.</li>
-        <li>Prototype the "Site IT-in-a-Box" rapid deployment kit.</li>
-        <li>Institute automated CI/CD and self-service IT ticketing workflows.</li>
+        <li>Pilot the "Site IT-in-a-Box" rapid deployment kit.</li>
+        <li>Integrate 3D asset optimization pipelines for digital twin streaming.</li>
         <li>Establish structured upskilling and mentorship tracks for IT team.</li>
       </ul>
     </div>
   </div>
 </div>
 
-<p style="text-align: center; margin-top: 24px; font-weight: 600; color: #004e96;">
+<p style="text-align: center; margin-top: 20px; font-weight: 600; color: #004e96;">
   Maheshchandra Hegde &nbsp;|&nbsp; Senior Manager – IT Candidate &nbsp;|&nbsp; Obayashi Corporation
 </p>
 
@@ -439,7 +463,6 @@ def generate_pdf():
         f.write(html_content)
     print(f"Generated HTML template at: {html_file}")
 
-    # Find edge or chrome
     browser_exe = None
     candidates = [
         r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
