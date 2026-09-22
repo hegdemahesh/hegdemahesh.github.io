@@ -158,7 +158,8 @@ html_content = """<!DOCTYPE html>
 <div class="header-container">
   <div>
     <div class="doc-title">Maheshchandra Hegde</div>
-    <div class="doc-subtitle">Product Design Expert | UX Architect | Creative Technologist</div>
+    <div class="doc-subtitle">Founder & CTO @ SrushtiLabs | Enterprise Architect | Creative Technologist</div>
+    <div style="font-size: 8.5pt; color: #64748b; margin-top: 3px;">Building AI-driven 3D asset platforms and spatial computing solutions @srushtilabs.com</div>
   </div>
   <div class="candidate-meta">
     Bangalore, India &nbsp;|&nbsp; +91 9535253329 / 7022407280<br>

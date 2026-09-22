@@ -109,21 +109,21 @@ def create_deck(output_pptx_path):
 
     p1 = tf1.add_paragraph()
     p1.text = "Maheshchandra Hegde"
-    p1.font.size = Pt(32)
+    p1.font.size = Pt(30)
     p1.font.bold = True
     p1.font.color.rgb = RGBColor(255, 255, 255)
-    p1.space_after = Pt(6)
+    p1.space_after = Pt(4)
 
     p2 = tf1.add_paragraph()
-    p2.text = "Product Design Expert | UX Architect | Creative Technologist"
-    p2.font.size = Pt(17)
+    p2.text = "Founder & CTO | Building AI‑Driven 3D Asset Platforms & Spatial Computing Solutions @srushtilabs.com"
+    p2.font.size = Pt(13.5)
     p2.font.bold = True
-    p2.font.color.rgb = RGBColor(203, 213, 225)
-    p2.space_after = Pt(12)
+    p2.font.color.rgb = COLOR_CYAN_ACCENT
+    p2.space_after = Pt(10)
 
     p3 = tf1.add_paragraph()
-    p3.text = "16+ years of technology experience delivering scalable enterprise frontend systems, high-reliability clinical platforms, offline-first architectures, and cutting-edge 3D spatial computing / generative 3D tools.\nBangalore, India | hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | hegdemahesh.in"
-    p3.font.size = Pt(11.5)
+    p3.text = "16+ years delivering scalable enterprise frontend systems, high-reliability clinical platforms, offline-first architectures, and generative 3D spatial tools.\nBangalore, India | hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | hegdemahesh.in | linkedin.com/in/maheshchandrahegde"
+    p3.font.size = Pt(11)
     p3.font.color.rgb = RGBColor(148, 163, 184)
 
     # 4 Authentic Pillar Cards
@@ -410,7 +410,7 @@ def create_deck(output_pptx_path):
     hb5.line.fill.background()
 
     ht5 = s5.shapes.add_textbox(Inches(0.95), Inches(1.68), Inches(5.3), Inches(0.35))
-    ht5.text_frame.paragraphs[0].text = "VOXELFORGE AI (srushtilabs.com/voxelforge/)"
+    ht5.text_frame.paragraphs[0].text = "SRUSHTILABS · VOXELFORGE AI (srushtilabs.com/voxelforge/)"
     ht5.text_frame.paragraphs[0].font.size = Pt(11)
     ht5.text_frame.paragraphs[0].font.bold = True
     ht5.text_frame.paragraphs[0].font.color.rgb = RGBColor(255, 255, 255)
@@ -420,14 +420,15 @@ def create_deck(output_pptx_path):
     v_tf.word_wrap = True
 
     vp1 = v_tf.paragraphs[0]
-    vp1.text = "AI-Driven Generative 3D Workflows (Apr 2025 – Present)"
+    vp1.text = "Founder & CTO, SrushtiLabs (srushtilabs.com)"
     vp1.font.size = Pt(12.5)
     vp1.font.bold = True
     vp1.font.color.rgb = COLOR_PRIMARY_DARK
     vp1.space_after = Pt(6)
 
     vox_body = (
-        "• Live Application: srushtilabs.com/voxelforge/ — Founder at SrushtiLabs developing AI-based workflows for generative 3D asset creation.\n\n"
+        "• Current Headline: Founder & CTO | Building AI-driven 3D asset platforms and spatial computing solutions @srushtilabs.com\n\n"
+        "• Live Application: srushtilabs.com/voxelforge/ — Developing AI-based workflows for generative 3D asset creation and modular bundle assembly.\n\n"
         "• Modular Game-Ready Bundles: Generates optimized, low-poly modular 3D assets ready for immediate assembly in Unreal Engine, Unity, and real-time WebGL engines.\n\n"
         "• Rapid Prototyping Pipeline: Bridges text/image prompts into 3D voxel geometry with automated UV unwrapping and texture generation, cutting 3D asset prototyping time from days to minutes.\n\n"
         "• Lightweight In-Browser Rendering: Specifically engineered to deliver compact asset payloads that stream effortlessly into web browsers without requiring heavy GPU rendering workstations."

@@ -1,8 +1,9 @@
 # TECHNICAL WORK EXPERIENCE & CAPABILITY DOCUMENT
 **Candidate**: Maheshchandra Hegde  
-**Profile**: Product Design Expert | UX Architect | Creative Technologist (16+ Years Experience)  
+**Current Role / Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
+**Profile**: Enterprise Systems Architect | UX Leader | Creative Technologist (16+ Years Experience)  
 **Contact**: hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | Bangalore, India  
-**Portfolio & Profile**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
+**Portfolio & Profile**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn](https://www.linkedin.com/in/maheshchandrahegde/)  
 **Submission For**: Senior Manager – IT Final Interview | [talent@obayashi.org](mailto:talent@obayashi.org)  
 
 ---

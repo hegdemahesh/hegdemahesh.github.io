@@ -1,6 +1,7 @@
 # Technical Work Experience & Final Interview Submission Package
 **Candidate**: Maheshchandra Hegde  
-**Profile**: Product Design Expert | UX Architect | Creative Technologist  
+**Current Role / LinkedIn Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
+**Profile**: Enterprise Systems Architect | UX Leader | Creative Technologist (16+ Years Experience)  
 **Contact**: hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn](https://www.linkedin.com/in/maheshchandrahegde/)  
 **Submission Recipient**: `talent@obayashi.org`  
 
