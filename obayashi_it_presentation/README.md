@@ -1,7 +1,8 @@
-# Obayashi Corporation — Final Interview Work Experience Package
+# Technical Work Experience & Final Interview Submission Package
 **Candidate**: Maheshchandra Hegde  
-**Role**: Senior Manager – IT  
-**Recipient**: `talent@obayashi.org`  
+**Profile**: Product Design Expert | UX Architect | Creative Technologist  
+**Contact**: hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn](https://www.linkedin.com/in/maheshchandrahegde/)  
+**Submission Recipient**: `talent@obayashi.org`  
 
 ---
 
@@ -9,10 +10,10 @@
 
 | File | Type | Description |
 | :--- | :--- | :--- |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 12-slide 16:9 widescreen executive slide deck crafted to Obayashi corporate visual standards. Editable in Microsoft PowerPoint. |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | Pristine vector export of the 12 slides for email attachment and submission. |
-| **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Comprehensive 4-page written executive report covering all 6 required sections with tables, metric badges, and the 90-day roadmap. |
-| **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete text narrative, telephone interview speaking notes, and question-answer cheat sheet. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 11-slide 16:9 widescreen executive slide deck reflecting your authentic experience, architectural roots, and genuine career achievements. Editable in PowerPoint. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | High-resolution vector export of the 11 slides for direct submission to `talent@obayashi.org`. |
+| **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Formatted 3-page written executive report detailing all 6 required sections with metric badges and project breakdowns. |
+| **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete narrative text and phone interview speaking notes. |
 | **[`build_presentation.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/build_presentation.py)** | Python Script | Generates the PowerPoint deck using `python-pptx`. |
 | **[`export_to_pdf.ps1`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/export_to_pdf.ps1)** | PowerShell Script | Uses MS PowerPoint COM automation to export `.pptx` directly to vector `.pdf`. |
 | **[`generate_document_pdf.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/generate_document_pdf.py)** | Python Script | Renders the HTML template and converts it to PDF using headless Edge/Chrome. |
@@ -20,36 +21,43 @@
 
 ---
 
-## 🎯 Coverage of Obayashi's 6 Mandatory Requirements
+## 🎯 Coverage of Required Sections (Rooted in Your Real Experience)
 
 1. **Project Overview & Objectives**:
-   - **Project 1 (Philips Healthcare / Cyient)**: Mission-critical clinical software (ICCA), 24/7 ICU availability, zero downtime, FDA/HIPAA compliance.
-   - **Project 2 (Technoyana Digital)**: Distributed SaaS & cloud platforms, edge-resilient offline-first synchronization.
-   - **Project 3 (Voxelforge AI, ayam3d & 50+ 3D Projects)**: Visualizer expert track record across 50+ architectural visualization, CAE flight simulation & CAD projects, paired with current cutting-edge generative 3D pipelines (Voxelforge AI low-poly generation & ayam3d mesh retopology) directly accelerating Obayashi's BIM, Digital Twins, and Smart Construction.
+   - **Philips Intellispace Critical Care & Anesthesia (Cyient)**: Senior Technical Lead (React/NodeJS) on life-critical clinical monitoring and bedside telemetry.
+   - **Startup Ventures (Technoyana & Twitan.com)**: Founder/Co-Founder building high-reliability operational platforms (Shutlify sports OS) and offline-first mobile/web applications.
+   - **Spatial AI & Generative 3D (SrushtiLabs — Voxelforge AI & ayam3d)**: AI-assisted generative 3D workflows producing game-ready low-poly modular assets for Unreal/Unity/WebGL (`srushtilabs.com/voxelforge/`), and automated mesh retopology.
+   - **Visualizer Expert Track Record (50+ Projects)**: Architectural visualization & 3D walkthroughs (learning from your architect father), CAE Simulation flight simulator 3D databases, and Cisco campus Facility Dashboard.
 2. **Your Role & Core Responsibilities**:
-   - Mapped directly to Obayashi's job description across 4 pillars: IT Strategy & Architecture, Infrastructure & BCP/DR, Cybersecurity & Access Governance, Team Leadership & Vendor/Budget Control.
-3. **Major Achievements & Milestones**:
-   - 99.95%+ Availability, 100% Edge Data Preservation, +35% Release Speed, 22% Cloud Cost Savings, 40% MTTR reduction.
-4. **Challenges Faced & Resolutions Implemented**:
-   - Remote site network fluctuation -> Offline-First state engine & transactional sync queue.
-   - Legacy monolith fragility -> Phased micro-frontend & API decoupling.
-   - Multi-vendor sprawl -> Centralized SLA dashboard & automated cost governance.
-5. **Lessons Learned & Best Practices**:
-   - Design for failure/network drops from day one; Zero-Trust culture; proactive observability; field-grounded IT leadership.
-6. **Suggestions for Future Process Improvements (Tailored for Obayashi)**:
-   - Construction Job-Site *"IT-in-a-Box"* Rapid Deployment Kit (Zero-Touch Provisioning via 5G/Satellite SD-WAN).
-   - Cloud BIM & Common Data Environment (CDE) Acceleration Node.
-   - Subcontractor Zero-Trust Security Mesh.
-   - AIOps for Predictive Maintenance & Automated Disaster Recovery drills.
-   - **Bonus**: 90-Day Execution Roadmap (Days 1-30, 31-60, 61-90).
+   - Scalable architecture & modular systems (React, Angular, LitElement Design Systems).
+   - Operational reliability & offline-first edge resilience (IndexedDB, Service Workers).
+   - Spatial 3D asset pipelines & WebGL streaming.
+   - Agile team leadership, rapid user prototyping, and mentorship.
+3. **Major Achievements, Milestones & Awards**:
+   - 16+ years experience, 50+ 3D/visualization projects.
+   - Cisco Systems Appreciation Award (2010).
+   - 3 UST Global Certificates of Excellence ("Inspiring People" 2018, "Putting Client First" 2016, "Living the Values" 2015).
+   - Zero-leak 60 FPS clinical UI for Philips ICCA.
+4. **Challenges Faced & Pragmatic Resolutions**:
+   - Field venue network instability -> Offline-first state engine & replay queue.
+   - 24/7 clinical ICU memory leaks -> Decoupled rendering loops & heap profiling.
+   - Web 3D asset payload lag -> Automated retopology (ayam3d) & polygon reduction.
+5. **Lessons Learned & Engineering Best Practices**:
+   - Early user involvement through rapid prototypes.
+   - Designing for real-world edge conditions.
+   - Standardizing design systems and component libraries.
+   - Grounding technology decisions in practical human and business value.
+6. **Suggestions for Future Process Improvements**:
+   - Unified 3D Spatial & Web Integration (lightweight WebGL streaming for digital twins).
+   - Resilient edge-first mobile workflows for field teams.
+   - Enterprise design systems and reusable component standards.
+   - AI-assisted prototyping & development.
 
 ---
 
-## 🚀 How to Re-generate After Edits
+## 🚀 How to Re-generate After Any Edits
 
-If you modify any slide text or project details in `build_presentation.py` or `WORK_EXPERIENCE_DOCUMENT.md`, open PowerShell or terminal in this directory and run:
-
+To regenerate all PPTX and PDF files anytime:
 ```bash
 python generate_all.py
 ```
-This automatically updates both the PPTX and all PDF files.
