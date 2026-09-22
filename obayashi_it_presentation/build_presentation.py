@@ -149,26 +149,15 @@ def create_deck(output_pptx_path):
     p_sum.text = (
         "Innovative technologist and product strategist with 18+ years of experience architecting end-to-end digital products, "
         "interactive 3D experiences, and domain-specific SaaS platforms. Co-Founder and Technology Leader at Technoyana Digital "
-        "Transformation Services Pvt. Ltd., driving product architecture and creative tech vision across flagship divisions:\n\n"
-        "• Twitan.com — AI-driven sports tournament management APP & operational SaaS suite (Shutlify badminton OS).\n"
-        "• Srushtilabs.com — Generative AI & modular 3D computing platform for games, simulations, and 3D visualization.\n\n"
+        "Transformation Services Pvt. Ltd., driving product architecture, cloud scalability, and creative technical vision.\n\n"
         "Founder & CTO with a postgraduate degree in Human Interface Design and Development (M.S. in Computing, Robert Gordon University, UK) "
-        "and an engineering background in Electronics & Communication (B.E.). Expertise spans modern web/mobile stacks "
-        "(React, TypeScript, Angular, Web Components, Node.js, Firebase), interactive 3D/PBR pipelines, and design-to-code automation."
+        "and an engineering background in Electronics & Communication (B.E.).\n\n"
+        "Expertise spans modern web/mobile application stacks (React, TypeScript, Angular, Web Components, Node.js, Firebase/GCP, AWS), "
+        "interactive 3D/PBR pipelines, real-time spatial computing, and design-to-code automation across both high-velocity startups and mission-critical enterprise systems."
     )
-    p_sum.font.size = Pt(11.5)
+    p_sum.font.size = Pt(13)
     p_sum.font.color.rgb = RGBColor(226, 232, 240)
     p_sum.space_after = Pt(12)
-
-    # Architectural Lineage
-    p_arc = tf.add_paragraph()
-    p_arc.text = (
-        "Architectural Heritage: Growing up assisting my architect father in his studio provided my earliest practical foundation in "
-        "architectural drawings, building elevations, spatial planning, and CAD drafting—fostering a lifelong synergy between software systems and 3D spatial tech."
-    )
-    p_arc.font.size = Pt(11)
-    p_arc.font.italic = True
-    p_arc.font.color.rgb = COLOR_CYAN_ACCENT
 
     add_footer(s1, 1, TOTAL_SLIDES, dark=True)
 
