@@ -256,6 +256,92 @@ html_content = f"""<!DOCTYPE html>
   <p>Apart from traditional software development, led and delivered diverse multi-disciplinary projects: architectural 3D visualization and animated walkthroughs; customized CNC machine development and automated CAD/CAM toolpath pipelines; built consumer mobile application <em>SellAny</em>; and led development of an automated parking payment mobile application with real-time slot occupancy tracking. Visual Database Developer at CAE Simulation Technologies (flight simulator 3D databases).</p>
 </div>
 
+<h2>Major Achievements & Milestones</h2>
+<div class="grid-2">
+  <div class="card">
+    <h4>1. Zero-Downtime Global Stadium Platform Migration</h4>
+    <p>Modernized Cisco Stadium Vision Director deployed at international sporting arenas across a 4-year tenure. Led phased migration from Adobe Flash/Flex to Angular/React without a single minute of venue downtime. Awarded 3 UST Global Excellence Awards (2015, 2016, 2018).</p>
+  </div>
+  <div class="card">
+    <h4>2. Healthcare-Grade ICU Software Delivery (Philips)</h4>
+    <p>Delivered web-tier clinical software for Philips ICCA in 24/7 ICU suites. Passed stringent hospital quality, safety, and zero-leak reliability benchmarks for bedside patient monitoring. Enforced MFA, RBAC, and strict medical data protection.</p>
+  </div>
+  <div class="card">
+    <h4>3. Generative 3D Asset & Spatial AI (SrushtiLabs)</h4>
+    <p>Founded and launched Voxelforge AI (srushtilabs.com/voxelforge/) creating modular, game-ready 3D bundles for Unreal Engine, Unity, and WebGL. Developed Ayam3d (ayam3d.in) for parametric 3D model generation, earning early investor interest.</p>
+  </div>
+  <div class="card">
+    <h4>4. Enterprise UI Design System & Cisco BMS Telemetry</h4>
+    <p>Architected centralized Web Components design system (LitElement, React, Angular) at Moonraft / UST, eliminating duplicated UI effort across teams. Designed unified Cisco facility telemetry dashboard; awarded formal Cisco Certificate of Appreciation (2010).</p>
+  </div>
+</div>
+
+<h2>Challenges Faced & Resolutions Implemented</h2>
+<div class="grid-2">
+  <div class="card">
+    <h4>Legacy Codebase Modernization (Cisco)</h4>
+    <p><strong>Challenge:</strong> Adobe Flash/Flex deprecation required migrating complex global stadium platform without venue downtime.<br>
+    <strong>Resolution:</strong> Built hybrid micro-frontend event bridge allowing legacy and modern React/Angular modules to coexist and migrate incrementally.</p>
+  </div>
+  <div class="card">
+    <h4>Continuous Bedside Reliability (Philips ICU)</h4>
+    <p><strong>Challenge:</strong> 24/7 multi-day operation without browser memory leaks or UI freezes under dense patient telemetry.<br>
+    <strong>Resolution:</strong> Enforced rigorous memory profiling, deterministic component cleanup on unmount, and automated regression test gates.</p>
+  </div>
+  <div class="card">
+    <h4>Fragmented UI Development (Moonraft)</h4>
+    <p><strong>Challenge:</strong> Multiple squads independently building identical UI widgets across React and Angular, causing brand drift.<br>
+    <strong>Resolution:</strong> Architected centralized LitElement design system packaged via npm, standardizing components across all teams.</p>
+  </div>
+  <div class="card">
+    <h4>Generative 3D Mesh Topology (SrushtiLabs)</h4>
+    <p><strong>Challenge:</strong> Raw AI 3D meshes produced chaotic vertex topology and high polycounts unsuited for real-time rendering.<br>
+    <strong>Resolution:</strong> Built automated retopology, polygon reduction, UV unwrapping, and texture baking pipeline for lightweight game-ready assets.</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>Lessons Learned & Best Practices</h2>
+<div class="grid-2">
+  <div class="card">
+    <h4>Incremental Modernization Over Rewrites</h4>
+    <p>Complete rewrites carry high operational risk and delayed value. Strangler-fig micro-frontends and backward-compatible APIs enable continuous delivery with zero downtime.</p>
+  </div>
+  <div class="card">
+    <h4>Security & Compliance from Day Zero</h4>
+    <p>Retrofitting security late causes friction and vulnerabilities. Embed MFA, RBAC, automated vulnerability scanning, and audit logging into the CI/CD pipeline from inception.</p>
+  </div>
+  <div class="card">
+    <h4>Design Systems as Strategic Products</h4>
+    <p>Treat shared UI libraries as internal products with semantic versioning and framework-agnostic standards to compound ROI and brand consistency across squads.</p>
+  </div>
+  <div class="card">
+    <h4>Interactive Prototyping Resolves Ambiguity</h4>
+    <p>Early functional mockups and clickable UI prototypes validate operational workflows with users and leadership, preventing costly changes post-deployment.</p>
+  </div>
+</div>
+
+<h2>Suggestions for Future Process Improvements</h2>
+<div class="grid-2">
+  <div class="card">
+    <h4>Automated IT Governance & Self-Service IDPs</h4>
+    <p>Establish standardized developer platforms and Infrastructure-as-Code (IaC) templates, cutting environment provisioning time from weeks to hours with built-in security baselines.</p>
+  </div>
+  <div class="card">
+    <h4>AI-Assisted Engineering Toolchains</h4>
+    <p>Integrate generative AI tooling for automated test generation, synthetic data simulation, and design-to-code pipelines, boosting engineering throughput by 30–40%.</p>
+  </div>
+  <div class="card">
+    <h4>Unified Enterprise Telemetry & APM</h4>
+    <p>Combine application monitoring, network metrics, and facility sensor data (BMS) into unified dashboards to transition IT operations from reactive fix to predictive observability.</p>
+  </div>
+  <div class="card">
+    <h4>Structured Upskilling & Certification</h4>
+    <p>Institute regular cross-functional architecture reviews and sponsored certification tracks (Cloud, Security, ITIL, Agile) to ensure continuous organizational agility.</p>
+  </div>
+</div>
+
 <div class="page-break"></div>
 
 <h2>Summary</h2>

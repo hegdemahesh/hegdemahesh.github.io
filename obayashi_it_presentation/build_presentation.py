@@ -35,7 +35,7 @@ def create_deck(output_pptx_path):
     COLOR_SUCCESS      = RGBColor(16, 149, 99)    # Emerald Green #109563
     COLOR_CYAN_ACCENT  = RGBColor(56, 189, 248)   # Cyan #38BDF8
 
-    TOTAL_SLIDES = 9
+    TOTAL_SLIDES = 13
     script_dir = os.path.dirname(os.path.abspath(__file__))
     photo_path = os.path.join(script_dir, "maheshForResume.jpg")
 
@@ -758,15 +758,506 @@ def create_deck(output_pptx_path):
     add_footer(s8, 8, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 9: SUMMARY (HEADLINE STRICTLY "Summary", NO CARD BOX)
+    # SLIDE 9: MAJOR ACHIEVEMENTS & MILESTONES
     # =========================================================================
     s9 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s9, COLOR_PRIMARY_DARK)
+    set_slide_background(s9, COLOR_BG_LIGHT)
+    add_header(s9, "Major Achievements & Milestones")
+
+    # Left Column
+    tb_m1 = s9.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tf_m1 = tb_m1.text_frame
+    tf_m1.word_wrap = True
+    tf_m1.margin_left = tf_m1.margin_right = tf_m1.margin_top = tf_m1.margin_bottom = 0
+
+    p = tf_m1.paragraphs[0]
+    p.text = "1. Zero-Downtime Global Stadium Platform Migration"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.space_after = Pt(4)
+
+    ach_1 = [
+        ("Platform Scope", "Modernized Cisco Stadium Vision Director deployed at international sporting arenas worldwide across a 4-year dedicated tenure."),
+        ("Engineering Mandate", "Led the phased migration from legacy Adobe Flash/Flex to modern Angular and React without a single minute of venue downtime."),
+        ("Operational Excellence", "Maintained live broadcast reliability and client workflows across dozens of active sub-applications."),
+        ("Industry Honors", "Awarded 3 consecutive UST Global Excellence Awards (2015, 2016, 2018) for exceptional delivery and client commitment.")
+    ]
+    for lbl, val in ach_1:
+        ap = tf_m1.add_paragraph()
+        r1 = ap.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = ap.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        ap.space_after = Pt(7)
+
+    # Item 2 Left
+    p = tf_m1.add_paragraph()
+    p.text = "2. Healthcare-Grade ICU Software Delivery (Philips)"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_BRAND_DEEP
+    p.space_after = Pt(4)
+
+    ach_2 = [
+        ("Clinical Mandate", "Delivered web-tier software for Philips Intellispace Critical Care & Anesthesia (ICCA) operating in 24/7 ICU suites."),
+        ("Stringent Standards", "Passed demanding hospital quality, safety, and zero-leak reliability benchmarks for mission-critical bedside monitoring."),
+        ("Enterprise Security", "Enforced Multi-Factor Authentication (MFA), role-based access control (RBAC), and strict patient data protection policies.")
+    ]
+    for lbl, val in ach_2:
+        ap = tf_m1.add_paragraph()
+        r1 = ap.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = ap.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        ap.space_after = Pt(7)
+
+    # Right Column
+    tb_m2 = s9.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tf_m2 = tb_m2.text_frame
+    tf_m2.word_wrap = True
+    tf_m2.margin_left = tf_m2.margin_right = tf_m2.margin_top = tf_m2.margin_bottom = 0
+
+    p = tf_m2.paragraphs[0]
+    p.text = "3. Generative 3D Asset & Spatial AI Commercialization"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_ACCENT_AMBER
+    p.space_after = Pt(4)
+
+    ach_3 = [
+        ("Product Innovation", "Founded and launched Voxelforge AI (srushtilabs.com/voxelforge/), generating modular 3D assets from natural language."),
+        ("Game-Ready Bundles", "Automated geometry synthesis, texture baking, and polygon reduction for instant Unreal Engine, Unity, and WebGL integration."),
+        ("Parametric AI (Ayam3d)", "Developed Ayam3d (ayam3d.in) for parametric 3D generation in seconds, earning early investor interest and partner validation.")
+    ]
+    for lbl, val in ach_3:
+        ap = tf_m2.add_paragraph()
+        r1 = ap.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = ap.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        ap.space_after = Pt(7)
+
+    # Item 4 Right
+    p = tf_m2.add_paragraph()
+    p.text = "4. Enterprise UI Design System & BMS Facility Control"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_SUCCESS
+    p.space_after = Pt(4)
+
+    ach_4 = [
+        ("Design System (Moonraft)", "Engineered centralized Web Components design system (LitElement, React, Angular) eliminating duplicated effort across project teams."),
+        ("Cisco Facility Dashboard", "Delivered unified BMS dashboard for AHUs, chillers, and power telemetry; awarded Cisco Certificate of Appreciation (2010)."),
+        ("Aftermarket 3D Explorer", "Architected interactive 3D parts explorer at ThoughtFocus supporting millions of catalog components and e-commerce flows.")
+    ]
+    for lbl, val in ach_4:
+        ap = tf_m2.add_paragraph()
+        r1 = ap.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = ap.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        ap.space_after = Pt(7)
+
+    add_footer(s9, 9, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 10: CHALLENGES FACED & RESOLUTIONS IMPLEMENTED
+    # =========================================================================
+    s10 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s10, COLOR_BG_LIGHT)
+    add_header(s10, "Challenges Faced & Resolutions Implemented")
+
+    # Left Column
+    tb_c1 = s10.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tf_c1 = tb_c1.text_frame
+    tf_c1.word_wrap = True
+    tf_c1.margin_left = tf_c1.margin_right = tf_c1.margin_top = tf_c1.margin_bottom = 0
+
+    p = tf_c1.paragraphs[0]
+    p.text = "Challenge 1: Zero-Downtime Migration of Global Legacy Platform"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.space_after = Pt(4)
+
+    c1_points = [
+        ("The Challenge", "Cisco Stadium Vision Director was built on deprecated Adobe Flash/Flex with extensive business logic serving global arenas. Upgrading risked operational downtime and customer disruption."),
+        ("Resolution Implemented", "Architected a hybrid micro-frontend bridge allowing new Angular and React modules to communicate with legacy Flex components via a shared event bus. Migrated sub-apps incrementally with zero downtime.")
+    ]
+    for lbl, val in c1_points:
+        cp = tf_c1.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(8)
+
+    p = tf_c1.add_paragraph()
+    p.text = "Challenge 2: 24/7 Clinical Bedside Memory Stability & Security"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_BRAND_DEEP
+    p.space_after = Pt(4)
+
+    c2_points = [
+        ("The Challenge", "Philips ICU software operates non-stop for days. Memory leaks or UI freezes in bedside patient monitoring could lead to catastrophic clinical outcomes, amidst strict HIPAA/cybersecurity rules."),
+        ("Resolution Implemented", "Enforced strict browser profiling, deterministic lifecycle cleanup on unmount, virtualized rendering for dense telemetry streams, and institutionalized MFA/RBAC security policies.")
+    ]
+    for lbl, val in c2_points:
+        cp = tf_c1.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(8)
+
+    # Right Column
+    tb_c2 = s10.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tf_c2 = tb_c2.text_frame
+    tf_c2.word_wrap = True
+    tf_c2.margin_left = tf_c2.margin_right = tf_c2.margin_top = tf_c2.margin_bottom = 0
+
+    p = tf_c2.paragraphs[0]
+    p.text = "Challenge 3: Fragmented UI Development Across Multiple Squads"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_ACCENT_AMBER
+    p.space_after = Pt(4)
+
+    c3_points = [
+        ("The Challenge", "Different project teams at Moonraft / UST were independently building common UI widgets across React and Angular, leading to visual inconsistency, duplicated effort, and slower client delivery."),
+        ("Resolution Implemented", "Architected an enterprise-wide UI Design System using LitElement Web Components packaged via npm. Teams across any frontend framework seamlessly consumed identical, standardized components from one repo.")
+    ]
+    for lbl, val in c3_points:
+        cp = tf_c2.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(8)
+
+    p = tf_c2.add_paragraph()
+    p.text = "Challenge 4: Generative 3D Mesh Complexity & Performance Lag"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_SUCCESS
+    p.space_after = Pt(4)
+
+    c4_points = [
+        ("The Challenge", "Raw AI-generated 3D meshes produced disorganized vertex topology and massive polygon counts that crashed WebGL browsers and caused severe frame drops in gaming engines."),
+        ("Resolution Implemented", "Engineered automated post-processing pipelines for polygon decimation, procedural retopology, UV unwrapping, and texture baking—generating optimized, lightweight 3D models instantly.")
+    ]
+    for lbl, val in c4_points:
+        cp = tf_c2.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(8)
+
+    add_footer(s10, 10, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 11: LESSONS LEARNED & BEST PRACTICES
+    # =========================================================================
+    s11 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s11, COLOR_BG_LIGHT)
+    add_header(s11, "Lessons Learned & Best Practices")
+
+    # Left Column
+    tb_l1 = s11.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tf_l1 = tb_l1.text_frame
+    tf_l1.word_wrap = True
+    tf_l1.margin_left = tf_l1.margin_right = tf_l1.margin_top = tf_l1.margin_bottom = 0
+
+    p = tf_l1.paragraphs[0]
+    p.text = "1. Incremental Modernization Outperforms 'Big-Bang' Rewrites"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.space_after = Pt(4)
+
+    l1_points = [
+        ("Lesson Learned", "Complete system rewrites carry high risk, long delay cycles, and potential customer rejection. Incremental migration allows continuous production value delivery."),
+        ("Best Practice", "Use strangler-fig patterns, modular micro-frontends, and backward-compatible APIs to modernize enterprise platforms step-by-step while maintaining uninterrupted business operations.")
+    ]
+    for lbl, val in l1_points:
+        lp = tf_l1.add_paragraph()
+        r1 = lp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = lp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        lp.space_after = Pt(8)
+
+    p = tf_l1.add_paragraph()
+    p.text = "2. Security & Compliance Must Be Architected from Day Zero"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_BRAND_DEEP
+    p.space_after = Pt(4)
+
+    l2_points = [
+        ("Lesson Learned", "Retrofitting authentication, RBAC, encryption, and audit trails into an established product is costly, disruptive, and prone to severe security vulnerabilities."),
+        ("Best Practice", "Embed security controls (MFA, automated dependency scanning, sanitization, role matrices) into the CI/CD pipeline from inception as standard enterprise non-negotiables.")
+    ]
+    for lbl, val in l2_points:
+        lp = tf_l1.add_paragraph()
+        r1 = lp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = lp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        lp.space_after = Pt(8)
+
+    # Right Column
+    tb_l2 = s11.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tf_l2 = tb_l2.text_frame
+    tf_l2.word_wrap = True
+    tf_l2.margin_left = tf_l2.margin_right = tf_l2.margin_top = tf_l2.margin_bottom = 0
+
+    p = tf_l2.paragraphs[0]
+    p.text = "3. Centralized Design Systems Deliver Compounding ROI"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_ACCENT_AMBER
+    p.space_after = Pt(4)
+
+    l3_points = [
+        ("Lesson Learned", "Without shared component governance, engineering squads create fragmented code, brand inconsistency, and duplicate maintenance burdens across projects."),
+        ("Best Practice", "Treat internal design systems as first-class products with semantic versioning, comprehensive documentation, and framework-agnostic standards (Web Components).")
+    ]
+    for lbl, val in l3_points:
+        lp = tf_l2.add_paragraph()
+        r1 = lp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = lp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        lp.space_after = Pt(8)
+
+    p = tf_l2.add_paragraph()
+    p.text = "4. Early Interactive Prototyping Resolves Requirement Risk"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_SUCCESS
+    p.space_after = Pt(4)
+
+    l4_points = [
+        ("Lesson Learned", "Specification documents alone fail to capture operational nuances; misunderstandings surface late during production deployment when changes are 10x more costly."),
+        ("Best Practice", "Involve stakeholders and users early using clickable, interactive prototypes to validate workflows, usability, and data contracts before committing heavy backend engineering.")
+    ]
+    for lbl, val in l4_points:
+        lp = tf_l2.add_paragraph()
+        r1 = lp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = lp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        lp.space_after = Pt(8)
+
+    add_footer(s11, 11, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 12: SUGGESTIONS FOR FUTURE PROCESS IMPROVEMENTS
+    # =========================================================================
+    s12 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s12, COLOR_BG_LIGHT)
+    add_header(s12, "Suggestions for Future Process Improvements")
+
+    # Left Column
+    tb_s1 = s12.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tf_s1 = tb_s1.text_frame
+    tf_s1.word_wrap = True
+    tf_s1.margin_left = tf_s1.margin_right = tf_s1.margin_top = tf_s1.margin_bottom = 0
+
+    p = tf_s1.paragraphs[0]
+    p.text = "1. Automated IT Governance & Self-Service Developer Portals"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.space_after = Pt(4)
+
+    s1_points = [
+        ("Objective", "Establish standardized internal developer platforms (IDPs) and automated infrastructure-as-code (IaC) templates for rapid, secure project spin-ups."),
+        ("Expected Benefit", "Cuts new system bootstrapping and environment provisioning time from weeks to hours while ensuring automated compliance with corporate security baselines.")
+    ]
+    for lbl, val in s1_points:
+        sp = tf_s1.add_paragraph()
+        r1 = sp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = sp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        sp.space_after = Pt(8)
+
+    p = tf_s1.add_paragraph()
+    p.text = "2. AI-Assisted Engineering Toolchains & Code Quality Gates"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_BRAND_DEEP
+    p.space_after = Pt(4)
+
+    s2_points = [
+        ("Objective", "Integrate generative AI tooling into enterprise workflows for automated unit test generation, synthetic data simulation, and design-to-code asset generation."),
+        ("Expected Benefit", "Boosts developer productivity by 30–40%, accelerates testing cycles, reduces boilerplate coding, and frees engineering teams to focus on strategic core systems.")
+    ]
+    for lbl, val in s2_points:
+        sp = tf_s1.add_paragraph()
+        r1 = sp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = sp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        sp.space_after = Pt(8)
+
+    # Right Column
+    tb_s2 = s12.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tf_s2 = tb_s2.text_frame
+    tf_s2.word_wrap = True
+    tf_s2.margin_left = tf_s2.margin_right = tf_s2.margin_top = tf_s2.margin_bottom = 0
+
+    p = tf_s2.paragraphs[0]
+    p.text = "3. Unified Enterprise Telemetry & Proactive Observability"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_ACCENT_AMBER
+    p.space_after = Pt(4)
+
+    s3_points = [
+        ("Objective", "Synthesize application performance monitoring (APM), network health, and facility sensor telemetry (BMS) into unified operational command dashboards."),
+        ("Expected Benefit", "Transforms IT operations from reactive issue response to predictive anomaly detection, preventing service degradation and minimizing system downtime.")
+    ]
+    for lbl, val in s3_points:
+        sp = tf_s2.add_paragraph()
+        r1 = sp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = sp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        sp.space_after = Pt(8)
+
+    p = tf_s2.add_paragraph()
+    p.text = "4. Structured Knowledge Sharing & Continuous Upskilling"
+    p.font.size = Pt(15.5)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_SUCCESS
+    p.space_after = Pt(4)
+
+    s4_points = [
+        ("Objective", "Institute regular cross-functional architecture reviews, tech talk forums, and sponsored enterprise certification tracks (Cloud, Security, ITIL, Agile)."),
+        ("Expected Benefit", "Breaks down engineering silos, accelerates cross-pollination between teams, and ensures enterprise alignment with rapidly evolving modern industry standards.")
+    ]
+    for lbl, val in s4_points:
+        sp = tf_s2.add_paragraph()
+        r1 = sp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = sp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        sp.space_after = Pt(8)
+
+    add_footer(s12, 12, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 13: SUMMARY (HEADLINE STRICTLY "Summary", NO CARD BOX)
+    # =========================================================================
+    s13 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s13, COLOR_PRIMARY_DARK)
 
     # Header: strictly "Summary" as requested
-    add_header(s9, "Summary", dark=True)
+    add_header(s13, "Summary", dark=True)
 
-    q_tb = s9.shapes.add_textbox(Inches(0.8), Inches(1.52), Inches(11.733), Inches(5.4))
+    q_tb = s13.shapes.add_textbox(Inches(0.8), Inches(1.52), Inches(11.733), Inches(5.4))
     q_tf = q_tb.text_frame
     q_tf.word_wrap = True
     q_tf.margin_left = q_tf.margin_right = q_tf.margin_top = q_tf.margin_bottom = 0
@@ -806,10 +1297,10 @@ def create_deck(output_pptx_path):
     qp_contact.font.bold = True
     qp_contact.font.color.rgb = RGBColor(255, 255, 255)
 
-    add_footer(s9, 9, TOTAL_SLIDES, dark=True)
+    add_footer(s13, 13, TOTAL_SLIDES, dark=True)
 
     prs.save(output_pptx_path)
-    print(f"[OK] Generated Clean, High-Legibility 9-Slide PowerPoint at: {output_pptx_path}")
+    print(f"[OK] Generated Clean, High-Legibility 13-Slide PowerPoint at: {output_pptx_path}")
 
 if __name__ == "__main__":
     out_dir = os.path.dirname(os.path.abspath(__file__))
