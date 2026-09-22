@@ -1,13 +1,13 @@
 # TECHNICAL WORK EXPERIENCE & CAPABILITY PRESENTATION
 **Candidate**: Maheshchandra Hegde  
-**Current Role / Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
+**Current Role / Headline**: Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com  
 **Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
 **Web & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
 **Submission For**: Senior Manager – IT Final Interview | [talent@obayashi.org](mailto:talent@obayashi.org)  
 
 ---
 
-## SECTION 1: INTRODUCTION & EXECUTIVE PROFILE
+## Introduction & Executive Profile
 
 **Maheshchandra Hegde** is an innovative technologist and product strategist with **18+ years of experience** architecting end-to-end digital products, interactive 3D experiences, and domain-specific SaaS platforms. 
 
@@ -23,7 +23,7 @@ He serves as Co-Founder and Technology Leader at **Technoyana Digital Transforma
 
 ---
 
-## SECTION 2: PROJECT & EXPERIENCE SKILLSET (GROUPED BY CLIENT)
+## Project Experience & Technical Track Record
 
 The following projects reflect extensive hands-on technical leadership across startups, multinational enterprise corporations, healthcare, and engineering systems:
 
@@ -136,7 +136,7 @@ Apart from traditional software development, led and delivered diverse technical
 
 ---
 
-## SECTION 3: CONCLUSION — ROLE FIT & PROFESSIONAL COMMITMENT
+## Summary
 
 ### Synthesis of Skills & Unique Value Proposition
 As a holder of a **Master's degree in Human Interface Design (UK)** and an **Engineering degree in Electronics & Communication (ECE)**, I possess a rare, balanced mastery of both the **design and software engineering** aspects of digital product development:

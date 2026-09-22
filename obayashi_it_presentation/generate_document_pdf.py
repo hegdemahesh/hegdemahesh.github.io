@@ -175,7 +175,7 @@ html_content = f"""<!DOCTYPE html>
   </div>
   <div class="header-info">
     <h1>Maheshchandra Hegde</h1>
-    <div class="header-headline">Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com</div>
+    <div class="header-headline">Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com</div>
     <div class="header-meta">
       <strong>Bangalore, India</strong> &nbsp;|&nbsp; +91 9535253329 / 7022407280 &nbsp;|&nbsp; hid.mahesh@gmail.com<br>
       Website: <a href="https://hegdemahesh.in">hegdemahesh.in</a> &nbsp;|&nbsp; LinkedIn: <a href="https://www.linkedin.com/in/maheshchandrahegde/">linkedin.com/in/maheshchandrahegde</a><br>
@@ -188,7 +188,7 @@ html_content = f"""<!DOCTYPE html>
   <strong>Executive Introduction:</strong> Innovative technologist and product strategist with <strong>18+ years of experience</strong> architecting end-to-end digital products, interactive 3D experiences, and domain-specific SaaS platforms. Co-Founder and Technology Leader at <strong>Technoyana Digital Transformation Services Pvt. Ltd.</strong>, driving product architecture and creative tech vision across flagship divisions: <strong>Twitan.com</strong> (AI-driven sports management & scoring platform) and <strong>Srushtilabs.com</strong> (Generative AI & modular 3D computing platform for games, simulations, and 3D visualization). Holds a postgraduate degree in Human Interface Design & Development (M.S. in Computing, Robert Gordon University, UK) and an engineering degree in Electronics & Communication (B.E.). Assisting his architect father provided early foundation in CAD drafting, building drawings, and 3D spatial visualization.
 </div>
 
-<h2>SECTION 2: Project Experience Skillset (Client Groups 1 to 8)</h2>
+<h2>Project Experience & Technical Track Record</h2>
 
 <h3>1. Projects Executed as Founder at Technoyana Digital Transformation Services Pvt. Ltd.</h3>
 <div class="grid-2">
@@ -259,7 +259,7 @@ html_content = f"""<!DOCTYPE html>
 
 <div class="page-break"></div>
 
-<h2>SECTION 3: Conclusion & Alignment to Senior Manager – IT</h2>
+<h2>Summary</h2>
 
 <div class="card" style="margin-bottom: 10px;">
   <h4>Synthesis of Design & Engineering Mastery</h4>

@@ -3,10 +3,11 @@ Script to generate the Technical Work Experience Presentation for Maheshchandra 
 Three Major Sections:
 1. Introduction & Executive Profile (with Photo)
 2. Project / Experience Skillset (Grouped by Client: 1 to 8)
-3. Conclusion: Role Fit & Self-Training / Certification Pledge
+3. Summary: Role Fit & Self-Training / Certification Pledge
 
 Format: 16:9 Widescreen PowerPoint Presentation (.pptx)
-Optimized with Large, High-Legibility Executive Typography
+Clean, spacious, modern presentation with large, highly legible executive typography.
+All project card boxes and clutter removed for maximum clarity and open reading comfort.
 """
 
 import os
@@ -28,10 +29,9 @@ def create_deck(output_pptx_path):
     COLOR_BRAND_DEEP   = RGBColor(14, 116, 144)   # Deep Ocean Teal #0E7490
     COLOR_ACCENT_AMBER = RGBColor(217, 119, 6)    # Warm Amber #D97706
     COLOR_BG_LIGHT     = RGBColor(248, 250, 252)  # Canvas Light #F8FAFC
-    COLOR_CARD_BG      = RGBColor(255, 255, 255)  # Pure White #FFFFFF
     COLOR_CARD_BORDER  = RGBColor(226, 232, 240)  # Border Subtle #E2E8F0
     COLOR_TEXT_MAIN    = RGBColor(30, 41, 59)     # Slate 800 #1E293B
-    COLOR_TEXT_MUTED   = RGBColor(71, 85, 105)    # Slate 600 #475569 (Darker for readability)
+    COLOR_TEXT_MUTED   = RGBColor(71, 85, 105)    # Slate 600 #475569
     COLOR_SUCCESS      = RGBColor(16, 149, 99)    # Emerald Green #109563
     COLOR_CYAN_ACCENT  = RGBColor(56, 189, 248)   # Cyan #38BDF8
 
@@ -46,42 +46,26 @@ def create_deck(output_pptx_path):
         bg.line.fill.background()
         return bg
 
-    def add_header(slide, section_tag, title, dark=False):
-        cat_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.35), Inches(11.7), Inches(0.32))
-        tf_cat = cat_box.text_frame
-        tf_cat.word_wrap = True
-        tf_cat.margin_left = tf_cat.margin_right = tf_cat.margin_top = tf_cat.margin_bottom = 0
-        p_cat = tf_cat.paragraphs[0]
-        p_cat.text = section_tag.upper()
-        p_cat.font.size = Pt(11.5)
-        p_cat.font.bold = True
-        p_cat.font.color.rgb = COLOR_CYAN_ACCENT if dark else COLOR_BRAND_DEEP
-
-        title_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.68), Inches(11.7), Inches(0.65))
+    def add_header(slide, title, dark=False):
+        """Clean slide header without distracting section tags, with prominent large title."""
+        title_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.48), Inches(11.733), Inches(0.7))
         tf_title = title_box.text_frame
         tf_title.word_wrap = True
         tf_title.margin_left = tf_title.margin_right = tf_title.margin_top = tf_title.margin_bottom = 0
         p_title = tf_title.paragraphs[0]
         p_title.text = title
-        p_title.font.size = Pt(23)
+        p_title.font.size = Pt(25)
         p_title.font.bold = True
         p_title.font.color.rgb = RGBColor(255, 255, 255) if dark else COLOR_PRIMARY_DARK
 
-        line = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(1.36), Inches(11.733), Inches(0.025))
+        # Subtle elegant accent line
+        line = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(1.28), Inches(11.733), Inches(0.025))
         line.fill.solid()
         line.fill.fore_color.rgb = RGBColor(51, 65, 85) if dark else COLOR_CARD_BORDER
         line.line.fill.background()
 
-    def add_card(slide, left, top, width, height, bg_color=COLOR_CARD_BG, border_color=COLOR_CARD_BORDER):
-        card = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, width, height)
-        card.fill.solid()
-        card.fill.fore_color.rgb = bg_color
-        card.line.color.rgb = border_color
-        card.line.width = Pt(1)
-        return card
-
     def add_footer(slide, current_page, total_pages=TOTAL_SLIDES, dark=False):
-        footer_box = slide.shapes.add_textbox(Inches(0.8), Inches(7.05), Inches(11.733), Inches(0.35))
+        footer_box = slide.shapes.add_textbox(Inches(0.8), Inches(7.08), Inches(11.733), Inches(0.32))
         tf = footer_box.text_frame
         tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
         p = tf.paragraphs[0]
@@ -90,87 +74,77 @@ def create_deck(output_pptx_path):
         p.font.color.rgb = RGBColor(148, 163, 184) if dark else COLOR_TEXT_MUTED
 
     # =========================================================================
-    # SLIDE 1: SECTION 1 — INTRODUCTION & EXECUTIVE PROFILE (WITH PHOTO)
+    # SLIDE 1: INTRODUCTION & EXECUTIVE PROFILE (WITH PHOTO)
     # =========================================================================
     s1 = prs.slides.add_slide(blank_layout)
     set_slide_background(s1, COLOR_PRIMARY_DARK)
 
-    # Left Column: Candidate Photo & Contact Details Card
-    add_card(s1, Inches(0.8), Inches(0.75), Inches(3.4), Inches(6.05),
-             bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
-
+    # Left Column: Candidate Photo & Contact Details (No bounding card box)
     if os.path.exists(photo_path):
-        s1.shapes.add_picture(photo_path, Inches(1.0), Inches(0.95), Inches(3.0), Inches(3.8))
+        s1.shapes.add_picture(photo_path, Inches(0.8), Inches(0.85), Inches(3.2), Inches(3.9))
 
-    # Contact Info beneath photo
-    c_box = s1.shapes.add_textbox(Inches(0.95), Inches(4.9), Inches(3.1), Inches(1.8))
+    c_box = s1.shapes.add_textbox(Inches(0.8), Inches(4.95), Inches(3.2), Inches(2.0))
     ctf = c_box.text_frame
     ctf.word_wrap = True
     ctf.margin_left = ctf.margin_right = ctf.margin_top = ctf.margin_bottom = 0
 
     cp = ctf.paragraphs[0]
     cp.text = "Bangalore, India"
-    cp.font.size = Pt(11)
+    cp.font.size = Pt(12)
     cp.font.bold = True
-    cp.font.color.rgb = RGBColor(226, 232, 240)
-    cp.space_after = Pt(3)
+    cp.font.color.rgb = RGBColor(241, 245, 249)
+    cp.space_after = Pt(4)
 
     cp = ctf.add_paragraph()
     cp.text = "+91 9535253329 / 7022407280"
-    cp.font.size = Pt(10.5)
+    cp.font.size = Pt(11.5)
     cp.font.color.rgb = RGBColor(203, 213, 225)
-    cp.space_after = Pt(3)
+    cp.space_after = Pt(4)
 
     cp = ctf.add_paragraph()
     cp.text = "hid.mahesh@gmail.com"
-    cp.font.size = Pt(10.5)
+    cp.font.size = Pt(11.5)
+    cp.font.color.rgb = COLOR_CYAN_ACCENT
+    cp.space_after = Pt(4)
+
+    cp = ctf.add_paragraph()
+    cp.text = "hegdemahesh.in"
+    cp.font.size = Pt(11)
+    cp.font.bold = True
     cp.font.color.rgb = COLOR_CYAN_ACCENT
     cp.space_after = Pt(3)
 
     cp = ctf.add_paragraph()
-    cp.text = "hegdemahesh.in"
-    cp.font.size = Pt(10)
-    cp.font.bold = True
-    cp.font.color.rgb = COLOR_CYAN_ACCENT
-    cp.space_after = Pt(2)
-
-    cp = ctf.add_paragraph()
     cp.text = "linkedin.com/in/maheshchandrahegde"
-    cp.font.size = Pt(9.5)
+    cp.font.size = Pt(10.5)
     cp.font.color.rgb = COLOR_CYAN_ACCENT
 
-    # Right Column: Name, LinkedIn Headline, and Summary
-    rw = Inches(8.1)
-    rx = Inches(4.45)
+    # Right Column: Name, Headline, and Summary
+    rx = Inches(4.35)
+    rw = Inches(8.18)
 
-    add_card(s1, rx, Inches(0.75), rw, Inches(6.05),
-             bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
-
-    t_box = s1.shapes.add_textbox(rx + Inches(0.4), Inches(0.95), rw - Inches(0.8), Inches(5.6))
+    t_box = s1.shapes.add_textbox(rx, Inches(0.82), rw, Inches(6.1))
     tf = t_box.text_frame
     tf.word_wrap = True
+    tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
 
-    p0 = tf.paragraphs[0]
-    p0.text = "SECTION 1 · EXECUTIVE INTRODUCTION"
-    p0.font.size = Pt(12)
-    p0.font.bold = True
-    p0.font.color.rgb = COLOR_CYAN_ACCENT
-    p0.space_after = Pt(4)
-
-    p1 = tf.add_paragraph()
+    # Name
+    p1 = tf.paragraphs[0]
     p1.text = "Maheshchandra Hegde"
-    p1.font.size = Pt(32)
+    p1.font.size = Pt(34)
     p1.font.bold = True
     p1.font.color.rgb = RGBColor(255, 255, 255)
     p1.space_after = Pt(4)
 
+    # Headline - exact text requested by user
     p2 = tf.add_paragraph()
-    p2.text = "Founder & CTO | Building AI‑Driven 3D Asset Platforms & Spatial Computing Solutions @srushtilabs.com"
-    p2.font.size = Pt(14)
+    p2.text = "Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com"
+    p2.font.size = Pt(13.5)
     p2.font.bold = True
-    p2.font.color.rgb = COLOR_PRIMARY_BLUE
-    p2.space_after = Pt(12)
+    p2.font.color.rgb = COLOR_CYAN_ACCENT
+    p2.space_after = Pt(14)
 
+    # Summary
     p_sum = tf.add_paragraph()
     p_sum.text = (
         "Innovative technologist and product strategist with 18+ years of experience architecting end-to-end digital products, "
@@ -182,50 +156,52 @@ def create_deck(output_pptx_path):
         "and an engineering background in Electronics & Communication (B.E.). Expertise spans modern web/mobile stacks "
         "(React, TypeScript, Angular, Web Components, Node.js, Firebase), interactive 3D/PBR pipelines, and design-to-code automation."
     )
-    p_sum.font.size = Pt(11)
+    p_sum.font.size = Pt(11.5)
     p_sum.font.color.rgb = RGBColor(226, 232, 240)
-    p_sum.space_after = Pt(10)
+    p_sum.space_after = Pt(12)
 
+    # Architectural Lineage
     p_arc = tf.add_paragraph()
     p_arc.text = (
         "Architectural Heritage: Growing up assisting my architect father in his studio provided my earliest practical foundation in "
         "architectural drawings, building elevations, spatial planning, and CAD drafting—fostering a lifelong synergy between software systems and 3D spatial tech."
     )
-    p_arc.font.size = Pt(10.5)
+    p_arc.font.size = Pt(11)
     p_arc.font.italic = True
     p_arc.font.color.rgb = COLOR_CYAN_ACCENT
 
     add_footer(s1, 1, TOTAL_SLIDES, dark=True)
 
     # =========================================================================
-    # SLIDE 2: SECTION 2 — GROUP 1: TECHNOYANA & SRUSHTILABS (VOXELFORGE & AYAM3D)
+    # SLIDE 2: TECHNOYANA & SRUSHTILABS (VOXELFORGE & AYAM3D)
     # =========================================================================
     s2 = prs.slides.add_slide(blank_layout)
     set_slide_background(s2, COLOR_BG_LIGHT)
-    add_header(s2, "Section 2 · Project Experience (Client Group 1)", "Technoyana & SrushtiLabs: Generative 3D Platforms & Spatial Computing")
+    add_header(s2, "Technoyana & SrushtiLabs: Generative 3D Platforms & Spatial Computing")
 
-    c_w = Inches(5.72)
-    c_h = Inches(5.35)
+    col_w = Inches(5.6)
+    top_pos = Inches(1.52)
+    h_pos = Inches(5.35)
 
-    # Left: Voxelforge AI
-    add_card(s2, Inches(0.8), Inches(1.55), c_w, c_h)
-    tb1 = s2.shapes.add_textbox(Inches(1.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    # Left: Voxelforge AI (No Card Frame - Simple, Large, Elegant Text)
+    tb1 = s2.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf1 = tb1.text_frame
     tf1.word_wrap = True
+    tf1.margin_left = tf1.margin_right = tf1.margin_top = tf1.margin_bottom = 0
 
     p = tf1.paragraphs[0]
     p.text = "Voxelforge AI"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf1.add_paragraph()
     p_sub.text = "Modular 3D Generative AI Platform | srushtilabs.com/voxelforge/"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     v_points = [
         ("Role & Entity", "Founder & CTO at SrushtiLabs (Technoyana Digital Transformation Services Pvt. Ltd.)."),
@@ -236,35 +212,37 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in v_points:
         vp = tf1.add_paragraph()
-        vp.text = f"• {lbl}: "
-        vp.font.bold = True
-        vp.font.size = Pt(11.5)
-        vp.font.color.rgb = COLOR_PRIMARY_DARK
-        vp2 = tf1.add_paragraph()
-        vp2.text = f"  {val}"
-        vp2.font.size = Pt(11)
-        vp2.font.color.rgb = COLOR_TEXT_MUTED
-        vp2.space_after = Pt(6)
+        r1 = vp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = vp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        vp.space_after = Pt(9)
 
     # Right: Ayam3d
-    add_card(s2, Inches(6.8), Inches(1.55), c_w, c_h)
-    tb2 = s2.shapes.add_textbox(Inches(7.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb2 = s2.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf2 = tb2.text_frame
     tf2.word_wrap = True
+    tf2.margin_left = tf2.margin_right = tf2.margin_top = tf2.margin_bottom = 0
 
     p = tf2.paragraphs[0]
     p.text = "Ayam3d (Ayam = Dimension)"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub2 = tf2.add_paragraph()
     p_sub2.text = "Parametric AI 3D Model Generation | ayam3d.in"
-    p_sub2.font.size = Pt(12)
+    p_sub2.font.size = Pt(13)
     p_sub2.font.bold = True
     p_sub2.font.color.rgb = COLOR_PRIMARY_BLUE
-    p_sub2.space_after = Pt(12)
+    p_sub2.space_after = Pt(14)
 
     a_points = [
         ("Concept & Vision", "Extended the Voxelforge concept into Ayam3d ('Ayam' meaning Dimension), focusing on parametric-based 3D model generation from natural language prompts."),
@@ -275,67 +253,73 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in a_points:
         ap = tf2.add_paragraph()
-        ap.text = f"• {lbl}: "
-        ap.font.bold = True
-        ap.font.size = Pt(11.5)
-        ap.font.color.rgb = COLOR_PRIMARY_DARK
-        ap2 = tf2.add_paragraph()
-        ap2.text = f"  {val}"
-        ap2.font.size = Pt(11)
-        ap2.font.color.rgb = COLOR_TEXT_MUTED
-        ap2.space_after = Pt(6)
+        r1 = ap.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = ap.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        ap.space_after = Pt(9)
 
     add_footer(s2, 2, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 3: SECTION 2 — GROUP 2: CYIENT / PHILIPS HEALTHCARE (ICCA)
+    # SLIDE 3: CYIENT / PHILIPS HEALTHCARE (ICCA)
     # =========================================================================
     s3 = prs.slides.add_slide(blank_layout)
     set_slide_background(s3, COLOR_BG_LIGHT)
-    add_header(s3, "Section 2 · Project Experience (Client Group 2)", "Cyient / PHILIPS: Intellispace Critical Care & Anesthesia (ICCA)")
+    add_header(s3, "Cyient / PHILIPS: Intellispace Critical Care & Anesthesia (ICCA)")
 
-    # Left: Project Scope Card (Width: 4.5)
-    add_card(s3, Inches(0.8), Inches(1.55), Inches(4.5), Inches(5.35))
-    p3_tb = s3.shapes.add_textbox(Inches(1.05), Inches(1.75), Inches(4.0), Inches(4.9))
+    # Left: Project Scope (No Card Frame)
+    p3_tb = s3.shapes.add_textbox(Inches(0.8), top_pos, Inches(4.6), h_pos)
     p3_tf = p3_tb.text_frame
     p3_tf.word_wrap = True
+    p3_tf.margin_left = p3_tf.margin_right = p3_tf.margin_top = p3_tf.margin_bottom = 0
 
     p = p3_tf.paragraphs[0]
     p.text = "Philips ICCA"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p = p3_tf.add_paragraph()
     p.text = "Intellispace Critical Care & Anesthesia"
-    p.font.size = Pt(12)
+    p.font.size = Pt(13)
     p.font.bold = True
     p.font.color.rgb = COLOR_BRAND_DEEP
-    p.space_after = Pt(12)
+    p.space_after = Pt(14)
 
     p3_meta = [
         ("Role", "Senior Technology Leader (React / NodeJS)"),
         ("Tenure", "Nov 2023 – Mar 2025"),
         ("Client & Facility", "Cyient Limited for Philips Healthcare, Bangalore"),
-        ("Operational Reality", "Mission-critical hospital ICU and anesthesia suites operating continuously 24/7."),
+        ("Operational Reality", "Mission-critical hospital ICU and anesthesia suites operating continuously 24/7 with zero margin for error."),
         ("Delivery Mandate", "Delivered clinical software passing all stringent quality, reliability, and security gates established by Philips and hospital networks.")
     ]
     for lbl, val in p3_meta:
-        p = p3_tf.add_paragraph()
-        p.text = f"{lbl}: "
-        p.font.bold = True
-        p.font.size = Pt(11.5)
-        p.font.color.rgb = COLOR_PRIMARY_DARK
-        p2 = p3_tf.add_paragraph()
-        p2.text = f"{val}"
-        p2.font.size = Pt(11)
-        p2.font.color.rgb = COLOR_TEXT_MUTED
-        p2.space_after = Pt(7)
+        mp = p3_tf.add_paragraph()
+        r1 = mp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = mp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        mp.space_after = Pt(10)
 
-    # Right: 3 Core Pillars of Execution (Width: 6.98)
-    r3_x = Inches(5.55)
-    r3_w = Inches(6.98)
+    # Right: 3 Core Pillars of Execution (No Card Boxes - Clean, Spacious Blocks)
+    r3_tb = s3.shapes.add_textbox(Inches(5.8), top_pos, Inches(6.7), h_pos)
+    r3_tf = r3_tb.text_frame
+    r3_tf.word_wrap = True
+    r3_tf.margin_left = r3_tf.margin_right = r3_tf.margin_top = r3_tf.margin_bottom = 0
 
     p3_cards = [
         ("1. Rigorous Quality Benchmarks & Zero-Downtime Reliability",
@@ -347,50 +331,47 @@ def create_deck(output_pptx_path):
     ]
 
     for i, (title, desc) in enumerate(p3_cards):
-        cy = Inches(1.55) + i * Inches(1.8)
-        add_card(s3, r3_x, cy, r3_w, Inches(1.68))
-        otb = s3.shapes.add_textbox(r3_x + Inches(0.25), cy + Inches(0.15), r3_w - Inches(0.5), Inches(1.4))
-        otf = otb.text_frame
-        otf.word_wrap = True
-        op1 = otf.paragraphs[0]
+        op1 = r3_tf.paragraphs[0] if i == 0 else r3_tf.add_paragraph()
         op1.text = title
-        op1.font.size = Pt(13)
+        op1.font.size = Pt(14.5)
         op1.font.bold = True
         op1.font.color.rgb = COLOR_PRIMARY_BLUE
         op1.space_after = Pt(4)
-        op2 = otf.add_paragraph()
+
+        op2 = r3_tf.add_paragraph()
         op2.text = desc
-        op2.font.size = Pt(11)
+        op2.font.size = Pt(12)
         op2.font.color.rgb = COLOR_TEXT_MAIN
+        op2.space_after = Pt(16)
 
     add_footer(s3, 3, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 4: SECTION 2 — GROUP 3 & 4: NESS DIGITAL & MOONRAFT INNOVATION LABS
+    # SLIDE 4: NESS DIGITAL & MOONRAFT INNOVATION LABS
     # =========================================================================
     s4 = prs.slides.add_slide(blank_layout)
     set_slide_background(s4, COLOR_BG_LIGHT)
-    add_header(s4, "Section 2 · Project Experience (Client Groups 3 & 4)", "Ness Digital Engineering & Moonraft Innovation Labs (UST Global Unit)")
+    add_header(s4, "Ness Digital Engineering & Moonraft Innovation Labs")
 
     # Left: Ness Digital Engineering
-    add_card(s4, Inches(0.8), Inches(1.55), c_w, c_h)
-    tb_n = s4.shapes.add_textbox(Inches(1.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_n = s4.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_n = tb_n.text_frame
     tf_n.word_wrap = True
+    tf_n.margin_left = tf_n.margin_right = tf_n.margin_top = tf_n.margin_bottom = 0
 
     p = tf_n.paragraphs[0]
     p.text = "Ness Digital Engineering"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_n.add_paragraph()
     p_sub.text = "Senior Analyst / Tech Lead | Oct 2019 – Apr 2020"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     n_points = [
         ("Project Focus", "Entertainment Management Application for a major client."),
@@ -401,35 +382,37 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in n_points:
         np = tf_n.add_paragraph()
-        np.text = f"• {lbl}: "
-        np.font.bold = True
-        np.font.size = Pt(11.5)
-        np.font.color.rgb = COLOR_PRIMARY_DARK
-        np2 = tf_n.add_paragraph()
-        np2.text = f"  {val}"
-        np2.font.size = Pt(11)
-        np2.font.color.rgb = COLOR_TEXT_MUTED
-        np2.space_after = Pt(6)
+        r1 = np.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = np.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        np.space_after = Pt(9)
 
     # Right: Moonraft Innovation Labs
-    add_card(s4, Inches(6.8), Inches(1.55), c_w, c_h)
-    tb_m = s4.shapes.add_textbox(Inches(7.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_m = s4.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_m = tb_m.text_frame
     tf_m.word_wrap = True
+    tf_m.margin_left = tf_m.margin_right = tf_m.margin_top = tf_m.margin_bottom = 0
 
     p = tf_m.paragraphs[0]
     p.text = "Moonraft Innovation Labs"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_m.add_paragraph()
     p_sub.text = "UI Architect | May 2019 – Jul 2019 (UST Global Specialized Unit)"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     m_points = [
         ("Enterprise Design System", "Architected and engineered a centralized cross-framework UI Design System using LitElement Web Components, React, AngularJS, Node.js, and npm packaging."),
@@ -440,44 +423,46 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in m_points:
         mp = tf_m.add_paragraph()
-        mp.text = f"• {lbl}: "
-        mp.font.bold = True
-        mp.font.size = Pt(11.5)
-        mp.font.color.rgb = COLOR_PRIMARY_DARK
-        mp2 = tf_m.add_paragraph()
-        mp2.text = f"  {val}"
-        mp2.font.size = Pt(11)
-        mp2.font.color.rgb = COLOR_TEXT_MUTED
-        mp2.space_after = Pt(6)
+        r1 = mp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = mp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        mp.space_after = Pt(9)
 
     add_footer(s4, 4, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 5: SECTION 2 — GROUP 5: UST GLOBAL / CISCO (STADIUM VISION DIRECTOR)
+    # SLIDE 5: UST GLOBAL / CISCO (STADIUM VISION DIRECTOR)
     # =========================================================================
     s5 = prs.slides.add_slide(blank_layout)
     set_slide_background(s5, COLOR_BG_LIGHT)
-    add_header(s5, "Section 2 · Project Experience (Client Group 5)", "UST Global / CISCO: Stadium Vision Director Migration")
+    add_header(s5, "UST Global / CISCO: Stadium Vision Director Migration")
 
-    # Left: Project Overview Card
-    add_card(s5, Inches(0.8), Inches(1.55), Inches(4.5), Inches(5.35))
-    p5_tb = s5.shapes.add_textbox(Inches(1.05), Inches(1.75), Inches(4.0), Inches(4.9))
+    # Left: Project Overview
+    p5_tb = s5.shapes.add_textbox(Inches(0.8), top_pos, Inches(4.6), h_pos)
     p5_tf = p5_tb.text_frame
     p5_tf.word_wrap = True
+    p5_tf.margin_left = p5_tf.margin_right = p5_tf.margin_top = p5_tf.margin_bottom = 0
 
     p = p5_tf.paragraphs[0]
     p.text = "Cisco Stadium Vision"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p = p5_tf.add_paragraph()
     p.text = "Stadium Vision Director Enterprise Platform"
-    p.font.size = Pt(12)
+    p.font.size = Pt(13)
     p.font.bold = True
     p.font.color.rgb = COLOR_BRAND_DEEP
-    p.space_after = Pt(12)
+    p.space_after = Pt(14)
 
     p5_meta = [
         ("Role", "Senior Analyst & Associate Project Manager"),
@@ -487,20 +472,24 @@ def create_deck(output_pptx_path):
         ("Core Mandate", "Modernize a massive legacy application suite with numerous active sub-applications and active global customers.")
     ]
     for lbl, val in p5_meta:
-        p = p5_tf.add_paragraph()
-        p.text = f"{lbl}: "
-        p.font.bold = True
-        p.font.size = Pt(11.5)
-        p.font.color.rgb = COLOR_PRIMARY_DARK
-        p2 = p5_tf.add_paragraph()
-        p2.text = f"{val}"
-        p2.font.size = Pt(11)
-        p2.font.color.rgb = COLOR_TEXT_MUTED
-        p2.space_after = Pt(7)
+        mp = p5_tf.add_paragraph()
+        r1 = mp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = mp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        mp.space_after = Pt(10)
 
     # Right: Migration Architecture & Accomplishments
-    r5_x = Inches(5.55)
-    r5_w = Inches(6.98)
+    r5_tb = s5.shapes.add_textbox(Inches(5.8), top_pos, Inches(6.7), h_pos)
+    r5_tf = r5_tb.text_frame
+    r5_tf.word_wrap = True
+    r5_tf.margin_left = r5_tf.margin_right = r5_tf.margin_top = r5_tf.margin_bottom = 0
 
     p5_cards = [
         ("1. Phased Zero-Downtime Migration from Legacy Flash/Flex",
@@ -512,50 +501,47 @@ def create_deck(output_pptx_path):
     ]
 
     for i, (title, desc) in enumerate(p5_cards):
-        cy = Inches(1.55) + i * Inches(1.8)
-        add_card(s5, r5_x, cy, r5_w, Inches(1.68))
-        otb = s5.shapes.add_textbox(r5_x + Inches(0.25), cy + Inches(0.15), r5_w - Inches(0.5), Inches(1.4))
-        otf = otb.text_frame
-        otf.word_wrap = True
-        op1 = otf.paragraphs[0]
+        op1 = r5_tf.paragraphs[0] if i == 0 else r5_tf.add_paragraph()
         op1.text = title
-        op1.font.size = Pt(13)
+        op1.font.size = Pt(14.5)
         op1.font.bold = True
         op1.font.color.rgb = COLOR_PRIMARY_BLUE
         op1.space_after = Pt(4)
-        op2 = otf.add_paragraph()
+
+        op2 = r5_tf.add_paragraph()
         op2.text = desc
-        op2.font.size = Pt(11)
+        op2.font.size = Pt(12)
         op2.font.color.rgb = COLOR_TEXT_MAIN
+        op2.space_after = Pt(16)
 
     add_footer(s5, 5, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 6: SECTION 2 — GROUP 6: THOUGHTFOCUS TECHNOLOGIES
+    # SLIDE 6: THOUGHTFOCUS TECHNOLOGIES
     # =========================================================================
     s6 = prs.slides.add_slide(blank_layout)
     set_slide_background(s6, COLOR_BG_LIGHT)
-    add_header(s6, "Section 2 · Project Experience (Client Group 6)", "ThoughtFocus Technologies: Aftermarket Parts 3D Explorer & Enterprise Solutions")
+    add_header(s6, "ThoughtFocus Technologies: Aftermarket Parts 3D Explorer & Enterprise Solutions")
 
     # Left: Aftermarket Parts Explorer
-    add_card(s6, Inches(0.8), Inches(1.55), c_w, c_h)
-    tb_tf1 = s6.shapes.add_textbox(Inches(1.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_tf1 = s6.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_tf1 = tb_tf1.text_frame
     tf_tf1.word_wrap = True
+    tf_tf1.margin_left = tf_tf1.margin_right = tf_tf1.margin_top = tf_tf1.margin_bottom = 0
 
     p = tf_tf1.paragraphs[0]
     p.text = "Aftermarket Parts Explorer"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_tf1.add_paragraph()
     p_sub.text = "UI Architect & Tech Lead | Oct 2011 – Mar 2014"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     tf1_points = [
         ("Platform Scope", "Massive parts marketplace serving aftermarket automotive & industrial parts vendors and buyers."),
@@ -566,35 +552,37 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in tf1_points:
         tp = tf_tf1.add_paragraph()
-        tp.text = f"• {lbl}: "
-        tp.font.bold = True
-        tp.font.size = Pt(11.5)
-        tp.font.color.rgb = COLOR_PRIMARY_DARK
-        tp2 = tf_tf1.add_paragraph()
-        tp2.text = f"  {val}"
-        tp2.font.size = Pt(11)
-        tp2.font.color.rgb = COLOR_TEXT_MUTED
-        tp2.space_after = Pt(6)
+        r1 = tp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = tp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        tp.space_after = Pt(9)
 
     # Right: Bootstrapping Enterprise UI Applications
-    add_card(s6, Inches(6.8), Inches(1.55), c_w, c_h)
-    tb_tf2 = s6.shapes.add_textbox(Inches(7.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_tf2 = s6.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_tf2 = tb_tf2.text_frame
     tf_tf2.word_wrap = True
+    tf_tf2.margin_left = tf_tf2.margin_right = tf_tf2.margin_top = tf_tf2.margin_bottom = 0
 
     p = tf_tf2.paragraphs[0]
     p.text = "Enterprise UI Solutions"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_tf2.add_paragraph()
     p_sub.text = "Prototyping & Multi-Client Solutions Delivery"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     tf2_points = [
         ("Design-to-Code Pipeline", "Established an early user involvement process—validating concepts with interactive mockups and prototypes prior to delivery."),
@@ -605,44 +593,46 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in tf2_points:
         tp = tf_tf2.add_paragraph()
-        tp.text = f"• {lbl}: "
-        tp.font.bold = True
-        tp.font.size = Pt(11.5)
-        tp.font.color.rgb = COLOR_PRIMARY_DARK
-        tp2 = tf_tf2.add_paragraph()
-        tp2.text = f"  {val}"
-        tp2.font.size = Pt(11)
-        tp2.font.color.rgb = COLOR_TEXT_MUTED
-        tp2.space_after = Pt(6)
+        r1 = tp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = tp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        tp.space_after = Pt(9)
 
     add_footer(s6, 6, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 7: SECTION 2 — GROUP 7 & 8: CISCO/VODAFONE BMS & SPECIALIZED PROJECTS
+    # SLIDE 7: CISCO/VODAFONE BMS & SPECIALIZED PROJECTS
     # =========================================================================
     s7 = prs.slides.add_slide(blank_layout)
     set_slide_background(s7, COLOR_BG_LIGHT)
-    add_header(s7, "Section 2 · Project Experience (Client Groups 7 & 8)", "Cisco & Vodafone BMS Dashboards & Technoyana Specialized Engineering")
+    add_header(s7, "Cisco & Vodafone BMS Dashboards & Technoyana Specialized Engineering")
 
     # Left: Facility Dashboard at Cisco & Vodafone
-    add_card(s7, Inches(0.8), Inches(1.55), c_w, c_h)
-    tb_bms = s7.shapes.add_textbox(Inches(1.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_bms = s7.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_bms = tb_bms.text_frame
     tf_bms.word_wrap = True
+    tf_bms.margin_left = tf_bms.margin_right = tf_bms.margin_top = tf_bms.margin_bottom = 0
 
     p = tf_bms.paragraphs[0]
     p.text = "Cisco & Vodafone Dashboards"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_bms.add_paragraph()
     p_sub.text = "Building Management Systems (BMS) Unified Interface"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     bms_points = [
         ("Facility Dashboard at Cisco", "Designed and developed an interactive facility dashboard at Cisco Systems campus as a full-time consultant (2009–2010)."),
@@ -653,35 +643,37 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in bms_points:
         bp = tf_bms.add_paragraph()
-        bp.text = f"• {lbl}: "
-        bp.font.bold = True
-        bp.font.size = Pt(11.5)
-        bp.font.color.rgb = COLOR_PRIMARY_DARK
-        bp2 = tf_bms.add_paragraph()
-        bp2.text = f"  {val}"
-        bp2.font.size = Pt(11)
-        bp2.font.color.rgb = COLOR_TEXT_MUTED
-        bp2.space_after = Pt(6)
+        r1 = bp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = bp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        bp.space_after = Pt(9)
 
     # Right: Other Specialized Projects (Technoyana)
-    add_card(s7, Inches(6.8), Inches(1.55), c_w, c_h)
-    tb_sp = s7.shapes.add_textbox(Inches(7.05), Inches(1.75), c_w - Inches(0.5), c_h - Inches(0.4))
+    tb_sp = s7.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_sp = tb_sp.text_frame
     tf_sp.word_wrap = True
+    tf_sp.margin_left = tf_sp.margin_right = tf_sp.margin_top = tf_sp.margin_bottom = 0
 
     p = tf_sp.paragraphs[0]
     p.text = "Specialized Engineering Projects"
-    p.font.size = Pt(20)
+    p.font.size = Pt(23)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
 
     p_sub = tf_sp.add_paragraph()
     p_sub.text = "CAD/CAM, CNC, 3D Visualization & Mobile Products"
-    p_sub.font.size = Pt(12)
+    p_sub.font.size = Pt(13)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
-    p_sub.space_after = Pt(12)
+    p_sub.space_after = Pt(14)
 
     sp_points = [
         ("Architectural Visualization", "Delivered multiple architectural 3D visualizations, spatial renderings, and walkthroughs for commercial and real estate projects."),
@@ -692,15 +684,17 @@ def create_deck(output_pptx_path):
     ]
     for lbl, val in sp_points:
         sp = tf_sp.add_paragraph()
-        sp.text = f"• {lbl}: "
-        sp.font.bold = True
-        sp.font.size = Pt(11.5)
-        sp.font.color.rgb = COLOR_PRIMARY_DARK
-        sp2 = tf_sp.add_paragraph()
-        sp2.text = f"  {val}"
-        sp2.font.size = Pt(11)
-        sp2.font.color.rgb = COLOR_TEXT_MUTED
-        sp2.space_after = Pt(6)
+        r1 = sp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = sp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        sp.space_after = Pt(9)
 
     add_footer(s7, 7, TOTAL_SLIDES)
 
@@ -709,12 +703,12 @@ def create_deck(output_pptx_path):
     # =========================================================================
     s8 = prs.slides.add_slide(blank_layout)
     set_slide_background(s8, COLOR_BG_LIGHT)
-    add_header(s8, "Comprehensive Skillset Matrix", "Technical & Managerial Mastery Across 18+ Years of Delivery")
+    add_header(s8, "Comprehensive Skillset Matrix Across 18+ Years")
 
-    grid_w = Inches(5.72)
+    grid_w = Inches(5.6)
     grid_h = Inches(2.55)
-    cols = [Inches(0.8), Inches(6.8)]
-    rows = [Inches(1.55), Inches(4.35)]
+    cols = [Inches(0.8), Inches(6.9)]
+    rows = [Inches(1.52), Inches(4.28)]
 
     matrix_data = [
         ("1. Scalable Frontend & Modular Architecture",
@@ -754,63 +748,41 @@ def create_deck(output_pptx_path):
     for idx, (p_title, p_color, p_bullets) in enumerate(matrix_data):
         c_x = cols[idx % 2]
         c_y = rows[idx // 2]
-        add_card(s8, c_x, c_y, grid_w, grid_h)
 
-        hbar = s8.shapes.add_shape(MSO_SHAPE.RECTANGLE, c_x + Inches(0.01), c_y + Inches(0.01), grid_w - Inches(0.02), Inches(0.44))
-        hbar.fill.solid()
-        hbar.fill.fore_color.rgb = p_color
-        hbar.line.fill.background()
-
-        htext = s8.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.06), grid_w - Inches(0.4), Inches(0.35))
-        htf = htext.text_frame
-        hp = htf.paragraphs[0]
-        hp.text = p_title
-        hp.font.size = Pt(12)
-        hp.font.bold = True
-        hp.font.color.rgb = RGBColor(255, 255, 255)
-
-        btb = s8.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.5), grid_w - Inches(0.4), grid_h - Inches(0.55))
+        btb = s8.shapes.add_textbox(c_x, c_y, grid_w, grid_h)
         btf = btb.text_frame
         btf.word_wrap = True
-        for b_i, bullet in enumerate(p_bullets):
-            bp = btf.paragraphs[0] if b_i == 0 else btf.add_paragraph()
-            bp.text = f"• {bullet}"
-            bp.font.size = Pt(10.5)
+        btf.margin_left = btf.margin_right = btf.margin_top = btf.margin_bottom = 0
+
+        hp = btf.paragraphs[0]
+        hp.text = p_title
+        hp.font.size = Pt(15.5)
+        hp.font.bold = True
+        hp.font.color.rgb = p_color
+        hp.space_after = Pt(8)
+
+        for bullet in p_bullets:
+            bp = btf.add_paragraph()
+            bp.text = f"•  {bullet}"
+            bp.font.size = Pt(12)
             bp.font.color.rgb = COLOR_TEXT_MAIN
-            bp.space_after = Pt(4)
+            bp.space_after = Pt(5)
 
     add_footer(s8, 8, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 9: SECTION 3 — CONCLUSION: ROLE FIT & CERTIFICATION PLEDGE
+    # SLIDE 9: SUMMARY (HEADLINE STRICTLY "Summary", NO CARD BOX)
     # =========================================================================
     s9 = prs.slides.add_slide(blank_layout)
     set_slide_background(s9, COLOR_PRIMARY_DARK)
 
-    # Large Center Container
-    c_w = Inches(11.733)
-    c_h = Inches(5.6)
-    cx = Inches(0.8)
-    cy = Inches(1.15)
-    add_card(s9, cx, cy, c_w, c_h, bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
+    # Header: strictly "Summary" as requested
+    add_header(s9, "Summary", dark=True)
 
-    q_tb = s9.shapes.add_textbox(cx + Inches(0.5), cy + Inches(0.3), c_w - Inches(1.0), c_h - Inches(0.6))
+    q_tb = s9.shapes.add_textbox(Inches(0.8), Inches(1.52), Inches(11.733), Inches(5.4))
     q_tf = q_tb.text_frame
     q_tf.word_wrap = True
-
-    qp1 = q_tf.paragraphs[0]
-    qp1.text = "SECTION 3 · CONCLUSION & ROLE ALIGNMENT"
-    qp1.font.size = Pt(12)
-    qp1.font.bold = True
-    qp1.font.color.rgb = COLOR_CYAN_ACCENT
-    qp1.space_after = Pt(4)
-
-    qp2 = q_tf.add_paragraph()
-    qp2.text = "Alignment to Senior Manager – IT & Continuous Learning Pledge"
-    qp2.font.size = Pt(22)
-    qp2.font.bold = True
-    qp2.font.color.rgb = RGBColor(255, 255, 255)
-    qp2.space_after = Pt(14)
+    q_tf.margin_left = q_tf.margin_right = q_tf.margin_top = q_tf.margin_bottom = 0
 
     conclusions = [
         ("Design and Engineering Synthesis",
@@ -826,28 +798,31 @@ def create_deck(output_pptx_path):
          "I am fully committed to the success of the organization and team. As per the specific operational requirements of the Senior Manager – IT role, I pledge to proactively upskill myself and complete any required enterprise certifications (e.g., Cloud Architecture, ITIL, Cybersecurity, or project governance) to align completely with team goals and project needs.")
     ]
 
-    for c_title, c_desc in conclusions:
-        cp1 = q_tf.add_paragraph()
-        cp1.text = f"✔ {c_title}: "
-        cp1.font.bold = True
-        cp1.font.size = Pt(11.5)
-        cp1.font.color.rgb = COLOR_CYAN_ACCENT
-        cp2 = q_tf.add_paragraph()
-        cp2.text = f"   {c_desc}"
-        cp2.font.size = Pt(11)
-        cp2.font.color.rgb = RGBColor(226, 232, 240)
-        cp2.space_after = Pt(8)
+    for i, (c_title, c_desc) in enumerate(conclusions):
+        cp = q_tf.paragraphs[0] if i == 0 else q_tf.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"✔  {c_title}: "
+        r1.font.bold = True
+        r1.font.size = Pt(14)
+        r1.font.color.rgb = COLOR_CYAN_ACCENT
+
+        r2 = cp.add_run()
+        r2.text = c_desc
+        r2.font.bold = False
+        r2.font.size = Pt(12.5)
+        r2.font.color.rgb = RGBColor(226, 232, 240)
+        cp.space_after = Pt(14)
 
     qp_contact = q_tf.add_paragraph()
-    qp_contact.text = "\nMaheshchandra Hegde  |  hid.mahesh@gmail.com  |  +91 9535253329 / 7022407280  |  hegdemahesh.in"
-    qp_contact.font.size = Pt(11)
+    qp_contact.text = "Maheshchandra Hegde  |  hid.mahesh@gmail.com  |  +91 9535253329 / 7022407280  |  hegdemahesh.in"
+    qp_contact.font.size = Pt(12)
     qp_contact.font.bold = True
     qp_contact.font.color.rgb = RGBColor(255, 255, 255)
 
     add_footer(s9, 9, TOTAL_SLIDES, dark=True)
 
     prs.save(output_pptx_path)
-    print(f"Successfully generated High-Legibility 9-Slide PowerPoint presentation at: {output_pptx_path}")
+    print(f"[OK] Generated Clean, High-Legibility 9-Slide PowerPoint at: {output_pptx_path}")
 
 if __name__ == "__main__":
     out_dir = os.path.dirname(os.path.abspath(__file__))
