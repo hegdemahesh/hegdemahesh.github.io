@@ -3,7 +3,6 @@
 **Current Role / Headline**: Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com  
 **Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
 **Websites & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
-**Submission Recipient**: `talent@obayashi.org`  
 
 ---
 
@@ -50,7 +49,7 @@ You have two simple ways to edit any text in the presentation or dossier:
    - Professional Portrait Photo embedded directly on the slide (`maheshForResume.jpg`).
    - Headline: *Founder & Technology Leader at Technoayan Digital Transformation Services Pvt. Ltd. | Building AI‑driven 3D asset platforms and 3d computing solutions @srushtilabs.com*.
    - Contact, website (`hegdemahesh.in`), and LinkedIn profile links.
-   - Executive summary emphasizing 18+ years of experience, Technoyana divisions (Twitan.com and Srushtilabs.com), M.S. in Computing (Human Interface Design, UK), B.E. in Electronics & Communication, and architectural lineage assisting his architect father in CAD and spatial drawings.
+   - Executive summary emphasizing 18+ years of experience, Technoyana Digital Transformation Services, cloud architecture, and end-to-end digital product leadership.
 
 2. **Slide 2: Technoyana & SrushtiLabs: Generative 3D Platforms & Spatial Computing**
    - *Voxelforge AI* ([srushtilabs.com/voxelforge/](https://srushtilabs.com/voxelforge/)): Generative AI platform creating modular 3D assets for Unreal Engine, Unity, and real-time WebGL.

@@ -150,12 +150,10 @@ def create_deck(output_pptx_path):
         "Innovative technologist and product strategist with 18+ years of experience architecting end-to-end digital products, "
         "interactive 3D experiences, and domain-specific SaaS platforms. Co-Founder and Technology Leader at Technoyana Digital "
         "Transformation Services Pvt. Ltd., driving product architecture, cloud scalability, and creative technical vision.\n\n"
-        "Founder & CTO with a postgraduate degree in Human Interface Design and Development (M.S. in Computing, Robert Gordon University, UK) "
-        "and an engineering background in Electronics & Communication (B.E.).\n\n"
         "Expertise spans modern web/mobile application stacks (React, TypeScript, Angular, Web Components, Node.js, Firebase/GCP, AWS), "
         "interactive 3D/PBR pipelines, real-time spatial computing, and design-to-code automation across both high-velocity startups and mission-critical enterprise systems."
     )
-    p_sum.font.size = Pt(13)
+    p_sum.font.size = Pt(14)
     p_sum.font.color.rgb = RGBColor(226, 232, 240)
     p_sum.space_after = Pt(12)
 
