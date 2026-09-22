@@ -35,7 +35,7 @@ def create_deck(output_pptx_path):
     COLOR_SUCCESS      = RGBColor(16, 149, 99)    # Emerald Green #109563
     COLOR_CYAN_ACCENT  = RGBColor(56, 189, 248)   # Cyan #38BDF8
 
-    TOTAL_SLIDES = 13
+    TOTAL_SLIDES = 14
     script_dir = os.path.dirname(os.path.abspath(__file__))
     photo_path = os.path.join(script_dir, "maheshForResume.jpg")
 
@@ -666,8 +666,7 @@ def create_deck(output_pptx_path):
         ("Architectural Visualization", "Delivered multiple architectural 3D visualizations, spatial renderings, and walkthroughs for commercial and real estate projects."),
         ("CAD/CAM & CNC Development", "Led customized CNC machine development and automated CAD/CAM toolpath pipelines, bridging physical fabrication with digital software."),
         ("SellAny Mobile Marketplace", "Built and launched 'SellAny'—a consumer mobile application allowing users to list and sell items effortlessly."),
-        ("Payment Parking Mobile App", "Led an engineering team to develop an automated parking payment mobile application with real-time slot occupancy tracking."),
-        ("Flight Simulation Visuals (CAE)", "Visual Database Developer creating 3D terrain and aircraft simulation databases under locked 60 FPS budgets.")
+        ("Payment Parking Mobile App", "Led an engineering team to develop an automated parking payment mobile application with real-time slot occupancy tracking.")
     ]
     for lbl, val in sp_points:
         sp = tf_sp.add_paragraph()
@@ -686,11 +685,102 @@ def create_deck(output_pptx_path):
     add_footer(s7, 7, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 8: CORE SKILLSET MATRIX ACROSS 18+ YEARS
+    # SLIDE 8: CAE SIMULATION TECHNOLOGIES (FLIGHT SIMULATION VISUAL DATABASES)
     # =========================================================================
     s8 = prs.slides.add_slide(blank_layout)
     set_slide_background(s8, COLOR_BG_LIGHT)
-    add_header(s8, "Comprehensive Skillset Matrix Across 18+ Years")
+    add_header(s8, "CAE Simulation Technologies: Flight Simulation Visual Databases")
+
+    # Left Column
+    tb_cae1 = s8.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tf_cae1 = tb_cae1.text_frame
+    tf_cae1.word_wrap = True
+    tf_cae1.margin_left = tf_cae1.margin_right = tf_cae1.margin_top = tf_cae1.margin_bottom = 0
+
+    p = tf_cae1.paragraphs[0]
+    p.text = "CAE Flight Simulation Systems"
+    p.font.size = Pt(23)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_cae1.add_paragraph()
+    p_sub.text = "Visual Database Developer | Sep 2007 – Apr 2008"
+    p_sub.font.size = Pt(13)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_BRAND_DEEP
+    p_sub.space_after = Pt(14)
+
+    cae1_points = [
+        ("Company Profile", "CAE (Canadian Aeronautical Engineering) — world leader in high-fidelity civil aviation and military aircraft flight simulation training devices."),
+        ("Visual Database Engineering", "Focused on the design, modeling, and generation of comprehensive visual databases that power real-time full flight simulators (FFS)."),
+        ("Synthetic World Creation", "Constructed accurate, high-fidelity 3D synthetic environments including runways, airport terminals, terrain elevation, navigation lighting, and approach corridors."),
+        ("Structural & Coordinate Precision", "Fed precise 3D visual, topographical, and structural collision details into databases calibrated to real-world GIS coordinates."),
+        ("Civil & Military Applications", "Supported pilot training simulators for major commercial airliners as well as defense tactical training aircraft.")
+    ]
+    for lbl, val in cae1_points:
+        cp = tf_cae1.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(9)
+
+    # Right Column
+    tb_cae2 = s8.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tf_cae2 = tb_cae2.text_frame
+    tf_cae2.word_wrap = True
+    tf_cae2.margin_left = tf_cae2.margin_right = tf_cae2.margin_top = tf_cae2.margin_bottom = 0
+
+    p = tf_cae2.paragraphs[0]
+    p.text = "3D Modeling, Texturing & Performance"
+    p.font.size = Pt(23)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_cae2.add_paragraph()
+    p_sub.text = "Photorealistic Texture Generation & Locked 60 FPS Budgets"
+    p_sub.font.size = Pt(13)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
+    p_sub.space_after = Pt(14)
+
+    cae2_points = [
+        ("3D Modeling & Environment", "Created detailed 3D models of aircraft structures, ground support vehicles, building structures, and regional geographic landmarks."),
+        ("Photoshop Texture Pipelines", "Generated realistic multi-layer textures using Adobe Photoshop, including satellite imagery alignment, seasonal variants, and night-vision/illumination maps."),
+        ("Locked 60 FPS Real-Time Budgets", "Engineered all 3D assets under strict polygon limits and Level of Detail (LOD) hierarchies to guarantee zero-latency 60 FPS simulator performance."),
+        ("Pure Visual & Design Craft", "Specialized design role bridging artistic 3D visualization, photorealistic texturing, and rigorous database integration."),
+        ("Foundational 3D Discipline", "This early career experience in simulation systems established the deep graphics and spatial computing expertise that later led to Voxelforge AI and Ayam3d.")
+    ]
+    for lbl, val in cae2_points:
+        cp = tf_cae2.add_paragraph()
+        r1 = cp.add_run()
+        r1.text = f"•  {lbl}: "
+        r1.font.bold = True
+        r1.font.size = Pt(13)
+        r1.font.color.rgb = COLOR_PRIMARY_DARK
+        r2 = cp.add_run()
+        r2.text = val
+        r2.font.bold = False
+        r2.font.size = Pt(12)
+        r2.font.color.rgb = COLOR_TEXT_MUTED
+        cp.space_after = Pt(9)
+
+    add_footer(s8, 8, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 9: CORE SKILLSET MATRIX ACROSS 18+ YEARS
+    # =========================================================================
+    s9 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s9, COLOR_BG_LIGHT)
+    add_header(s9, "Comprehensive Skillset Matrix Across 18+ Years")
 
     grid_w = Inches(5.6)
     grid_h = Inches(2.55)
@@ -736,7 +826,7 @@ def create_deck(output_pptx_path):
         c_x = cols[idx % 2]
         c_y = rows[idx // 2]
 
-        btb = s8.shapes.add_textbox(c_x, c_y, grid_w, grid_h)
+        btb = s9.shapes.add_textbox(c_x, c_y, grid_w, grid_h)
         btf = btb.text_frame
         btf.word_wrap = True
         btf.margin_left = btf.margin_right = btf.margin_top = btf.margin_bottom = 0
@@ -755,17 +845,17 @@ def create_deck(output_pptx_path):
             bp.font.color.rgb = COLOR_TEXT_MAIN
             bp.space_after = Pt(5)
 
-    add_footer(s8, 8, TOTAL_SLIDES)
+    add_footer(s9, 9, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 9: MAJOR ACHIEVEMENTS & MILESTONES
+    # SLIDE 10: MAJOR ACHIEVEMENTS & MILESTONES
     # =========================================================================
-    s9 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s9, COLOR_BG_LIGHT)
-    add_header(s9, "Major Achievements & Milestones")
+    s10 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s10, COLOR_BG_LIGHT)
+    add_header(s10, "Major Achievements & Milestones")
 
     # Left Column
-    tb_m1 = s9.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tb_m1 = s10.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_m1 = tb_m1.text_frame
     tf_m1.word_wrap = True
     tf_m1.margin_left = tf_m1.margin_right = tf_m1.margin_top = tf_m1.margin_bottom = 0
@@ -825,7 +915,7 @@ def create_deck(output_pptx_path):
         ap.space_after = Pt(7)
 
     # Right Column
-    tb_m2 = s9.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tb_m2 = s10.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_m2 = tb_m2.text_frame
     tf_m2.word_wrap = True
     tf_m2.margin_left = tf_m2.margin_right = tf_m2.margin_top = tf_m2.margin_bottom = 0
@@ -883,17 +973,17 @@ def create_deck(output_pptx_path):
         r2.font.color.rgb = COLOR_TEXT_MUTED
         ap.space_after = Pt(7)
 
-    add_footer(s9, 9, TOTAL_SLIDES)
+    add_footer(s10, 10, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 10: CHALLENGES FACED & RESOLUTIONS IMPLEMENTED
+    # SLIDE 11: CHALLENGES FACED & RESOLUTIONS IMPLEMENTED
     # =========================================================================
-    s10 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s10, COLOR_BG_LIGHT)
-    add_header(s10, "Challenges Faced & Resolutions Implemented")
+    s11 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s11, COLOR_BG_LIGHT)
+    add_header(s11, "Challenges Faced & Resolutions Implemented")
 
     # Left Column
-    tb_c1 = s10.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tb_c1 = s11.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_c1 = tb_c1.text_frame
     tf_c1.word_wrap = True
     tf_c1.margin_left = tf_c1.margin_right = tf_c1.margin_top = tf_c1.margin_bottom = 0
@@ -949,7 +1039,7 @@ def create_deck(output_pptx_path):
         cp.space_after = Pt(8)
 
     # Right Column
-    tb_c2 = s10.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tb_c2 = s11.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_c2 = tb_c2.text_frame
     tf_c2.word_wrap = True
     tf_c2.margin_left = tf_c2.margin_right = tf_c2.margin_top = tf_c2.margin_bottom = 0
@@ -979,7 +1069,7 @@ def create_deck(output_pptx_path):
         r2.font.color.rgb = COLOR_TEXT_MUTED
         cp.space_after = Pt(8)
 
-    p = tf_c2.add_paragraph()
+    p = tf_c2.paragraphs[0]
     p.text = "Challenge 4: Generative 3D Mesh Complexity & Performance Lag"
     p.font.size = Pt(15.5)
     p.font.bold = True
@@ -1004,17 +1094,17 @@ def create_deck(output_pptx_path):
         r2.font.color.rgb = COLOR_TEXT_MUTED
         cp.space_after = Pt(8)
 
-    add_footer(s10, 10, TOTAL_SLIDES)
+    add_footer(s11, 11, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 11: LESSONS LEARNED & BEST PRACTICES
+    # SLIDE 12: LESSONS LEARNED & BEST PRACTICES
     # =========================================================================
-    s11 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s11, COLOR_BG_LIGHT)
-    add_header(s11, "Lessons Learned & Best Practices")
+    s12 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s12, COLOR_BG_LIGHT)
+    add_header(s12, "Lessons Learned & Best Practices")
 
     # Left Column
-    tb_l1 = s11.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tb_l1 = s12.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_l1 = tb_l1.text_frame
     tf_l1.word_wrap = True
     tf_l1.margin_left = tf_l1.margin_right = tf_l1.margin_top = tf_l1.margin_bottom = 0
@@ -1070,7 +1160,7 @@ def create_deck(output_pptx_path):
         lp.space_after = Pt(8)
 
     # Right Column
-    tb_l2 = s11.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tb_l2 = s12.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_l2 = tb_l2.text_frame
     tf_l2.word_wrap = True
     tf_l2.margin_left = tf_l2.margin_right = tf_l2.margin_top = tf_l2.margin_bottom = 0
@@ -1125,17 +1215,17 @@ def create_deck(output_pptx_path):
         r2.font.color.rgb = COLOR_TEXT_MUTED
         lp.space_after = Pt(8)
 
-    add_footer(s11, 11, TOTAL_SLIDES)
+    add_footer(s12, 12, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 12: SUGGESTIONS FOR FUTURE PROCESS IMPROVEMENTS
+    # SLIDE 13: SUGGESTIONS FOR FUTURE PROCESS IMPROVEMENTS
     # =========================================================================
-    s12 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s12, COLOR_BG_LIGHT)
-    add_header(s12, "Suggestions for Future Process Improvements")
+    s13 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s13, COLOR_BG_LIGHT)
+    add_header(s13, "Suggestions for Future Process Improvements")
 
     # Left Column
-    tb_s1 = s12.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
+    tb_s1 = s13.shapes.add_textbox(Inches(0.8), top_pos, col_w, h_pos)
     tf_s1 = tb_s1.text_frame
     tf_s1.word_wrap = True
     tf_s1.margin_left = tf_s1.margin_right = tf_s1.margin_top = tf_s1.margin_bottom = 0
@@ -1191,7 +1281,7 @@ def create_deck(output_pptx_path):
         sp.space_after = Pt(8)
 
     # Right Column
-    tb_s2 = s12.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
+    tb_s2 = s13.shapes.add_textbox(Inches(6.9), top_pos, col_w, h_pos)
     tf_s2 = tb_s2.text_frame
     tf_s2.word_wrap = True
     tf_s2.margin_left = tf_s2.margin_right = tf_s2.margin_top = tf_s2.margin_bottom = 0
@@ -1246,18 +1336,18 @@ def create_deck(output_pptx_path):
         r2.font.color.rgb = COLOR_TEXT_MUTED
         sp.space_after = Pt(8)
 
-    add_footer(s12, 12, TOTAL_SLIDES)
+    add_footer(s13, 13, TOTAL_SLIDES)
 
     # =========================================================================
-    # SLIDE 13: SUMMARY (HEADLINE STRICTLY "Summary", NO CARD BOX)
+    # SLIDE 14: SUMMARY (HEADLINE STRICTLY "Summary", NO CARD BOX)
     # =========================================================================
-    s13 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s13, COLOR_PRIMARY_DARK)
+    s14 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s14, COLOR_PRIMARY_DARK)
 
     # Header: strictly "Summary" as requested
-    add_header(s13, "Summary", dark=True)
+    add_header(s14, "Summary", dark=True)
 
-    q_tb = s13.shapes.add_textbox(Inches(0.8), Inches(1.52), Inches(11.733), Inches(5.4))
+    q_tb = s14.shapes.add_textbox(Inches(0.8), Inches(1.52), Inches(11.733), Inches(5.4))
     q_tf = q_tb.text_frame
     q_tf.word_wrap = True
     q_tf.margin_left = q_tf.margin_right = q_tf.margin_top = q_tf.margin_bottom = 0
@@ -1297,10 +1387,10 @@ def create_deck(output_pptx_path):
     qp_contact.font.bold = True
     qp_contact.font.color.rgb = RGBColor(255, 255, 255)
 
-    add_footer(s13, 13, TOTAL_SLIDES, dark=True)
+    add_footer(s14, 14, TOTAL_SLIDES, dark=True)
 
     prs.save(output_pptx_path)
-    print(f"[OK] Generated Clean, High-Legibility 13-Slide PowerPoint at: {output_pptx_path}")
+    print(f"[OK] Generated Clean, High-Legibility 14-Slide PowerPoint at: {output_pptx_path}")
 
 if __name__ == "__main__":
     out_dir = os.path.dirname(os.path.abspath(__file__))

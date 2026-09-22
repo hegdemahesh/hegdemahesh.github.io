@@ -121,14 +121,26 @@ The following projects reflect extensive hands-on technical leadership across st
 
 ---
 
-### 8. Other Specialized Engineering Projects (Technoyana Digital)
+### 8. CAE Simulation Technologies (Canadian Aeronautical Engineering)
+
+#### Flight Simulator Visual Database Development
+- **Company Profile**: CAE (Canadian Aeronautical Engineering) — a world leader in high-fidelity civil aviation and military aircraft flight simulation training devices and full flight simulators (FFS).
+- **Role & Tenure**: Visual Database Developer | Sep 2007 – Apr 2008
+- **Core Mandate**: Focused on specialized visual and structural design work where 3D visual, topographical, and structural details are modeled and fed into visual databases used by real-time flight simulators.
+- **Synthetic World Creation**: Constructed accurate, high-fidelity 3D synthetic environments including runways, airport terminals, terrain elevation, navigation lighting, and approach corridors calibrated to real-world flight coordinates.
+- **3D Modeling & Texturing**: Modeled detailed 3D aircraft structures, ground support vehicles, building structures, and regional geographic landmarks. Utilized Adobe Photoshop for procedural and photo-based texture generation, satellite imagery alignment, seasonal variants, and night-vision/illumination maps.
+- **Locked 60 FPS Budgets**: Engineered all 3D assets under strict polygon limits and Level of Detail (LOD) hierarchies to guarantee zero-latency 60 FPS simulator performance.
+- **Civil & Military Flight Simulators**: Supported pilot training visual systems for major commercial airliners as well as tactical defense aircraft.
+
+---
+
+### 9. Other Specialized Engineering Projects (Technoyana Digital)
 
 Apart from traditional software development, led and delivered diverse technical and engineering projects:
 - **Architectural 3D Visualization**: Delivered photorealistic architectural renderings, lighting studies, and 3D animated walkthroughs for commercial complexes and residential developments.
 - **CAD/CAM & Customized CNC Machine Development**: Led customized CNC machine development and automated CAD/CAM toolpath pipelines, bridging physical fabrication with digital software.
 - **SellAny Mobile Marketplace**: Built and launched *SellAny*—a consumer mobile application allowing users to list and sell any items effortlessly.
 - **Automated Parking Payment Application**: Led an engineering team to develop a mobile parking payment application with real-time slot occupancy tracking.
-- **CAE Simulation Technologies (Sep 2007 – Apr 2008)**: Visual Database Developer creating high-fidelity 3D model libraries and terrain databases for military and civil aircraft flight simulators under locked 60 FPS budgets.
 
 ---
 

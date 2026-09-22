@@ -34,7 +34,7 @@ You have two simple ways to edit any text in the presentation or dossier:
 
 | Deliverable | Format | Description |
 | :--- | :--- | :--- |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 13-slide 16:9 widescreen executive deck with clean, spacious layout, large readable text, embedded photo, and no restrictive card borders. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 14-slide 16:9 widescreen executive deck with clean, spacious layout, large readable text, embedded photo, and no restrictive card borders. |
 | **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | High-resolution PDF export of the slides with embedded photo for direct email submission. |
 | **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Formatted 3-page written executive dossier with candidate photo, detailed project breakdowns, and certification pledge. |
 | **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete text narrative and telephone interview speaking notes. |
@@ -75,24 +75,29 @@ You have two simple ways to edit any text in the presentation or dossier:
 
 7. **Slide 7: Cisco & Vodafone BMS Dashboards & Technoyana Specialized Engineering**
    - *Unified Facility Dashboard*: Unified web interface at Cisco campus connecting to and controlling diverse Building Management Systems (AHUs, VRVs, chillers, power, and environmental telemetry). Awarded Cisco Appreciation in 2010. Also delivered data visualizations for Vodafone.
-   - *Specialized Engineering Projects*: Architectural 3D visualization, customized CNC machine development and CAD/CAM toolpaths, *SellAny* mobile marketplace, automated parking payment app, and flight simulation visuals (CAE).
+   - *Specialized Engineering Projects*: Architectural 3D visualization, customized CNC machine development and automated CAD/CAM toolpaths, *SellAny* mobile marketplace, and automated parking payment mobile app.
 
-8. **Slide 8: Comprehensive Skillset Matrix Across 18+ Years**
+8. **Slide 8: CAE Simulation Technologies: Flight Simulation Visual Databases**
+   - Visual Database Developer (2007–2008) at CAE (Canadian Aeronautical Engineering).
+   - High-fidelity visual and structural database generation for civil aviation and military aircraft flight simulators.
+   - 3D modeling, synthetic world creation (runways, airports, terrain elevation), Adobe Photoshop procedural texturing, and locked 60 FPS real-time performance.
+
+9. **Slide 9: Comprehensive Skillset Matrix Across 18+ Years**
    - Clean synthesis across Scalable Frontend & Modular Architecture, Spatial 3D / CAD & Generative AI, High Reliability & Operational Security, and Agile Leadership & Startup Delivery.
 
-9. **Slide 9: Major Achievements & Milestones**
-   - Cisco Stadium Vision 4-year zero-downtime migration, Philips ICCA healthcare software, Voxelforge AI & Ayam3d generative 3D platforms, and Moonraft Enterprise UI Design System.
+10. **Slide 10: Major Achievements & Milestones**
+    - Cisco Stadium Vision 4-year zero-downtime migration, Philips ICCA healthcare software, Voxelforge AI & Ayam3d generative 3D platforms, and Moonraft Enterprise UI Design System.
 
-10. **Slide 10: Challenges Faced & Resolutions Implemented**
+11. **Slide 11: Challenges Faced & Resolutions Implemented**
     - Technical resolutions for legacy platform migrations, 24/7 ICU continuous uptime, cross-squad UI fragmentation, and generative 3D mesh polygon reduction.
 
-11. **Slide 11: Lessons Learned & Best Practices**
+12. **Slide 12: Lessons Learned & Best Practices**
     - Proven principles: Incremental strangler-fig migration, day-zero cybersecurity architecture, centralized design systems as products, and interactive UX prototyping.
 
-12. **Slide 12: Suggestions for Future Process Improvements**
+13. **Slide 13: Suggestions for Future Process Improvements**
     - Strategic recommendations: Automated IT governance & self-service developer portals, AI-assisted development pipelines, unified enterprise telemetry (APM + BMS), and continuous certification frameworks.
 
-13. **Slide 13: Summary**
+14. **Slide 14: Summary**
     - **Design and Engineering Synthesis**: Dual education in Human Interface Design (M.S.) and Electronics & Communication (B.E.) provides end-to-end UX design and software architecture mastery.
     - **Handling Projects at Every Lifecycle Stage**: Success handling products from early prototypes and design systems to legacy migrations and mission-critical 24/7 hospital deployments.
     - **Self-Training & Certification Pledge**: Direct, professional commitment to upskill and complete any required professional certifications (e.g., Cloud Architecture, ITIL, Cybersecurity, or Project Governance) as per organizational needs before and upon joining.

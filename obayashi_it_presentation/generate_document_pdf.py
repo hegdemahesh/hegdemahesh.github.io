@@ -251,9 +251,15 @@ html_content = f"""<!DOCTYPE html>
   <p>Designed and developed an interactive facility dashboard at Cisco Systems campus as a full-time consultant (2009–2010). Developed a unified web interface connecting to and controlling diverse Building Management Systems: Air Handling Units (AHUs), Variable Refrigerant Volume (VRVs), industrial chillers, and environmental sensor telemetry. Awarded formal Certificate of Appreciation from Cisco in 2010. Also delivered data visualization dashboards for Vodafone operations.</p>
 </div>
 
-<h3>8. Other Specialized Engineering Projects (Technoyana Digital)</h3>
+<h3>8. CAE Simulation Technologies (Canadian Aeronautical Engineering)</h3>
 <div class="card">
-  <p>Apart from traditional software development, led and delivered diverse multi-disciplinary projects: architectural 3D visualization and animated walkthroughs; customized CNC machine development and automated CAD/CAM toolpath pipelines; built consumer mobile application <em>SellAny</em>; and led development of an automated parking payment mobile application with real-time slot occupancy tracking. Visual Database Developer at CAE Simulation Technologies (flight simulator 3D databases).</p>
+  <h4>Flight Simulator Visual Database Development</h4>
+  <p>Worked as a Visual Database Developer (Sep 2007 – Apr 2008) at CAE, the global leader in civil and military aircraft flight simulators. Purely visual and structural design work where visual, topographical, and structural details were modeled and fed into databases used by real-time flight simulators. Created high-fidelity 3D synthetic environments (runways, airports, terrain) using 3D modeling packages, Adobe Photoshop for procedural texture generation, and strict Level of Detail (LOD) hierarchies under locked 60 FPS simulator budgets.</p>
+</div>
+
+<h3>9. Other Specialized Engineering Projects (Technoyana Digital)</h3>
+<div class="card">
+  <p>Apart from traditional software development, led and delivered diverse multi-disciplinary projects: architectural 3D visualization and animated walkthroughs; customized CNC machine development and automated CAD/CAM toolpath pipelines; built consumer mobile application <em>SellAny</em>; and led development of an automated parking payment mobile application with real-time slot occupancy tracking.</p>
 </div>
 
 <h2>Major Achievements & Milestones</h2>
