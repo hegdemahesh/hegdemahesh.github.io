@@ -1,64 +1,64 @@
-# Technical Work Experience & Final Interview Submission Package
+# Technical Work Experience & Final Interview Presentation Package
 **Candidate**: Maheshchandra Hegde  
-**Current Role / LinkedIn Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
-**Profile**: Enterprise Systems Architect | UX Leader | Creative Technologist (16+ Years Experience)  
-**Contact**: hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn](https://www.linkedin.com/in/maheshchandrahegde/)  
+**Current Role / Headline**: Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com  
+**Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
+**Websites & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [LinkedIn Profile](https://www.linkedin.com/in/maheshchandrahegde/)  
 **Submission Recipient**: `talent@obayashi.org`  
 
 ---
 
-## 📁 Package Contents
+## 📁 Package Deliverables
 
-| File | Type | Description |
+| Deliverable | Format | Description |
 | :--- | :--- | :--- |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 11-slide 16:9 widescreen executive slide deck reflecting your authentic experience, architectural roots, and genuine career achievements. Editable in PowerPoint. |
-| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | High-resolution vector export of the 11 slides for direct submission to `talent@obayashi.org`. |
-| **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Formatted 3-page written executive report detailing all 6 required sections with metric badges and project breakdowns. |
-| **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete narrative text and phone interview speaking notes. |
-| **[`build_presentation.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/build_presentation.py)** | Python Script | Generates the PowerPoint deck using `python-pptx`. |
-| **[`export_to_pdf.ps1`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/export_to_pdf.ps1)** | PowerShell Script | Uses MS PowerPoint COM automation to export `.pptx` directly to vector `.pdf`. |
-| **[`generate_document_pdf.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/generate_document_pdf.py)** | Python Script | Renders the HTML template and converts it to PDF using headless Edge/Chrome. |
-| **[`generate_all.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/generate_all.py)** | Master Build Script | Single command `python generate_all.py` that rebuilds and exports all PPTX and PDF files. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pptx)** | Presentation (PPTX) | 9-slide 16:9 widescreen executive deck with embedded portrait photo, covering all 3 major sections and all 8 client-grouped projects. |
+| **[`Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Presentation_Maheshchandra_Hegde.pdf)** | Vector PDF | High-resolution PDF export of the slides with embedded photo for direct email submission. |
+| **[`Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/Obayashi_Senior_Manager_IT_Work_Experience_Document_Maheshchandra_Hegde.pdf)** | Formal Dossier (PDF) | Formatted 3-page written executive dossier with candidate photo, detailed project breakdowns, and certification pledge. |
+| **[`WORK_EXPERIENCE_DOCUMENT.md`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/WORK_EXPERIENCE_DOCUMENT.md)** | Markdown Reference | Complete text narrative and telephone interview speaking notes. |
+| **[`build_presentation.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/build_presentation.py)** | Python Script | Presentation generator script using `python-pptx`. |
+| **[`generate_all.py`](file:///c:/Users/Mahesh/Documents/GitHub/hegdemahesh.github.io/obayashi_it_presentation/generate_all.py)** | Master Build Script | Single command `python generate_all.py` to regenerate both `.pptx` and all `.pdf` files. |
 
 ---
 
-## 🎯 Coverage of Required Sections (Rooted in Your Real Experience)
+## 🏛️ Structure of the 3 Major Sections
 
-1. **Project Overview & Objectives**:
-   - **Philips Intellispace Critical Care & Anesthesia (Cyient)**: Senior Technical Lead (React/NodeJS) on life-critical clinical monitoring and bedside telemetry.
-   - **Startup Ventures (Technoyana & Twitan.com)**: Founder/Co-Founder building high-reliability operational platforms (Shutlify sports OS) and offline-first mobile/web applications.
-   - **Spatial AI & Generative 3D (SrushtiLabs — Voxelforge AI & ayam3d)**: AI-assisted generative 3D workflows producing game-ready low-poly modular assets for Unreal/Unity/WebGL (`srushtilabs.com/voxelforge/`), and automated mesh retopology.
-   - **Visualizer Expert Track Record (50+ Projects)**: Architectural visualization & 3D walkthroughs (learning from your architect father), CAE Simulation flight simulator 3D databases, and Cisco campus Facility Dashboard.
-2. **Your Role & Core Responsibilities**:
-   - Scalable architecture & modular systems (React, Angular, LitElement Design Systems).
-   - Operational reliability & offline-first edge resilience (IndexedDB, Service Workers).
-   - Spatial 3D asset pipelines & WebGL streaming.
-   - Agile team leadership, rapid user prototyping, and mentorship.
-3. **Major Achievements, Milestones & Awards**:
-   - 16+ years experience, 50+ 3D/visualization projects.
-   - Cisco Systems Appreciation Award (2010).
-   - 3 UST Global Certificates of Excellence ("Inspiring People" 2018, "Putting Client First" 2016, "Living the Values" 2015).
-   - Zero-leak 60 FPS clinical UI for Philips ICCA.
-4. **Challenges Faced & Pragmatic Resolutions**:
-   - Field venue network instability -> Offline-first state engine & replay queue.
-   - 24/7 clinical ICU memory leaks -> Decoupled rendering loops & heap profiling.
-   - Web 3D asset payload lag -> Automated retopology (ayam3d) & polygon reduction.
-5. **Lessons Learned & Engineering Best Practices**:
-   - Early user involvement through rapid prototypes.
-   - Designing for real-world edge conditions.
-   - Standardizing design systems and component libraries.
-   - Grounding technology decisions in practical human and business value.
-6. **Suggestions for Future Process Improvements**:
-   - Unified 3D Spatial & Web Integration (lightweight WebGL streaming for digital twins).
-   - Resilient edge-first mobile workflows for field teams.
-   - Enterprise design systems and reusable component standards.
-   - AI-assisted prototyping & development.
+### SECTION 1: Introduction & Executive Profile (Slide 1)
+- Professional Portrait Photo embedded directly on the slide.
+- Headline: *Founder & CTO | Building AI‑driven 3D asset platforms and spatial computing solutions @srushtilabs.com*.
+- Contact, website (`hegdemahesh.in`), and LinkedIn profile links.
+- Executive summary emphasizing 18+ years of experience, Technoyana divisions (Twitan.com and Srushtilabs.com), M.S. in Computing (Human Interface Design, UK), B.E. in Electronics & Communication, and architectural lineage with his architect father.
+
+### SECTION 2: Project Experience Skillset (Client Groups 1 to 8)
+1. **Technoyana Digital Transformation Services Pvt. Ltd. (Founder/CTO)**:
+   - *Voxelforge AI* ([srushtilabs.com/voxelforge/](https://srushtilabs.com/voxelforge/)): Generative AI platform creating modular 3D assets for Unreal Engine, Unity, and real-time WebGL.
+   - *Ayam3d* ([ayam3d.in](https://ayam3d.in/)): Parametric-based AI 3D model generation from natural language prompts in seconds. Received investor interest; actively seeking partners.
+2. **Cyient Limited / PHILIPS Healthcare**:
+   - *Philips Intellispace Critical Care & Anesthesia (ICCA)*: Senior Technology Leader delivering hospital ICU software. Passed strict quality and safety benchmarks; strictly enforced MFA, XSS prevention, RBAC, and clinical data protection.
+3. **Ness Digital Engineering**:
+   - *Entertainment Management Application*: Senior Analyst / Tech Lead developing application using Angular, TypeScript, AWS, and Node.js.
+4. **Moonraft Innovation Labs (Unit of UST Global)**:
+   - *Enterprise UI Design System*: Centralized component repository using LitElement Web Components, React, AngularJS, Node.js, and npm packaging. Eliminated code duplication across company projects.
+   - *Luxury Hotel Group Mobile App*: Led mobile app development for a leading Indian hotel chain using Ionic and Angular.
+5. **UST Global / CISCO**:
+   - *Cisco Stadium Vision Director Modernization*: Senior Analyst & Associate Project Manager (4+ years). Led the phased, zero-downtime migration from legacy Flash/Flex to modern Angular and React modules without disrupting live stadium operations.
+6. **ThoughtFocus Technologies**:
+   - *Aftermarket Parts Explorer*: UI Architect & Tech Lead for a massive marketplace with an interactive 3D viewer for inspecting thousands of 3D part models, cart, and payment gateways.
+   - *Enterprise UI Solutions*: Early prototyping pipelines, high-speed enterprise search application, and a dairy corporation operational logistics management app.
+7. **CISCO & Vodafone (Independent Consultant)**:
+   - *Unified Facility Dashboard*: Unified web interface at Cisco campus connecting to and controlling diverse Building Management Systems (AHUs, VRVs, chillers, power, and environmental telemetry). Awarded Cisco Appreciation in 2010. Also delivered data visualizations for Vodafone.
+8. **Other Specialized Engineering Projects (Technoyana)**:
+   - Architectural 3D visualization, customized CNC machine development and CAD/CAM toolpath pipelines, *SellAny* mobile marketplace, automated parking payment application, and CAE Simulation Technologies (flight simulator 3D databases).
+- **Core Skillset Matrix (Slide 8)**: Synthesis across Scalable Frontend, Spatial 3D/CAD/AI, Operational Reliability/Security, and Agile Leadership.
+
+### SECTION 3: Conclusion & Alignment to Role (Slide 9)
+- **Synthesis of Skills**: Dual education in Human Interface Design (M.S.) and Electronics & Communication (B.E.) provides end-to-end design and engineering mastery.
+- **Handling Projects at Every Lifecycle Stage**: Success handling products from early prototypes and design systems to legacy migrations and mission-critical 24/7 hospital deployments.
+- **Self-Training & Certification Pledge**: Direct, professional commitment to upskill and complete any required professional certifications (e.g., Cloud Architecture, ITIL, Cybersecurity, or Project Governance) as per Obayashi's operational needs before and upon joining.
 
 ---
 
-## 🚀 How to Re-generate After Any Edits
-
-To regenerate all PPTX and PDF files anytime:
+## 🚀 Rebuilding Deliverables
+To rebuild all deliverables anytime after tweaking text or scripts:
 ```bash
 python generate_all.py
 ```

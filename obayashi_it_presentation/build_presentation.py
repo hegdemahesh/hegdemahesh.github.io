@@ -1,8 +1,10 @@
 """
-Script to generate the Authentic Work Experience Presentation
-Candidate: Maheshchandra Hegde
-Profile: Product Design Expert | UX Architect | Creative Technologist (16+ Years Experience)
-Position applied: Senior Manager - IT
+Script to generate the Technical Work Experience Presentation for Maheshchandra Hegde
+Three Major Sections:
+1. Introduction & Executive Profile (with Photo)
+2. Project / Experience Skillset (Grouped by Client: 1 to 8)
+3. Conclusion: Role Fit & Self-Training / Certification Pledge
+
 Format: 16:9 Widescreen PowerPoint Presentation (.pptx)
 """
 
@@ -19,7 +21,7 @@ def create_deck(output_pptx_path):
     prs.slide_height = Inches(7.5)
     blank_layout = prs.slide_layouts[6]
 
-    # Elegant, Authentic Executive Palette
+    # Elegant Executive Color Palette
     COLOR_PRIMARY_DARK = RGBColor(15, 23, 42)     # Slate 900 #0F172A
     COLOR_PRIMARY_BLUE = RGBColor(2, 132, 199)    # Sky / Tech Blue #0284C7
     COLOR_BRAND_DEEP   = RGBColor(14, 116, 144)   # Deep Ocean Teal #0E7490
@@ -32,7 +34,9 @@ def create_deck(output_pptx_path):
     COLOR_SUCCESS      = RGBColor(16, 149, 99)    # Emerald Green #109563
     COLOR_CYAN_ACCENT  = RGBColor(56, 189, 248)   # Cyan #38BDF8
 
-    TOTAL_SLIDES = 11
+    TOTAL_SLIDES = 9
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    photo_path = os.path.join(script_dir, "maheshForResume.jpg")
 
     def set_slide_background(slide, color):
         bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(7.5))
@@ -41,13 +45,13 @@ def create_deck(output_pptx_path):
         bg.line.fill.background()
         return bg
 
-    def add_header(slide, category, title, dark=False):
+    def add_header(slide, section_tag, title, dark=False):
         cat_box = slide.shapes.add_textbox(Inches(0.8), Inches(0.4), Inches(11.7), Inches(0.3))
         tf_cat = cat_box.text_frame
         tf_cat.word_wrap = True
         tf_cat.margin_left = tf_cat.margin_right = tf_cat.margin_top = tf_cat.margin_bottom = 0
         p_cat = tf_cat.paragraphs[0]
-        p_cat.text = category.upper()
+        p_cat.text = section_tag.upper()
         p_cat.font.size = Pt(10.5)
         p_cat.font.bold = True
         p_cat.font.color.rgb = COLOR_CYAN_ACCENT if dark else COLOR_BRAND_DEEP
@@ -80,226 +84,258 @@ def create_deck(output_pptx_path):
         tf = footer_box.text_frame
         tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
         p = tf.paragraphs[0]
-        p.text = f"Maheshchandra Hegde · Technical Work Experience & Capability Presentation | Slide {current_page} of {total_pages}"
+        p.text = f"Maheshchandra Hegde · Technical Work Experience Presentation | Slide {current_page} of {total_pages}"
         p.font.size = Pt(9)
         p.font.color.rgb = RGBColor(148, 163, 184) if dark else COLOR_TEXT_MUTED
 
-    # ==========================================
-    # SLIDE 1: Title Slide (Executive Dark)
-    # ==========================================
+    # =========================================================================
+    # SLIDE 1: SECTION 1 — INTRODUCTION & EXECUTIVE PROFILE (WITH PHOTO)
+    # =========================================================================
     s1 = prs.slides.add_slide(blank_layout)
     set_slide_background(s1, COLOR_PRIMARY_DARK)
 
-    # Accent decorative bar
-    strip = s1.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), Inches(1.3), Inches(0.25), Inches(4.8))
-    strip.fill.solid()
-    strip.fill.fore_color.rgb = COLOR_PRIMARY_BLUE
-    strip.line.fill.background()
+    # Left Column: Candidate Photo & Contact Details Card
+    card_photo = add_card(s1, Inches(0.8), Inches(0.8), Inches(3.4), Inches(5.95),
+                          bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
 
-    t_box = s1.shapes.add_textbox(Inches(1.35), Inches(1.3), Inches(11.2), Inches(3.4))
-    tf1 = t_box.text_frame
-    tf1.word_wrap = True
+    if os.path.exists(photo_path):
+        s1.shapes.add_picture(photo_path, Inches(1.0), Inches(1.0), Inches(3.0), Inches(4.0))
 
-    p0 = tf1.paragraphs[0]
-    p0.text = "TECHNICAL LEADERSHIP & WORK EXPERIENCE PRESENTATION"
-    p0.font.size = Pt(12)
+    # Contact Info beneath photo
+    c_box = s1.shapes.add_textbox(Inches(0.9), Inches(5.1), Inches(3.2), Inches(1.5))
+    ctf = c_box.text_frame
+    ctf.word_wrap = True
+    ctf.margin_left = ctf.margin_right = ctf.margin_top = ctf.margin_bottom = 0
+
+    cp = ctf.paragraphs[0]
+    cp.text = "Bangalore, India"
+    cp.font.size = Pt(9.5)
+    cp.font.bold = True
+    cp.font.color.rgb = RGBColor(226, 232, 240)
+
+    cp = ctf.add_paragraph()
+    cp.text = "+91 9535253329 / 7022407280"
+    cp.font.size = Pt(9)
+    cp.font.color.rgb = RGBColor(203, 213, 225)
+
+    cp = ctf.add_paragraph()
+    cp.text = "hid.mahesh@gmail.com"
+    cp.font.size = Pt(9)
+    cp.font.color.rgb = COLOR_CYAN_ACCENT
+
+    cp = ctf.add_paragraph()
+    cp.text = "hegdemahesh.in | linkedin.com/in/maheshchandrahegde"
+    cp.font.size = Pt(8.5)
+    cp.font.color.rgb = COLOR_CYAN_ACCENT
+
+    # Right Column: Name, LinkedIn Headline, and Summary
+    rw = Inches(8.1)
+    rx = Inches(4.45)
+
+    add_card(s1, rx, Inches(0.8), rw, Inches(5.95),
+             bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
+
+    t_box = s1.shapes.add_textbox(rx + Inches(0.4), Inches(1.05), rw - Inches(0.8), Inches(5.4))
+    tf = t_box.text_frame
+    tf.word_wrap = True
+
+    p0 = tf.paragraphs[0]
+    p0.text = "SECTION 1 · EXECUTIVE INTRODUCTION"
+    p0.font.size = Pt(11)
     p0.font.bold = True
     p0.font.color.rgb = COLOR_CYAN_ACCENT
-    p0.space_after = Pt(10)
+    p0.space_after = Pt(4)
 
-    p1 = tf1.add_paragraph()
+    p1 = tf.add_paragraph()
     p1.text = "Maheshchandra Hegde"
-    p1.font.size = Pt(30)
+    p1.font.size = Pt(28)
     p1.font.bold = True
     p1.font.color.rgb = RGBColor(255, 255, 255)
     p1.space_after = Pt(4)
 
-    p2 = tf1.add_paragraph()
+    p2 = tf.add_paragraph()
     p2.text = "Founder & CTO | Building AI‑Driven 3D Asset Platforms & Spatial Computing Solutions @srushtilabs.com"
-    p2.font.size = Pt(13.5)
+    p2.font.size = Pt(13)
     p2.font.bold = True
-    p2.font.color.rgb = COLOR_CYAN_ACCENT
-    p2.space_after = Pt(10)
+    p2.font.color.rgb = COLOR_PRIMARY_BLUE
+    p2.space_after = Pt(12)
 
-    p3 = tf1.add_paragraph()
-    p3.text = "16+ years delivering scalable enterprise frontend systems, high-reliability clinical platforms, offline-first architectures, and generative 3D spatial tools.\nBangalore, India | hid.mahesh@gmail.com | +91 9535253329 / 7022407280 | hegdemahesh.in | linkedin.com/in/maheshchandrahegde"
-    p3.font.size = Pt(11)
-    p3.font.color.rgb = RGBColor(148, 163, 184)
+    p_sum = tf.add_paragraph()
+    p_sum.text = (
+        "Innovative technologist and product strategist with 18+ years of experience architecting end-to-end digital products, "
+        "interactive 3D experiences, and domain-specific SaaS platforms. Co-Founder and Technology Leader at Technoyana Digital "
+        "Transformation Services Pvt. Ltd., driving product architecture and creative tech vision across flagship divisions:\n\n"
+        "• Twitan.com — AI-driven sports management app & operational SaaS suite (Shutlify badminton OS).\n"
+        "• Srushtilabs.com — Generative AI & modular 3D computing platform for games, simulations, and 3D visualization.\n\n"
+        "Holds a postgraduate degree in Human Interface Design & Development (M.S. in Computing, Robert Gordon University, UK) "
+        "and an engineering background in Electronics & Communication (B.E.). Expertise spans modern web/mobile stacks "
+        "(React, TypeScript, Angular, Web Components, Node.js, Firebase), interactive 3D/PBR pipelines, and design-to-code automation."
+    )
+    p_sum.font.size = Pt(10)
+    p_sum.font.color.rgb = RGBColor(203, 213, 225)
+    p_sum.space_after = Pt(10)
 
-    # 4 Authentic Pillar Cards
-    pillars = [
-        ("Scalable Enterprise Systems", "Philips Healthcare (Cyient), Cisco Systems, enterprise web apps, micro-frontends"),
-        ("Startup Founder & Tech Director", "Technoyana (technoyana.in), Twitan.com (high-reliability sports OS), InnoBrik"),
-        ("3D Spatial & Generative AI", "Voxelforge AI (srushtilabs.com/voxelforge), ayam3d, CAE flight simulation"),
-        ("Architectural Heritage", "Rooted in CAD & 3D visualization assisting architect father; 50+ 3D projects delivered")
-    ]
-    card_w = Inches(2.75)
-    card_h = Inches(1.35)
-    start_x = Inches(1.35)
-    start_y = Inches(5.0)
-    gap = Inches(0.24)
-
-    for i, (title, desc) in enumerate(pillars):
-        cx = start_x + i * (card_w + gap)
-        add_card(s1, cx, start_y, card_w, card_h, bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
-        tb = s1.shapes.add_textbox(cx + Inches(0.15), start_y + Inches(0.12), card_w - Inches(0.3), card_h - Inches(0.24))
-        ctf = tb.text_frame
-        ctf.word_wrap = True
-        cp1 = ctf.paragraphs[0]
-        cp1.text = title
-        cp1.font.size = Pt(11.5)
-        cp1.font.bold = True
-        cp1.font.color.rgb = RGBColor(255, 255, 255)
-        cp1.space_after = Pt(4)
-        cp2 = ctf.add_paragraph()
-        cp2.text = desc
-        cp2.font.size = Pt(9)
-        cp2.font.color.rgb = RGBColor(148, 163, 184)
+    p_arc = tf.add_paragraph()
+    p_arc.text = (
+        "Architectural Heritage: Growing up assisting my architect father in his studio provided my earliest practical foundation in "
+        "architectural drawings, CAD drafting, and spatial visualization—cultivating a natural synergy between software systems and 3D engineering."
+    )
+    p_arc.font.size = Pt(9.5)
+    p_arc.font.italic = True
+    p_arc.font.color.rgb = RGBColor(148, 163, 184)
 
     add_footer(s1, 1, TOTAL_SLIDES, dark=True)
 
-    # ==========================================
-    # SLIDE 2: Professional Profile & Architectural Roots
-    # ==========================================
+    # =========================================================================
+    # SLIDE 2: SECTION 2 — GROUP 1: TECHNOYANA & SRUSHTILABS (VOXELFORGE & AYAM3D)
+    # =========================================================================
     s2 = prs.slides.add_slide(blank_layout)
     set_slide_background(s2, COLOR_BG_LIGHT)
-    add_header(s2, "Executive Profile", "Professional Background, Architectural Heritage & Technical Philosophy")
+    add_header(s2, "Section 2 · Project Experience (Client Group 1)", "Technoyana & SrushtiLabs: Generative 3D Platforms & Spatial Computing")
 
-    # Left: Heritage & Story Card (Width: 5.6)
-    add_card(s2, Inches(0.8), Inches(1.6), Inches(5.6), Inches(5.2))
-    hb = s2.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.81), Inches(1.61), Inches(5.58), Inches(0.42))
-    hb.fill.solid()
-    hb.fill.fore_color.rgb = COLOR_BRAND_DEEP
-    hb.line.fill.background()
+    c_w = Inches(5.72)
+    c_h = Inches(5.2)
 
-    ht = s2.shapes.add_textbox(Inches(0.95), Inches(1.68), Inches(5.3), Inches(0.35))
-    ht.text_frame.paragraphs[0].text = "ARCHITECTURAL LINEAGE & PASSION FOR 3D"
-    ht.text_frame.paragraphs[0].font.size = Pt(11)
-    ht.text_frame.paragraphs[0].font.bold = True
-    ht.text_frame.paragraphs[0].font.color.rgb = RGBColor(255, 255, 255)
+    # Left: Voxelforge AI
+    add_card(s2, Inches(0.8), Inches(1.6), c_w, c_h)
+    tb1 = s2.shapes.add_textbox(Inches(1.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf1 = tb1.text_frame
+    tf1.word_wrap = True
 
-    s_tb = s2.shapes.add_textbox(Inches(1.0), Inches(2.15), Inches(5.2), Inches(4.5))
-    stf = s_tb.text_frame
-    stf.word_wrap = True
-
-    p = stf.paragraphs[0]
-    p.text = "Natural Convergence of Architecture and Computing"
-    p.font.size = Pt(13)
+    p = tf1.paragraphs[0]
+    p.text = "Voxelforge AI"
+    p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
-    p.space_after = Pt(6)
+    p.space_after = Pt(2)
 
-    story_text = (
-        "• Early Foundation with Architect Father: Growing up assisting my architect father in his studio provided my earliest foundation in drafting, spatial coordination, blueprints, CAD, and architectural drawings. This practical exposure sparked an enduring passion for 3D modeling, spatial thinking, and visualization.\n\n"
-        "• Blending Engineering with Human Interface: Pursued formal education with a Bachelor of Engineering in Electronics & Communication and a Master of Science in Computing (Robert Gordon University, UK), specializing in Human Interface Design & Development.\n\n"
-        "• 16+ Years Hands-on Leadership: Combined rigorous software architecture with creative spatial technologies—spanning flight simulation visual databases (CAE), enterprise dashboards (Cisco), healthcare platforms (Philips), startup products (Technoyana, Twitan), and generative 3D AI (Voxelforge AI, ayam3d)."
-    )
-    p2 = stf.add_paragraph()
-    p2.text = story_text
-    p2.font.size = Pt(9.5)
-    p2.font.color.rgb = COLOR_TEXT_MAIN
+    p_sub = tf1.add_paragraph()
+    p_sub.text = "Modular 3D Generative AI Platform | srushtilabs.com/voxelforge/"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_BRAND_DEEP
+    p_sub.space_after = Pt(12)
 
-    # Right: Career Snapshot & Core Competencies (Width: 5.85)
-    rx = Inches(6.68)
-    rw = Inches(5.85)
-
-    add_card(s2, rx, Inches(1.6), rw, Inches(5.2))
-    rb = s2.shapes.add_shape(MSO_SHAPE.RECTANGLE, rx + Inches(0.01), Inches(1.61), rw - Inches(0.02), Inches(0.42))
-    rb.fill.solid()
-    rb.fill.fore_color.rgb = COLOR_PRIMARY_BLUE
-    rb.line.fill.background()
-
-    rt = s2.shapes.add_textbox(rx + Inches(0.15), Inches(1.68), rw - Inches(0.3), Inches(0.35))
-    rt.text_frame.paragraphs[0].text = "CAREER SNAPSHOT & CORE COMPETENCIES"
-    rt.text_frame.paragraphs[0].font.size = Pt(11)
-    rt.text_frame.paragraphs[0].font.bold = True
-    rt.text_frame.paragraphs[0].font.color.rgb = RGBColor(255, 255, 255)
-
-    rtb = s2.shapes.add_textbox(rx + Inches(0.2), Inches(2.15), rw - Inches(0.4), Inches(4.5))
-    rtf = rtb.text_frame
-    rtf.word_wrap = True
-
-    c_items = [
-        ("Frontend & Scalable Architecture", "React, Angular, TypeScript, Node.js, Web Components, Micro-frontends, LitElement, Design Systems."),
-        ("Cloud, Edge & Reliability", "GCP, Firebase, AWS, offline-first architectures, IndexedDB/Service Workers, WebSockets, real-time data sync."),
-        ("Spatial 3D & Generative AI", "AI-assisted 3D generation (Voxelforge AI), automated mesh retopology (ayam3d), WebGL, Three.js, CAD drafting, 3D walkthroughs."),
-        ("Product & Startup Leadership", "Founder/Co-Founder across Technoyana, Twitan.com, SrushtiLabs, InnoBrik; product strategy, sprint governance, mentoring."),
-        ("Key Industry Tenures", "Cyient (Philips Healthcare), UST Global (Cisco Systems), Ness Technologies, Moonraft Innovation Labs, ThoughtFocus, CAE Simulation.")
+    v_points = [
+        ("Role & Entity", "Founder & CTO at SrushtiLabs (Technoyana Digital Transformation Services Pvt. Ltd.)."),
+        ("Core Product Innovation", "Developed Voxelforge AI, a generative AI product creating modular 3D assets based on user prompt inputs."),
+        ("Multi-Platform Assembly", "Produces game-ready, low-poly 3D models and bundles optimized for immediate integration into Unreal Engine, Unity, and real-time WebGL engines."),
+        ("Design-to-Asset Speed", "Automates prompt-to-3D geometry conversion, texture baking, and polygon optimization, reducing prototyping turnaround from days to minutes."),
+        ("Live Demonstration", "Fully functional application deployed and accessible at srushtilabs.com/voxelforge/.")
     ]
-    for ci_i, (clbl, cval) in enumerate(c_items):
-        cp1 = rtf.paragraphs[0] if ci_i == 0 else rtf.add_paragraph()
-        cp1.text = f"• {clbl}: "
-        cp1.font.bold = True
-        cp1.font.size = Pt(10)
-        cp1.font.color.rgb = COLOR_PRIMARY_DARK
-        cp2 = rtf.add_paragraph()
-        cp2.text = f"  {cval}"
-        cp2.font.size = Pt(9)
-        cp2.font.color.rgb = COLOR_TEXT_MUTED
-        cp2.space_after = Pt(4)
+    for lbl, val in v_points:
+        vp = tf1.add_paragraph()
+        vp.text = f"• {lbl}: "
+        vp.font.bold = True
+        vp.font.size = Pt(10)
+        vp.font.color.rgb = COLOR_PRIMARY_DARK
+        vp2 = tf1.add_paragraph()
+        vp2.text = f"  {val}"
+        vp2.font.size = Pt(9.5)
+        vp2.font.color.rgb = COLOR_TEXT_MUTED
+        vp2.space_after = Pt(6)
+
+    # Right: Ayam3d
+    add_card(s2, Inches(6.8), Inches(1.6), c_w, c_h)
+    tb2 = s2.shapes.add_textbox(Inches(7.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf2 = tb2.text_frame
+    tf2.word_wrap = True
+
+    p = tf2.paragraphs[0]
+    p.text = "Ayam3d (Ayam = Dimension)"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub2 = tf2.add_paragraph()
+    p_sub2.text = "Parametric AI 3D Model Generation | ayam3d.in"
+    p_sub2.font.size = Pt(11)
+    p_sub2.font.bold = True
+    p_sub2.font.color.rgb = COLOR_PRIMARY_BLUE
+    p_sub2.space_after = Pt(12)
+
+    a_points = [
+        ("Concept & Vision", "Extended the Voxelforge concept into Ayam3d ('Ayam' meaning Dimension), focusing on parametric-based 3D model generation from natural language prompts."),
+        ("Instant Generation", "Emphasizes generating structured 3D models in seconds utilizing custom trained AI models and geometric constraint solvers."),
+        ("Investor Interest", "Successfully generated early investor interest, validating the commercial potential of real-time generative 3D synthesis for digital twins, architecture, and games."),
+        ("Active Development", "Currently under active development; seeking strategic industry partners and promoters to scale the underlying AI pipeline."),
+        ("Application Reference", "Preliminary landing page and concept documentation available at ayam3d.in.")
+    ]
+    for lbl, val in a_points:
+        ap = tf2.add_paragraph()
+        ap.text = f"• {lbl}: "
+        ap.font.bold = True
+        ap.font.size = Pt(10)
+        ap.font.color.rgb = COLOR_PRIMARY_DARK
+        ap2 = tf2.add_paragraph()
+        ap2.text = f"  {val}"
+        ap2.font.size = Pt(9.5)
+        ap2.font.color.rgb = COLOR_TEXT_MUTED
+        ap2.space_after = Pt(6)
 
     add_footer(s2, 2, TOTAL_SLIDES)
 
-    # ==========================================
-    # SLIDE 3: Project 1 — Philips ICCA (Cyient)
-    # ==========================================
+    # =========================================================================
+    # SLIDE 3: SECTION 2 — GROUP 2: CYIENT / PHILIPS HEALTHCARE (ICCA)
+    # =========================================================================
     s3 = prs.slides.add_slide(blank_layout)
     set_slide_background(s3, COLOR_BG_LIGHT)
-    add_header(s3, "Enterprise Project Experience 1", "Healthcare Mission-Critical Systems: Philips ICCA (Cyient Limited)")
+    add_header(s3, "Section 2 · Project Experience (Client Group 2)", "Cyient / PHILIPS: Intellispace Critical Care & Anesthesia (ICCA)")
 
-    # Left: Role & Context Card
-    add_card(s3, Inches(0.8), Inches(1.6), Inches(4.3), Inches(5.2))
-    p1_tb = s3.shapes.add_textbox(Inches(1.05), Inches(1.8), Inches(3.8), Inches(4.8))
-    p1_tf = p1_tb.text_frame
-    p1_tf.word_wrap = True
+    # Left: Project Scope Card (Width: 4.5)
+    add_card(s3, Inches(0.8), Inches(1.6), Inches(4.5), Inches(5.2))
+    p3_tb = s3.shapes.add_textbox(Inches(1.05), Inches(1.8), Inches(4.0), Inches(4.8))
+    p3_tf = p3_tb.text_frame
+    p3_tf.word_wrap = True
 
-    p = p1_tf.paragraphs[0]
+    p = p3_tf.paragraphs[0]
     p.text = "Philips ICCA"
     p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
-    p.space_after = Pt(4)
+    p.space_after = Pt(2)
 
-    p = p1_tf.add_paragraph()
+    p = p3_tf.add_paragraph()
     p.text = "Intellispace Critical Care & Anesthesia"
     p.font.size = Pt(11)
     p.font.bold = True
     p.font.color.rgb = COLOR_BRAND_DEEP
     p.space_after = Pt(10)
 
-    p1_meta = [
-        ("Role", "Senior Technical Lead (React / NodeJS)"),
+    p3_meta = [
+        ("Role", "Senior Technology Leader (React / NodeJS)"),
         ("Tenure", "Nov 2023 – Mar 2025"),
-        ("Company", "Cyient Limited for Philips Healthcare, Bangalore"),
-        ("Operational Reality", "24/7 continuous ICU hospital environments; zero tolerance for UI freeze or missing patient vitals"),
-        ("Key Focus", "Scalable frontend architecture, high performance, strict healthcare standards compliance")
+        ("Client & Facility", "Cyient Limited for Philips Healthcare, Bangalore"),
+        ("Operational Reality", "Mission-critical hospital ICU and anesthesia suites operating continuously 24/7."),
+        ("Delivery Mandate", "Delivered clinical software passing all stringent quality, reliability, and security gates established by Philips and hospital networks.")
     ]
-    for lbl, val in p1_meta:
-        p = p1_tf.add_paragraph()
+    for lbl, val in p3_meta:
+        p = p3_tf.add_paragraph()
         p.text = f"{lbl}: "
         p.font.bold = True
         p.font.size = Pt(10)
         p.font.color.rgb = COLOR_PRIMARY_DARK
-        p2 = p1_tf.add_paragraph()
+        p2 = p3_tf.add_paragraph()
         p2.text = f"{val}"
-        p2.font.size = Pt(9)
+        p2.font.size = Pt(9.5)
         p2.font.color.rgb = COLOR_TEXT_MUTED
-        p2.space_after = Pt(5)
+        p2.space_after = Pt(6)
 
-    # Right: Objectives & Technical Delivery
-    r3_x = Inches(5.35)
-    r3_w = Inches(7.18)
+    # Right: 3 Core Pillars of Execution (Width: 6.98)
+    r3_x = Inches(5.55)
+    r3_w = Inches(6.98)
 
-    p1_cards = [
-        ("1. High-Performance Clinical Telemetry & Zero Latency",
-         "Architected React-based frontend modules responsible for rendering complex clinical time-series charts, vitals, and medication administration workflows. Enforced strict memory management and component memoization to prevent garbage collection pauses during long-running bedside sessions."),
-        ("2. Decoupled Modular Architecture & Maintainability",
-         "Deconstructed complex clinical workflows into reusable, modular component libraries. Created robust contract boundaries with backend REST and streaming APIs, accelerating multi-developer collaboration while eliminating regression risks across unrelated clinical modules."),
-        ("3. Healthcare Regulatory & Security Standards Compliance",
-         "Ensured all developed UI modules strictly complied with medical software safety benchmarks, HIPAA data protection guidelines, role-based clinician access controls, and robust audit trails for all patient data modifications.")
+    p3_cards = [
+        ("1. Rigorous Quality Benchmarks & Zero-Downtime Reliability",
+         "Successfully delivered the software to meet demanding medical quality requirements set by Philips and healthcare providers. Architected fail-safe clinical data rendering with zero memory leaks, ensuring bedside patient monitoring displays remain completely responsive across multi-day uninterrupted operations."),
+        ("2. Comprehensive Security Architecture & Policy Enforcement",
+         "Enforced strict enterprise cybersecurity measures as per Philips global policies: integrated Multi-Factor Authentication (MFA), protected against Cross-Site Scripting (XSS) and injection vulnerabilities, enforced role-based access control (RBAC), and maintained immutable audit logs for sensitive patient medical data."),
+        ("3. End-to-End Best Practices & Scalable Modular Delivery",
+         "Led the end-to-end technical execution—from architectural design and modular component breakdown to automated test suites and production deployment. Delivered a fully supported software product backed by complete documentation and service support protocols.")
     ]
 
-    for i, (title, desc) in enumerate(p1_cards):
+    for i, (title, desc) in enumerate(p3_cards):
         cy = Inches(1.6) + i * Inches(1.76)
         add_card(s3, r3_x, cy, r3_w, Inches(1.6))
         otb = s3.shapes.add_textbox(r3_x + Inches(0.2), cy + Inches(0.15), r3_w - Inches(0.4), Inches(1.3))
@@ -318,68 +354,156 @@ def create_deck(output_pptx_path):
 
     add_footer(s3, 3, TOTAL_SLIDES)
 
-    # ==========================================
-    # SLIDE 4: Project 2 — Startup Ventures: Technoyana & Twitan.com
-    # ==========================================
+    # =========================================================================
+    # SLIDE 4: SECTION 2 — GROUP 3 & 4: NESS DIGITAL & MOONRAFT INNOVATION LABS
+    # =========================================================================
     s4 = prs.slides.add_slide(blank_layout)
     set_slide_background(s4, COLOR_BG_LIGHT)
-    add_header(s4, "Startup Ventures & Cloud Systems", "Product Engineering & Edge Resilience: Technoyana & Twitan.com")
+    add_header(s4, "Section 2 · Project Experience (Client Groups 3 & 4)", "Ness Digital Engineering & Moonraft Innovation Labs (UST Global Unit)")
 
-    # Left: Startup Snapshot Card
-    add_card(s4, Inches(0.8), Inches(1.6), Inches(4.3), Inches(5.2))
-    p2_tb = s4.shapes.add_textbox(Inches(1.05), Inches(1.8), Inches(3.8), Inches(4.8))
-    p2_tf = p2_tb.text_frame
-    p2_tf.word_wrap = True
+    # Left: Ness Digital Engineering
+    add_card(s4, Inches(0.8), Inches(1.6), c_w, c_h)
+    tb_n = s4.shapes.add_textbox(Inches(1.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_n = tb_n.text_frame
+    tf_n.word_wrap = True
 
-    p = p2_tf.paragraphs[0]
-    p.text = "Technoyana & Twitan"
+    p = tf_n.paragraphs[0]
+    p.text = "Ness Digital Engineering"
     p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = COLOR_PRIMARY_DARK
-    p.space_after = Pt(4)
+    p.space_after = Pt(2)
 
-    p = p2_tf.add_paragraph()
-    p.text = "technoyana.in | twitan.com"
+    p_sub = tf_n.add_paragraph()
+    p_sub.text = "Senior Analyst / Tech Lead | Oct 2019 – Apr 2020"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_BRAND_DEEP
+    p_sub.space_after = Pt(12)
+
+    n_points = [
+        ("Project Focus", "Entertainment Management Application for a major client."),
+        ("Technology Stack", "Angular, TypeScript, AWS cloud infrastructure, Node.js."),
+        ("System Architecture", "Architected the complete single-page application structure, establishing clean state management and secure API communication layers."),
+        ("Standards & Best Practices", "Enforced accessibility standards (WCAG), code quality linters, and strict frontend security guidelines across the engineering team."),
+        ("Technical Leadership", "Led the development squad through agile sprints, code reviews, and end-to-end technical deployment to client environments on schedule.")
+    ]
+    for lbl, val in n_points:
+        np = tf_n.add_paragraph()
+        np.text = f"• {lbl}: "
+        np.font.bold = True
+        np.font.size = Pt(10)
+        np.font.color.rgb = COLOR_PRIMARY_DARK
+        np2 = tf_n.add_paragraph()
+        np2.text = f"  {val}"
+        np2.font.size = Pt(9.5)
+        np2.font.color.rgb = COLOR_TEXT_MUTED
+        np2.space_after = Pt(6)
+
+    # Right: Moonraft Innovation Labs
+    add_card(s4, Inches(6.8), Inches(1.6), c_w, c_h)
+    tb_m = s4.shapes.add_textbox(Inches(7.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_m = tb_m.text_frame
+    tf_m.word_wrap = True
+
+    p = tf_m.paragraphs[0]
+    p.text = "Moonraft Innovation Labs"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_m.add_paragraph()
+    p_sub.text = "UI Architect | May 2019 – Jul 2019 (UST Global Specialized Unit)"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
+    p_sub.space_after = Pt(12)
+
+    m_points = [
+        ("Enterprise Design System", "Architected and engineered a centralized cross-framework UI Design System using LitElement Web Components, React, AngularJS, Node.js, and npm packaging."),
+        ("Eliminated Duplication", "Stored all standardized UI components in a central repository, preventing teams from reinventing the wheel for new client projects."),
+        ("Unified Look & Feel", "Guaranteed visual consistency and brand coherence across all digital products from a single, shared codebase."),
+        ("Automated Upgradability", "When the core component library is updated, client projects automatically inherit updates and enhancements via standard package management."),
+        ("Luxury Hotel Mobile App", "Led mobile application development for a premier Indian hotel group (TLC Group of Hotels) built using Ionic and Angular.")
+    ]
+    for lbl, val in m_points:
+        mp = tf_m.add_paragraph()
+        mp.text = f"• {lbl}: "
+        mp.font.bold = True
+        mp.font.size = Pt(10)
+        mp.font.color.rgb = COLOR_PRIMARY_DARK
+        mp2 = tf_m.add_paragraph()
+        mp2.text = f"  {val}"
+        mp2.font.size = Pt(9.5)
+        mp2.font.color.rgb = COLOR_TEXT_MUTED
+        mp2.space_after = Pt(6)
+
+    add_footer(s4, 4, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 5: SECTION 2 — GROUP 5: UST GLOBAL / CISCO (STADIUM VISION DIRECTOR)
+    # =========================================================================
+    s5 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s5, COLOR_BG_LIGHT)
+    add_header(s5, "Section 2 · Project Experience (Client Group 5)", "UST Global / CISCO: Stadium Vision Director Migration")
+
+    # Left: Project Overview Card
+    add_card(s5, Inches(0.8), Inches(1.6), Inches(4.5), Inches(5.2))
+    p5_tb = s5.shapes.add_textbox(Inches(1.05), Inches(1.8), Inches(4.0), Inches(4.8))
+    p5_tf = p5_tb.text_frame
+    p5_tf.word_wrap = True
+
+    p = p5_tf.paragraphs[0]
+    p.text = "Cisco Stadium Vision"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p = p5_tf.add_paragraph()
+    p.text = "Stadium Vision Director Enterprise Platform"
     p.font.size = Pt(11)
     p.font.bold = True
-    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.font.color.rgb = COLOR_BRAND_DEEP
     p.space_after = Pt(10)
 
-    p2_meta = [
-        ("Technoyana (2021 – 2023)", "Co-Founder & Director; delivered fintech apps, product discovery engines, web & cross-platform mobile apps (React Native / Ionic)."),
-        ("Twitan.com (Apr 2025 – Present)", "Founder & Product Design Lead; AI-driven sports management, bracket engines & live scoring (Shutlify badminton OS)."),
-        ("Operational Reality", "Tournament venues with dead-zones, unstable cellular Wi-Fi, and real-time live match arbitration."),
-        ("Tech Stack", "React, Angular, Node.js, Firebase/GCP, PWA, IndexedDB, WebSockets.")
+    p5_meta = [
+        ("Role", "Senior Analyst & Associate Project Manager"),
+        ("Tenure", "Feb 2015 – Feb 2019 (4+ Years Dedicated Tenure)"),
+        ("Client", "Cisco Systems India Private Limited via UST Global"),
+        ("Product Scope", "Centralized digital media, live video distribution, and dynamic stadium display management deployed at major international sporting arenas."),
+        ("Core Mandate", "Modernize a massive legacy application suite with numerous active sub-applications and active global customers.")
     ]
-    for lbl, val in p2_meta:
-        p = p2_tf.add_paragraph()
+    for lbl, val in p5_meta:
+        p = p5_tf.add_paragraph()
         p.text = f"{lbl}: "
         p.font.bold = True
         p.font.size = Pt(10)
         p.font.color.rgb = COLOR_PRIMARY_DARK
-        p2 = p2_tf.add_paragraph()
+        p2 = p5_tf.add_paragraph()
         p2.text = f"{val}"
-        p2.font.size = Pt(9)
+        p2.font.size = Pt(9.5)
         p2.font.color.rgb = COLOR_TEXT_MUTED
-        p2.space_after = Pt(5)
+        p2.space_after = Pt(6)
 
-    # Right: 3 Core Architectural Achievements
-    r4_x = Inches(5.35)
-    r4_w = Inches(7.18)
+    # Right: Migration Architecture & Accomplishments
+    r5_x = Inches(5.55)
+    r5_w = Inches(6.98)
 
-    p2_cards = [
-        ("1. Offline-First Resilience for Unstable Physical Venues",
-         "Architected an offline-first state machine using IndexedDB local storage and Service Workers for courtside officials. When Wi-Fi or cellular connections fluctuate, the app operates without interruption; all scores and events queue locally and sync with conflict-resolution algorithms upon reconnection."),
-        ("2. Cloud Architecture, Firebase & Rapid Delivery Workflows",
-         "Set up scalable backend cloud services using GCP, Firebase, and Node.js microservices. Evaluated and optimized tech stacks for clients, drastically reducing delivery timelines for complex fintech and consumer applications while keeping cloud operating expenses lean."),
-        ("3. Modular Athlete & Tournament Dashboards",
-         "Designed modular dashboards integrating live statistics, tournament bracket generation (knockout, round-robin), court scheduling engines, and analytical insights, recognized for exceptional user experience and responsiveness.")
+    p5_cards = [
+        ("1. Phased Zero-Downtime Migration from Legacy Flash/Flex",
+         "The platform was originally built using Adobe Flash, Flex, and ActionScript. Took technical leadership in architecting and executing a phased migration to modern Angular and React modules without interrupting active stadium operations or breaking existing client workflows."),
+        ("2. Hybrid Interoperability & Multi-Stack Engineering",
+         "Maintained seamless interoperability between legacy components and modernized Single Page Application (SPA) modules using TypeScript, Angular, React, and Node.js backend services until complete deprecation was achieved."),
+        ("3. Sub-Application Management & Sustained Excellence",
+         "Governed multiple parallel UI sub-applications serving venue operators, technicians, and broadcast controllers. Awarded multiple Certificates of Excellence by UST Global (2015, 2016, 2018) for client-first commitment and outstanding delivery.")
     ]
 
-    for i, (title, desc) in enumerate(p2_cards):
+    for i, (title, desc) in enumerate(p5_cards):
         cy = Inches(1.6) + i * Inches(1.76)
-        add_card(s4, r4_x, cy, r4_w, Inches(1.6))
-        otb = s4.shapes.add_textbox(r4_x + Inches(0.2), cy + Inches(0.15), r4_w - Inches(0.4), Inches(1.3))
+        add_card(s5, r5_x, cy, r5_w, Inches(1.6))
+        otb = s5.shapes.add_textbox(r5_x + Inches(0.2), cy + Inches(0.15), r5_w - Inches(0.4), Inches(1.3))
         otf = otb.text_frame
         otf.word_wrap = True
         op1 = otf.paragraphs[0]
@@ -393,252 +517,240 @@ def create_deck(output_pptx_path):
         op2.font.size = Pt(9.5)
         op2.font.color.rgb = COLOR_TEXT_MAIN
 
-    add_footer(s4, 4, TOTAL_SLIDES)
-
-    # ==========================================
-    # SLIDE 5: Project 3 — Spatial AI & Generative 3D (Voxelforge AI & ayam3d)
-    # ==========================================
-    s5 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s5, COLOR_BG_LIGHT)
-    add_header(s5, "Generative AI & Spatial Tech", "Spatial AI & Generative 3D Pipelines: SrushtiLabs (Voxelforge AI) & ayam3d")
-
-    # Left: SrushtiLabs & Voxelforge AI Card
-    add_card(s5, Inches(0.8), Inches(1.6), Inches(5.6), Inches(5.2))
-    hb5 = s5.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.81), Inches(1.61), Inches(5.58), Inches(0.42))
-    hb5.fill.solid()
-    hb5.fill.fore_color.rgb = COLOR_BRAND_DEEP
-    hb5.line.fill.background()
-
-    ht5 = s5.shapes.add_textbox(Inches(0.95), Inches(1.68), Inches(5.3), Inches(0.35))
-    ht5.text_frame.paragraphs[0].text = "SRUSHTILABS · VOXELFORGE AI (srushtilabs.com/voxelforge/)"
-    ht5.text_frame.paragraphs[0].font.size = Pt(11)
-    ht5.text_frame.paragraphs[0].font.bold = True
-    ht5.text_frame.paragraphs[0].font.color.rgb = RGBColor(255, 255, 255)
-
-    v_tb = s5.shapes.add_textbox(Inches(1.0), Inches(2.15), Inches(5.2), Inches(4.5))
-    v_tf = v_tb.text_frame
-    v_tf.word_wrap = True
-
-    vp1 = v_tf.paragraphs[0]
-    vp1.text = "Founder & CTO, SrushtiLabs (srushtilabs.com)"
-    vp1.font.size = Pt(12.5)
-    vp1.font.bold = True
-    vp1.font.color.rgb = COLOR_PRIMARY_DARK
-    vp1.space_after = Pt(6)
-
-    vox_body = (
-        "• Current Headline: Founder & CTO | Building AI-driven 3D asset platforms and spatial computing solutions @srushtilabs.com\n\n"
-        "• Live Application: srushtilabs.com/voxelforge/ — Developing AI-based workflows for generative 3D asset creation and modular bundle assembly.\n\n"
-        "• Modular Game-Ready Bundles: Generates optimized, low-poly modular 3D assets ready for immediate assembly in Unreal Engine, Unity, and real-time WebGL engines.\n\n"
-        "• Rapid Prototyping Pipeline: Bridges text/image prompts into 3D voxel geometry with automated UV unwrapping and texture generation, cutting 3D asset prototyping time from days to minutes.\n\n"
-        "• Lightweight In-Browser Rendering: Specifically engineered to deliver compact asset payloads that stream effortlessly into web browsers without requiring heavy GPU rendering workstations."
-    )
-    vp2 = v_tf.add_paragraph()
-    vp2.text = vox_body
-    vp2.font.size = Pt(9.5)
-    vp2.font.color.rgb = COLOR_TEXT_MAIN
-
-    # Right: ayam3d & Spatial Engineering Value
-    rx5 = Inches(6.68)
-    rw5 = Inches(5.85)
-
-    # Card 1: ayam3d
-    add_card(s5, rx5, Inches(1.6), rw5, Inches(2.45))
-    atb = s5.shapes.add_textbox(rx5 + Inches(0.2), Inches(1.75), rw5 - Inches(0.4), Inches(2.2))
-    atf = atb.text_frame
-    atf.word_wrap = True
-
-    ap1 = atf.paragraphs[0]
-    ap1.text = "ayam3d — Advanced Mesh Synthesis & Retopology"
-    ap1.font.size = Pt(12)
-    ap1.font.bold = True
-    ap1.font.color.rgb = COLOR_PRIMARY_BLUE
-    ap1.space_after = Pt(4)
-
-    ap2 = atf.add_paragraph()
-    ap2.text = (
-        "• Exploratory R&D into automated 3D mesh synthesis, intelligent quad retopology, and PBR texture generation.\n"
-        "• Converts complex, unorganized high-poly meshes into clean, lightweight geometry with preserved edge flow.\n"
-        "• Solves real-time visualization challenges by creating Level of Detail (LOD) hierarchies for seamless 3D streaming."
-    )
-    ap2.font.size = Pt(9.5)
-    ap2.font.color.rgb = COLOR_TEXT_MAIN
-
-    # Card 2: Industry Relevance
-    add_card(s5, rx5, Inches(4.2), rw5, Inches(2.6), bg_color=RGBColor(240, 249, 255), border_color=COLOR_PRIMARY_BLUE)
-    itb = s5.shapes.add_textbox(rx5 + Inches(0.2), Inches(4.35), rw5 - Inches(0.4), Inches(2.3))
-    itf = itb.text_frame
-    itf.word_wrap = True
-
-    ip1 = itf.paragraphs[0]
-    ip1.text = "Applied Value to Physical & Digital Infrastructure"
-    ip1.font.size = Pt(11.5)
-    ip1.font.bold = True
-    ip1.font.color.rgb = COLOR_BRAND_DEEP
-    ip1.space_after = Pt(4)
-
-    ip2 = itf.add_paragraph()
-    ip2.text = (
-        "• Bridging Digital Twins with Web Applications: Enables lightweight 3D asset representations of physical spaces, facilities, and structures without multi-gigabyte download bottlenecks.\n"
-        "• Practical Spatial Computing: Demonstrates deep technical competence in polygon reduction, coordinate systems, and automated 3D pipelines that directly benefit modern spatial workflows and digital engineering."
-    )
-    ip2.font.size = Pt(9.5)
-    ip2.font.color.rgb = COLOR_TEXT_MAIN
-
     add_footer(s5, 5, TOTAL_SLIDES)
 
-    # ==========================================
-    # SLIDE 6: Visualizer Expert Pedigree (50+ Projects, CAE, Cisco)
-    # ==========================================
+    # =========================================================================
+    # SLIDE 6: SECTION 2 — GROUP 6: THOUGHTFOCUS TECHNOLOGIES
+    # =========================================================================
     s6 = prs.slides.add_slide(blank_layout)
     set_slide_background(s6, COLOR_BG_LIGHT)
-    add_header(s6, "3D Visualization Track Record", "3D Visualizer Expert Pedigree: 50+ Projects, CAE Simulation & Cisco Systems")
+    add_header(s6, "Section 2 · Project Experience (Client Group 6)", "ThoughtFocus Technologies: Aftermarket Parts 3D Explorer & Enterprise Solutions")
 
-    # 3 Column Cards
-    c_w = Inches(3.72)
-    c_h = Inches(5.2)
-
-    # Col 1: Architectural Visualization
+    # Left: Aftermarket Parts Explorer
     add_card(s6, Inches(0.8), Inches(1.6), c_w, c_h)
-    tb1 = s6.shapes.add_textbox(Inches(0.95), Inches(1.75), c_w - Inches(0.3), c_h - Inches(0.3))
-    tf1 = tb1.text_frame
-    tf1.word_wrap = True
-    p = tf1.paragraphs[0]
-    p.text = "Architectural 3D & Walkthroughs"
-    p.font.size = Pt(13)
-    p.font.bold = True
-    p.font.color.rgb = COLOR_PRIMARY_BLUE
-    p.space_after = Pt(2)
-    p_sub = tf1.add_paragraph()
-    p_sub.text = "35+ Commercial & Residential Projects"
-    p_sub.font.size = Pt(10)
-    p_sub.font.bold = True
-    p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(8)
-    p_desc = tf1.add_paragraph()
-    p_desc.text = (
-        "• Working with Architect Father: Built foundational expertise interpreting 2D plans, elevations, and structural schematics into accurate 3D models.\n\n"
-        "• Photorealistic Visualizations: Produced photorealistic exterior and interior architectural renderings, lighting studies, and texture mappings.\n\n"
-        "• 3D Walkthrough Animations: Produced animated camera walkthroughs for real estate developers and commercial builders to visualize spaces prior to construction.\n\n"
-        "• CAD & Drafting Precision: Hands-on mastery with CAD drafting tools, layer management, and dimensional accuracy."
-    )
-    p_desc.font.size = Pt(9)
-    p_desc.font.color.rgb = COLOR_TEXT_MAIN
+    tb_tf1 = s6.shapes.add_textbox(Inches(1.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_tf1 = tb_tf1.text_frame
+    tf_tf1.word_wrap = True
 
-    # Col 2: CAE Simulation Technologies
-    add_card(s6, Inches(4.8), Inches(1.6), c_w, c_h)
-    tb2 = s6.shapes.add_textbox(Inches(4.95), Inches(1.75), c_w - Inches(0.3), c_h - Inches(0.3))
-    tf2 = tb2.text_frame
-    tf2.word_wrap = True
-    p = tf2.paragraphs[0]
-    p.text = "CAE Simulation Technologies"
-    p.font.size = Pt(13)
+    p = tf_tf1.paragraphs[0]
+    p.text = "Aftermarket Parts Explorer"
+    p.font.size = Pt(17)
     p.font.bold = True
-    p.font.color.rgb = COLOR_PRIMARY_BLUE
+    p.font.color.rgb = COLOR_PRIMARY_DARK
     p.space_after = Pt(2)
-    p_sub = tf2.add_paragraph()
-    p_sub.text = "Visual Database Developer (2007 – 2008)"
-    p_sub.font.size = Pt(10)
-    p_sub.font.bold = True
-    p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(8)
-    p_desc = tf2.add_paragraph()
-    p_desc.text = (
-        "• Flight Simulator Visual Databases: Created high-fidelity 3D model libraries for military and civil aircraft full-flight simulators.\n\n"
-        "• Real-Time Terrain Modeling: Built elevation terrain databases, runway markings, airport ground equipment, and navigation landmarks.\n\n"
-        "• Strict Polygon & Memory Budgets: Developed real-time 3D models requiring deterministic frame rates (60 FPS locked) with zero visual pop-in or simulation stutter.\n\n"
-        "• Sensor & Environmental Simulation: Modeled day/night transitions, weather effects, and infrared/night-vision sensor textures."
-    )
-    p_desc.font.size = Pt(9)
-    p_desc.font.color.rgb = COLOR_TEXT_MAIN
 
-    # Col 3: Cisco Systems Facility Dashboard
-    add_card(s6, Inches(8.8), Inches(1.6), c_w, c_h)
-    tb3 = s6.shapes.add_textbox(Inches(8.95), Inches(1.75), c_w - Inches(0.3), c_h - Inches(0.3))
-    tf3 = tb3.text_frame
-    tf3.word_wrap = True
-    p = tf3.paragraphs[0]
-    p.text = "Cisco Systems Dashboard"
-    p.font.size = Pt(13)
-    p.font.bold = True
-    p.font.color.rgb = COLOR_PRIMARY_BLUE
-    p.space_after = Pt(2)
-    p_sub = tf3.add_paragraph()
-    p_sub.text = "Facility Dashboard & Smart Campus"
-    p_sub.font.size = Pt(10)
+    p_sub = tf_tf1.add_paragraph()
+    p_sub.text = "UI Architect & Tech Lead | Oct 2011 – Mar 2014"
+    p_sub.font.size = Pt(11)
     p_sub.font.bold = True
     p_sub.font.color.rgb = COLOR_BRAND_DEEP
-    p_sub.space_after = Pt(8)
-    p_desc = tf3.add_paragraph()
-    p_desc.text = (
-        "• Cisco Facility Dashboard (2009 – 2010): Designed and developed an interactive facility dashboard during full-time on-campus consulting at Cisco Bangalore.\n\n"
-        "• Physical Infrastructure Telemetry: Visualized data center rack layouts, campus power consumption, cooling metrics, and environmental sensor telemetry.\n\n"
-        "• Awarded Cisco Appreciation: Received formal recognition from Cisco leadership in 2010 for delivering intuitive, high-impact data visualization.\n\n"
-        "• Continued Cisco Collaboration: Managed multiple Angular dashboards and UI applications for Cisco Systems via UST Global (2015 – 2019)."
-    )
-    p_desc.font.size = Pt(9)
-    p_desc.font.color.rgb = COLOR_TEXT_MAIN
+    p_sub.space_after = Pt(12)
+
+    tf1_points = [
+        ("Platform Scope", "Massive parts marketplace serving aftermarket automotive & industrial parts vendors and buyers."),
+        ("Scale & Catalog", "Supported millions of parts across hundreds of manufacturer catalogs with deep search capabilities."),
+        ("Interactive 3D Viewer", "Architected an interactive 3D interface allowing buyers to inspect 3D models and dimensions of thousands of components before purchase."),
+        ("Full E-Commerce Flow", "Integrated shopping cart, quotation workflows, and secure payment gateway integrations."),
+        ("Technologies Used", "Adobe Flex, ActionScript, Mate architectural framework, HTML, CSS, and backend data services.")
+    ]
+    for lbl, val in tf1_points:
+        tp = tf_tf1.add_paragraph()
+        tp.text = f"• {lbl}: "
+        tp.font.bold = True
+        tp.font.size = Pt(10)
+        tp.font.color.rgb = COLOR_PRIMARY_DARK
+        tp2 = tf_tf1.add_paragraph()
+        tp2.text = f"  {val}"
+        tp2.font.size = Pt(9.5)
+        tp2.font.color.rgb = COLOR_TEXT_MUTED
+        tp2.space_after = Pt(6)
+
+    # Right: Bootstrapping Enterprise UI Applications
+    add_card(s6, Inches(6.8), Inches(1.6), c_w, c_h)
+    tb_tf2 = s6.shapes.add_textbox(Inches(7.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_tf2 = tb_tf2.text_frame
+    tf_tf2.word_wrap = True
+
+    p = tf_tf2.paragraphs[0]
+    p.text = "Enterprise UI Solutions"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_tf2.add_paragraph()
+    p_sub.text = "Prototyping & Multi-Client Solutions Delivery"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
+    p_sub.space_after = Pt(12)
+
+    tf2_points = [
+        ("Design-to-Code Pipeline", "Established an early user involvement process—validating concepts with interactive mockups and prototypes prior to delivery."),
+        ("Enterprise Search App", "Guided team to design and bootstrap a high-speed enterprise search application with advanced filtering and metadata indexing."),
+        ("Dairy / Milk Corporation App", "Led the architecture and delivery of an operational management application for a large milk corporation handling distribution and supply logistics."),
+        ("Technology Stack", "HTML, CSS, JavaScript, TypeScript, Adobe Flex, Flash, and early Single-Page Application patterns."),
+        ("Mentorship & Guidance", "Coached junior engineers on clean modular UI architecture and user-centered design standards.")
+    ]
+    for lbl, val in tf2_points:
+        tp = tf_tf2.add_paragraph()
+        tp.text = f"• {lbl}: "
+        tp.font.bold = True
+        tp.font.size = Pt(10)
+        tp.font.color.rgb = COLOR_PRIMARY_DARK
+        tp2 = tf_tf2.add_paragraph()
+        tp2.text = f"  {val}"
+        tp2.font.size = Pt(9.5)
+        tp2.font.color.rgb = COLOR_TEXT_MUTED
+        tp2.space_after = Pt(6)
 
     add_footer(s6, 6, TOTAL_SLIDES)
 
-    # ==========================================
-    # SLIDE 7: Role & Core Responsibilities Across Career
-    # ==========================================
+    # =========================================================================
+    # SLIDE 7: SECTION 2 — GROUP 7 & 8: CISCO/VODAFONE BMS & SPECIALIZED PROJECTS
+    # =========================================================================
     s7 = prs.slides.add_slide(blank_layout)
     set_slide_background(s7, COLOR_BG_LIGHT)
-    add_header(s7, "Leadership & Execution", "Core Responsibilities & Technical Leadership Across 16+ Years")
+    add_header(s7, "Section 2 · Project Experience (Client Groups 7 & 8)", "Cisco & Vodafone BMS Dashboards & Technoyana Specialized Engineering")
+
+    # Left: Facility Dashboard at Cisco & Vodafone
+    add_card(s7, Inches(0.8), Inches(1.6), c_w, c_h)
+    tb_bms = s7.shapes.add_textbox(Inches(1.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_bms = tb_bms.text_frame
+    tf_bms.word_wrap = True
+
+    p = tf_bms.paragraphs[0]
+    p.text = "Cisco & Vodafone Dashboards"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_bms.add_paragraph()
+    p_sub.text = "Building Management Systems (BMS) Unified Interface"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_BRAND_DEEP
+    p_sub.space_after = Pt(12)
+
+    bms_points = [
+        ("Facility Dashboard at Cisco", "Designed and developed an interactive facility dashboard at Cisco Systems campus as a full-time consultant (2009–2010)."),
+        ("Unified BMS Control", "Connected to and visualized diverse Building Management Systems: Air Handling Units (AHUs), Variable Refrigerant Volume (VRVs), industrial chillers, and power meters."),
+        ("Environmental Telemetry", "Provided facility managers with real-time operational status, thermal mapping, energy consumption, and alarm thresholds."),
+        ("Formal Cisco Recognition", "Received official Certificate of Appreciation from Cisco leadership in 2010 for outstanding visualization and operational utility."),
+        ("Vodafone Solutions", "Delivered specialized data visualization dashboards for Vodafone operations to monitor network and facility metrics.")
+    ]
+    for lbl, val in bms_points:
+        bp = tf_bms.add_paragraph()
+        bp.text = f"• {lbl}: "
+        bp.font.bold = True
+        bp.font.size = Pt(10)
+        bp.font.color.rgb = COLOR_PRIMARY_DARK
+        bp2 = tf_bms.add_paragraph()
+        bp2.text = f"  {val}"
+        bp2.font.size = Pt(9.5)
+        bp2.font.color.rgb = COLOR_TEXT_MUTED
+        bp2.space_after = Pt(6)
+
+    # Right: Other Specialized Projects (Technoyana)
+    add_card(s7, Inches(6.8), Inches(1.6), c_w, c_h)
+    tb_sp = s7.shapes.add_textbox(Inches(7.0), Inches(1.8), c_w - Inches(0.4), c_h - Inches(0.4))
+    tf_sp = tb_sp.text_frame
+    tf_sp.word_wrap = True
+
+    p = tf_sp.paragraphs[0]
+    p.text = "Specialized Engineering Projects"
+    p.font.size = Pt(17)
+    p.font.bold = True
+    p.font.color.rgb = COLOR_PRIMARY_DARK
+    p.space_after = Pt(2)
+
+    p_sub = tf_sp.add_paragraph()
+    p_sub.text = "CAD/CAM, CNC, 3D Visualization & Mobile Products"
+    p_sub.font.size = Pt(11)
+    p_sub.font.bold = True
+    p_sub.font.color.rgb = COLOR_PRIMARY_BLUE
+    p_sub.space_after = Pt(12)
+
+    sp_points = [
+        ("Architectural Visualization", "Delivered multiple architectural 3D visualizations, spatial renderings, and walkthroughs for commercial and real estate projects."),
+        ("CAD/CAM & CNC Development", "Led customized CNC machine development and automated CAD/CAM toolpath pipelines, bridging physical fabrication with digital software."),
+        ("SellAny Mobile Marketplace", "Built and launched 'SellAny'—a consumer mobile application allowing users to list and sell items effortlessly."),
+        ("Payment Parking Mobile App", "Led an engineering team to develop an automated parking payment mobile application with real-time slot occupancy tracking."),
+        ("Flight Simulation Visuals (CAE)", "Visual Database Developer creating 3D terrain and aircraft simulation databases under locked 60 FPS budgets.")
+    ]
+    for lbl, val in sp_points:
+        sp = tf_sp.add_paragraph()
+        sp.text = f"• {lbl}: "
+        sp.font.bold = True
+        sp.font.size = Pt(10)
+        sp.font.color.rgb = COLOR_PRIMARY_DARK
+        sp2 = tf_sp.add_paragraph()
+        sp2.text = f"  {val}"
+        sp2.font.size = Pt(9.5)
+        sp2.font.color.rgb = COLOR_TEXT_MUTED
+        sp2.space_after = Pt(6)
+
+    add_footer(s7, 7, TOTAL_SLIDES)
+
+    # =========================================================================
+    # SLIDE 8: CORE SKILLSET MATRIX ACROSS 18+ YEARS
+    # =========================================================================
+    s8 = prs.slides.add_slide(blank_layout)
+    set_slide_background(s8, COLOR_BG_LIGHT)
+    add_header(s8, "Comprehensive Skillset Matrix", "Technical & Managerial Mastery Across 18+ Years of Delivery")
 
     grid_w = Inches(5.72)
     grid_h = Inches(2.45)
     cols = [Inches(0.8), Inches(6.8)]
     rows = [Inches(1.6), Inches(4.3)]
 
-    pillars_data = [
-        ("1. Scalable Architecture & System Design",
+    matrix_data = [
+        ("1. Scalable Frontend & Modular Architecture",
          COLOR_PRIMARY_BLUE,
          [
-             "Architected enterprise frontend applications using React, Angular, and LitElement web components.",
-             "Designed cross-platform UI Design Systems adopted across diverse development teams (Moonraft / TLC Hotels).",
-             "Established robust contract boundaries using REST, WebSockets, and event-driven data streaming.",
-             "Evaluated and selected modern cloud and web tech stacks for rapid, scalable client product delivery."
+             "React, Angular, TypeScript, JavaScript, Node.js, Web Components (LitElement).",
+             "Architected Enterprise UI Design Systems used across diverse development teams.",
+             "State management, micro-frontends, REST, WebSockets, and streaming telemetry.",
+             "4-year zero-downtime migration of Cisco Stadium Vision from Flash/Flex to Angular/React."
          ]),
-        ("2. Operational Resilience & High Reliability",
+        ("2. Spatial 3D, CAD & Generative AI",
          COLOR_BRAND_DEEP,
          [
-             "Architected zero-loss offline-first caching mechanisms (IndexedDB/Service Workers) for field use (Twitan).",
-             "Engineered life-critical clinical UI rendering with zero memory leaks for 24/7 hospital ICU units (Philips ICCA).",
-             "Supervised cloud deployments on GCP, Firebase, and AWS with automated scaling and log monitoring.",
-             "Designed real-time fallback pipelines ensuring continuous operational availability during network drops."
+             "Voxelforge AI (generative modular 3D for Unreal/Unity/WebGL) & Ayam3d (parametric 3D).",
+             "Architectural 3D visualization, animated walkthroughs, and CAD/CAM CNC machine development.",
+             "Flight simulator 3D terrain and aircraft databases under locked 60 FPS budgets (CAE).",
+             "Interactive 3D parts inspection explorer supporting millions of catalog components."
          ]),
-        ("3. Spatial Computing & 3D Asset Pipelines",
+        ("3. High Reliability & Operational Security",
          COLOR_ACCENT_AMBER,
          [
-             "Developed AI-assisted workflows (Voxelforge AI) for modular low-poly 3D asset generation (Unreal / Unity / WebGL).",
-             "Directed R&D in automated 3D mesh retopology and PBR texture generation for lightweight web streaming (ayam3d).",
-             "Created real-time 3D flight simulator databases with strict polygon and frame rate budgets (CAE).",
-             "Built interactive 3D facility and infrastructure monitoring dashboards (Cisco Systems)."
+             "Delivered Philips ICU healthcare software meeting stringent clinical safety benchmarks.",
+             "Strict cybersecurity enforcement: Multi-factor authentication (MFA), XSS mitigation, RBAC.",
+             "Offline-first mobile architecture (IndexedDB/Service Workers) with conflict-free cloud sync.",
+             "Building Management System (BMS) unified interface for AHUs, chillers, and telemetry (Cisco)."
          ]),
-        ("4. Agile Leadership, Mentorship & Delivery",
+        ("4. Agile Leadership & Startup Delivery",
          COLOR_SUCCESS,
          [
-             "Led, mentored, and inspired cross-functional engineering squads of developers, UX designers, and QA analysts.",
-             "Instituted design-to-code pipelines involving users early through rapid prototypes and usability feedback.",
-             "Managed client deliverables, stakeholder communication, sprint planning, and engineering velocity.",
-             "Recipient of multiple corporate excellence awards at UST Global and Cisco for leadership and client commitment."
+             "Founder/Co-Founder: Technoyana, Twitan.com, SrushtiLabs, InnoBrik.",
+             "Associate Project Manager at UST Global; managed cross-functional squads for Cisco.",
+             "Early user prototyping, design-to-code pipelines, and active stakeholder governance.",
+             "Honored with Cisco Appreciation (2010) and 3 UST Global Excellence Awards (2015, 2016, 2018)."
          ])
     ]
 
-    for idx, (p_title, p_color, p_bullets) in enumerate(pillars_data):
+    for idx, (p_title, p_color, p_bullets) in enumerate(matrix_data):
         c_x = cols[idx % 2]
         c_y = rows[idx // 2]
-        add_card(s7, c_x, c_y, grid_w, grid_h)
+        add_card(s8, c_x, c_y, grid_w, grid_h)
 
-        hbar = s7.shapes.add_shape(MSO_SHAPE.RECTANGLE, c_x + Inches(0.01), c_y + Inches(0.01), grid_w - Inches(0.02), Inches(0.42))
+        hbar = s8.shapes.add_shape(MSO_SHAPE.RECTANGLE, c_x + Inches(0.01), c_y + Inches(0.01), grid_w - Inches(0.02), Inches(0.42))
         hbar.fill.solid()
         hbar.fill.fore_color.rgb = p_color
         hbar.line.fill.background()
 
-        htext = s7.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.06), grid_w - Inches(0.4), Inches(0.35))
+        htext = s8.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.06), grid_w - Inches(0.4), Inches(0.35))
         htf = htext.text_frame
         hp = htf.paragraphs[0]
         hp.text = p_title
@@ -646,7 +758,7 @@ def create_deck(output_pptx_path):
         hp.font.bold = True
         hp.font.color.rgb = RGBColor(255, 255, 255)
 
-        btb = s7.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.48), grid_w - Inches(0.4), grid_h - Inches(0.55))
+        btb = s8.shapes.add_textbox(c_x + Inches(0.2), c_y + Inches(0.48), grid_w - Inches(0.4), grid_h - Inches(0.55))
         btf = btb.text_frame
         btf.word_wrap = True
         for b_i, bullet in enumerate(p_bullets):
@@ -656,261 +768,75 @@ def create_deck(output_pptx_path):
             bp.font.color.rgb = COLOR_TEXT_MAIN
             bp.space_after = Pt(3)
 
-    add_footer(s7, 7, TOTAL_SLIDES)
-
-    # ==========================================
-    # SLIDE 8: Major Achievements, Milestones & Awards
-    # ==========================================
-    s8 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s8, COLOR_BG_LIGHT)
-    add_header(s8, "Milestones & Recognition", "Major Achievements, Proven Track Record & Formal Acknowledgements")
-
-    # 4 Authentic Metric Cards
-    metrics = [
-        ("16+ Years", "Professional Track Record", "Extensive leadership across enterprise software, healthcare, startups & 3D tech"),
-        ("50+ Projects", "3D & Visualization Portfolio", "Delivered across architectural visualization, CAD, flight simulation & spatial AI"),
-        ("4 Formal Awards", "Industry Acknowledgements", "Cisco Facility Appreciation + 3 UST Global Excellence & Client-First awards"),
-        ("100% Offline", "Data Integrity at Edge", "Zero data loss during field network drops with transactional replay queues")
-    ]
-    m_w = Inches(2.78)
-    m_h = Inches(1.5)
-    for i, (stat, label, detail) in enumerate(metrics):
-        mx = Inches(0.8) + i * (m_w + Inches(0.2))
-        add_card(s8, mx, Inches(1.6), m_w, m_h, bg_color=RGBColor(255, 255, 255), border_color=COLOR_PRIMARY_BLUE)
-
-        tb = s8.shapes.add_textbox(mx + Inches(0.12), Inches(1.72), m_w - Inches(0.24), m_h - Inches(0.24))
-        tf = tb.text_frame
-        tf.word_wrap = True
-
-        p1 = tf.paragraphs[0]
-        p1.text = stat
-        p1.font.size = Pt(22)
-        p1.font.bold = True
-        p1.font.color.rgb = COLOR_PRIMARY_BLUE
-        p1.space_after = Pt(2)
-
-        p2 = tf.add_paragraph()
-        p2.text = label
-        p2.font.size = Pt(10)
-        p2.font.bold = True
-        p2.font.color.rgb = COLOR_PRIMARY_DARK
-        p2.space_after = Pt(2)
-
-        p3 = tf.add_paragraph()
-        p3.text = detail
-        p3.font.size = Pt(8.5)
-        p3.font.color.rgb = COLOR_TEXT_MUTED
-
-    # Detailed Career Achievements List
-    achievements = [
-        ("Philips Intellispace Critical Care & Anesthesia (Cyient)",
-         "Led the frontend technical development of clinical modules for Philips Healthcare, delivering life-critical patient monitoring with rock-solid stability, zero memory leaks, and full healthcare regulatory compliance."),
-        ("Startup Co-Founder & Director (Technoyana & Twitan)",
-         "Successfully co-founded and steered Technoyana Digital Transformation Services and Twitan.com; built and shipped commercial fintech apps, product search engines, and the Shutlify badminton tournament operating system."),
-        ("Cross-Platform UI Design System (Moonraft Innovation Labs)",
-         "Architected a cross-platform UI design system using the LitElement web components library, creating a reusable component standard leveraged seamlessly across React, Angular, and Polymer teams for TLC Hotels."),
-        ("Formal Corporate Awards & Cisco Recognition",
-         "Received Cisco Systems Appreciation for developing the campus Facility Dashboard (2010); recognized with 3 Certificates of Appreciation at UST Global ('Inspiring People' 2018, 'Putting Client First' 2016, 'Living the Values' 2015).")
-    ]
-
-    for i, (title, body) in enumerate(achievements):
-        ay = Inches(3.25) + i * Inches(0.92)
-        add_card(s8, Inches(0.8), ay, Inches(11.733), Inches(0.84))
-        atb = s8.shapes.add_textbox(Inches(1.0), ay + Inches(0.08), Inches(11.3), Inches(0.68))
-        atf = atb.text_frame
-        atf.word_wrap = True
-
-        ap1 = atf.paragraphs[0]
-        ap1.text = f"★  {title}"
-        ap1.font.size = Pt(11)
-        ap1.font.bold = True
-        ap1.font.color.rgb = COLOR_PRIMARY_DARK
-        ap1.space_after = Pt(2)
-
-        ap2 = atf.add_paragraph()
-        ap2.text = body
-        ap2.font.size = Pt(9)
-        ap2.font.color.rgb = COLOR_TEXT_MAIN
-
     add_footer(s8, 8, TOTAL_SLIDES)
 
-    # ==========================================
-    # SLIDE 9: Challenges Faced & Pragmatic Resolutions
-    # ==========================================
+    # =========================================================================
+    # SLIDE 9: SECTION 3 — CONCLUSION: ROLE FIT & CERTIFICATION PLEDGE
+    # =========================================================================
     s9 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s9, COLOR_BG_LIGHT)
-    add_header(s9, "Problem Solving & Engineering Rigor", "Real-World Technical Challenges Faced & Pragmatic Resolutions")
+    set_slide_background(s9, COLOR_PRIMARY_DARK)
 
-    c_cards = [
-        ("Challenge 1: Unstable Network Connectivity in Physical Venues (Twitan / Technoyana)",
-         "Operating live tournament arbitration in venues with crowded RF environments, intermittent Wi-Fi drops, and mobile dead-zones caused transaction failures and loss of live scores.",
-         "Resolution Implemented:",
-         "Architected an 'Offline-First' state engine using IndexedDB client persistence and service workers. Implemented optimistic UI updates and a transactional event replay queue that automatically resynchronizes once the network reconnects.",
-         "Impact: 100% data preservation, zero operator workflow interruptions, seamless user experience."),
-
-        ("Challenge 2: Clinical UI Performance & Memory Leaks in 24/7 ICU Monitoring (Philips ICCA)",
-         "Bedside patient monitors run uninterrupted for weeks. Complex real-time streaming vitals and continuous DOM updates risked browser memory accumulation and UI lag during critical clinical events.",
-         "Resolution Implemented:",
-         "Enforced strict immutable state updates, decoupled rendering loops from data ingestion, implemented virtualized list rendering, and utilized Chrome DevTools heap profiling to systematically eliminate closure leaks.",
-         "Impact: Guaranteed stable 60 FPS UI rendering and flat memory profiles across multi-day continuous ICU sessions."),
-
-        ("Challenge 3: High 3D Asset Payload & Browser Lag in Web-Based 3D (SrushtiLabs / Voxelforge AI)",
-         "Delivering detailed 3D models over the web created large download sizes, long initialization times, and frame drops on lower-spec client laptops and mobile devices.",
-         "Resolution Implemented:",
-         "Developed automated retopology workflows (ayam3d) to decimate unnecessary polygons while preserving silhouette geometry; baked normal maps and bundled assets into lightweight modular formats for WebGL.",
-         "Impact: Reduced 3D model payload sizes by up to 75%, enabling instant in-browser loading and smooth real-time manipulation.")
-    ]
-
-    for i, (ch_title, ch_desc, res_lbl, res_desc, impact) in enumerate(c_cards):
-        cy = Inches(1.6) + i * Inches(1.76)
-        add_card(s9, Inches(0.8), cy, Inches(11.733), Inches(1.62))
-
-        ltb = s9.shapes.add_textbox(Inches(1.0), cy + Inches(0.12), Inches(4.8), Inches(1.4))
-        ltf = ltb.text_frame
-        ltf.word_wrap = True
-        lp1 = ltf.paragraphs[0]
-        lp1.text = ch_title
-        lp1.font.size = Pt(11)
-        lp1.font.bold = True
-        lp1.font.color.rgb = COLOR_BRAND_DEEP
-        lp1.space_after = Pt(3)
-        lp2 = ltf.add_paragraph()
-        lp2.text = ch_desc
-        lp2.font.size = Pt(9)
-        lp2.font.color.rgb = COLOR_TEXT_MAIN
-
-        vdiv = s9.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(6.0), cy + Inches(0.15), Inches(0.02), Inches(1.3))
-        vdiv.fill.solid()
-        vdiv.fill.fore_color.rgb = COLOR_CARD_BORDER
-        vdiv.line.fill.background()
-
-        rtb = s9.shapes.add_textbox(Inches(6.2), cy + Inches(0.12), Inches(6.1), Inches(1.4))
-        rtf = rtb.text_frame
-        rtf.word_wrap = True
-        rp1 = rtf.paragraphs[0]
-        rp1.text = res_lbl
-        rp1.font.size = Pt(11)
-        rp1.font.bold = True
-        rp1.font.color.rgb = COLOR_PRIMARY_BLUE
-        rp1.space_after = Pt(2)
-        rp2 = rtf.add_paragraph()
-        rp2.text = res_desc
-        rp2.font.size = Pt(9)
-        rp2.font.color.rgb = COLOR_TEXT_MAIN
-        rp2.space_after = Pt(3)
-        rp3 = rtf.add_paragraph()
-        rp3.text = f"Result: {impact}"
-        rp3.font.size = Pt(9)
-        rp3.font.bold = True
-        rp3.font.color.rgb = COLOR_SUCCESS
-
-    add_footer(s9, 9, TOTAL_SLIDES)
-
-    # ==========================================
-    # SLIDE 10: Lessons Learned & Engineering Best Practices
-    # ==========================================
-    s10 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s10, COLOR_BG_LIGHT)
-    add_header(s10, "Engineering Philosophy", "Lessons Learned & Core Engineering Best Practices")
-
-    best_practices = [
-        ("1. Involve Users Early Through Rapid Prototypes & Iterative Feedback",
-         "From my days establishing design-to-code pipelines at ThoughtFocus to architecting clinical modules at Cyient, building early interactive prototypes with real users uncovers fundamental workflow flaws before expensive engineering code is written."),
-        ("2. Design for Real-World Edge Conditions, Not Ideal Lab Environments",
-         "Software rarely operates in perfect network and hardware conditions. Building applications with offline caching, graceful degradation, and asynchronous retry logic ensures systems remain reliable whether on a hospital floor, sports arena, or remote field office."),
-        ("3. Standardize Design Systems & Component Libraries to Prevent Technical Debt",
-         "Re-inventing UI components across teams leads to inconsistent user experiences and bloated maintenance. Investing upfront in unified, framework-agnostic design systems (as demonstrated at Moonraft with LitElement) dramatically accelerates organizational velocity."),
-        ("4. Ground Technology Decisions in Concrete Business & Human Impact",
-         "Technology is a vehicle for solving human problems. Whether building spatial AI tools (Voxelforge AI), sports arbitration engines (Twitan), or ICU monitoring (Philips), the ultimate metric of success is operational simplicity, reliability, and tangible value to the user.")
-    ]
-
-    for i, (title, desc) in enumerate(best_practices):
-        by = Inches(1.6) + i * Inches(1.3)
-        add_card(s10, Inches(0.8), by, Inches(11.733), Inches(1.15))
-
-        tag = s10.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.8), by, Inches(0.12), Inches(1.15))
-        tag.fill.solid()
-        tag.fill.fore_color.rgb = COLOR_PRIMARY_BLUE
-        tag.line.fill.background()
-
-        btb = s10.shapes.add_textbox(Inches(1.15), by + Inches(0.12), Inches(11.1), Inches(0.95))
-        btf = btb.text_frame
-        btf.word_wrap = True
-
-        bp1 = btf.paragraphs[0]
-        bp1.text = title
-        bp1.font.size = Pt(12)
-        bp1.font.bold = True
-        bp1.font.color.rgb = COLOR_PRIMARY_DARK
-        bp1.space_after = Pt(4)
-
-        bp2 = btf.add_paragraph()
-        bp2.text = desc
-        bp2.font.size = Pt(9.5)
-        bp2.font.color.rgb = COLOR_TEXT_MAIN
-
-    add_footer(s10, 10, TOTAL_SLIDES)
-
-    # ==========================================
-    # SLIDE 11: Suggestions for Future Process Improvements & Innovation
-    # ==========================================
-    s11 = prs.slides.add_slide(blank_layout)
-    set_slide_background(s11, COLOR_PRIMARY_DARK)
-
-    # Center Card
+    # Large Center Container
     c_w = Inches(11.733)
-    c_h = Inches(5.2)
+    c_h = Inches(5.5)
     cx = Inches(0.8)
-    cy = Inches(1.5)
-    add_card(s11, cx, cy, c_w, c_h, bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
+    cy = Inches(1.2)
+    add_card(s9, cx, cy, c_w, c_h, bg_color=RGBColor(24, 34, 53), border_color=RGBColor(51, 65, 85))
 
-    q_tb = s11.shapes.add_textbox(cx + Inches(0.5), cy + Inches(0.35), c_w - Inches(1.0), c_h - Inches(0.7))
+    q_tb = s9.shapes.add_textbox(cx + Inches(0.5), cy + Inches(0.35), c_w - Inches(1.0), c_h - Inches(0.7))
     q_tf = q_tb.text_frame
     q_tf.word_wrap = True
 
     qp1 = q_tf.paragraphs[0]
-    qp1.text = "VISION FOR FUTURE PROCESS IMPROVEMENTS & SCALE"
+    qp1.text = "SECTION 3 · CONCLUSION & ROLE ALIGNMENT"
     qp1.font.size = Pt(11.5)
     qp1.font.bold = True
     qp1.font.color.rgb = COLOR_CYAN_ACCENT
     qp1.space_after = Pt(4)
 
     qp2 = q_tf.add_paragraph()
-    qp2.text = "Leveraging Proven Expertise in Scalable Systems, UX & Spatial Tech"
+    qp2.text = "Alignment to Senior Manager – IT & Continuous Learning Pledge"
     qp2.font.size = Pt(21)
     qp2.font.bold = True
     qp2.font.color.rgb = RGBColor(255, 255, 255)
     qp2.space_after = Pt(12)
 
-    proposals = [
-        ("Unified Spatial & Web Integration", "Bridge complex 3D CAD, architectural models, and spatial data into lightweight, interactive web formats using progressive LOD and automated retopology (leveraging Voxelforge AI / ayam3d principles)."),
-        ("Resilient Edge-First Mobile Workflows", "Implement offline-first client persistence and background transactional queuing across field-facing mobile applications, ensuring zero work loss regardless of remote connectivity challenges."),
-        ("Standardized Enterprise Design Systems", "Establish centralized, cross-platform component libraries and design tokens to streamline multi-team digital product delivery, enforce visual consistency, and eliminate duplicated engineering effort."),
-        ("AI-Assisted Prototyping & Development", "Incorporate generative AI and automation tools into early product discovery and asset creation pipelines, cutting design-to-code iteration cycles by 40%.")
+    conclusions = [
+        ("Design and Engineering Synthesis",
+         "Holding a postgraduate degree in Human Interface Design (M.S. in Computing, UK) combined with an engineering degree in Electronics and Communication (B.E.), I bring a rare, balanced capability spanning both human-centered UX design and deep technical software architecture."),
+
+        ("Proven Breadth Across Startup Velocity & Enterprise Scale",
+         "My 18+ years of experience encompass leading agile, high-velocity startup product incubation (Technoyana, SrushtiLabs, Twitan, InnoBrik) as well as managing complex multi-year enterprise projects with stringent quality, security, and uptime mandates (Philips ICU Healthcare, Cisco Systems, UST Global, Ness)."),
+
+        ("Handling Products Across Every Stage of the Lifecycle",
+         "Demonstrated expertise across every product phase: early discovery prototypes, building reusable design systems, legacy system migrations (Flash to Angular/React), production deployment, security compliance, and long-term customer support."),
+
+        ("Pledge for Self-Training & Certification",
+         "I am fully committed to the success of the organization and team. As per the specific operational requirements of the Senior Manager – IT role, I pledge to proactively upskill myself and complete any required enterprise certifications (e.g., Cloud Architecture, ITIL, Cybersecurity, or project governance) to align completely with team goals and project needs.")
     ]
 
-    for p_title, p_desc in proposals:
-        pp1 = q_tf.add_paragraph()
-        pp1.text = f"• {p_title}: "
-        pp1.font.bold = True
-        pp1.font.size = Pt(10.5)
-        pp1.font.color.rgb = COLOR_CYAN_ACCENT
-        pp2 = q_tf.add_paragraph()
-        pp2.text = f"  {p_desc}"
-        pp2.font.size = Pt(9.5)
-        pp2.font.color.rgb = RGBColor(203, 213, 225)
-        pp2.space_after = Pt(6)
+    for c_title, c_desc in conclusions:
+        cp1 = q_tf.add_paragraph()
+        cp1.text = f"✔ {c_title}: "
+        cp1.font.bold = True
+        cp1.font.size = Pt(10.5)
+        cp1.font.color.rgb = COLOR_CYAN_ACCENT
+        cp2 = q_tf.add_paragraph()
+        cp2.text = f"   {c_desc}"
+        cp2.font.size = Pt(9.5)
+        cp2.font.color.rgb = RGBColor(203, 213, 225)
+        cp2.space_after = Pt(6)
 
     qp_contact = q_tf.add_paragraph()
     qp_contact.text = "\nMaheshchandra Hegde  |  hid.mahesh@gmail.com  |  +91 9535253329 / 7022407280  |  hegdemahesh.in"
-    qp_contact.font.size = Pt(11)
+    qp_contact.font.size = Pt(10.5)
     qp_contact.font.bold = True
     qp_contact.font.color.rgb = RGBColor(255, 255, 255)
 
-    add_footer(s11, 11, TOTAL_SLIDES, dark=True)
+    add_footer(s9, 9, TOTAL_SLIDES, dark=True)
 
     prs.save(output_pptx_path)
-    print(f"Successfully generated Authentic 11-Slide PowerPoint presentation at: {output_pptx_path}")
+    print(f"Successfully generated Structured 9-Slide PowerPoint presentation at: {output_pptx_path}")
 
 if __name__ == "__main__":
     out_dir = os.path.dirname(os.path.abspath(__file__))
