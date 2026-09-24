@@ -43,22 +43,28 @@ def generate_html_and_pdf():
 <head>
 <meta charset="UTF-8">
 <title>Maheshchandra Hegde - Resume | Fractional CTO & Principal Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   @page {{
     size: A4 portrait;
-    margin: 11mm 12mm 11mm 12mm;
+    margin: 10mm 12mm 10mm 12mm;
     @bottom-right {{
       content: counter(page);
     }}
   }}
   * {{
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }}
   body {{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #1e293b;
-    line-height: 1.38;
-    font-size: 8.8pt;
+    line-height: 1.44;
+    font-size: 9.2pt;
+    font-weight: 350;
     margin: 0;
     padding: 0;
     background: #ffffff;
@@ -66,6 +72,7 @@ def generate_html_and_pdf():
   a {{
     color: #0284c7;
     text-decoration: none;
+    font-weight: 400;
   }}
   a:hover {{
     text-decoration: underline;
@@ -74,8 +81,8 @@ def generate_html_and_pdf():
   /* HEADER */
   .header-card {{
     border-bottom: 2px solid #0284c7;
-    padding-bottom: 8px;
-    margin-bottom: 10px;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,24 +92,29 @@ def generate_html_and_pdf():
     flex-grow: 1;
   }}
   .header-info h1 {{
-    font-size: 19pt;
-    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
     margin: 0 0 2px 0;
     color: #0f172a;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.4px;
   }}
   .header-headline {{
-    font-size: 10.5pt;
-    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10.8pt;
+    font-weight: 500;
     color: #0284c7;
     margin-bottom: 4px;
+    letter-spacing: 0.1px;
   }}
   .header-meta {{
-    font-size: 8.2pt;
+    font-size: 8.6pt;
+    font-weight: 350;
     color: #475569;
-    line-height: 1.4;
+    line-height: 1.48;
   }}
   .header-meta strong {{
+    font-weight: 500;
     color: #1e293b;
   }}
   .photo-box {{
@@ -122,52 +134,60 @@ def generate_html_and_pdf():
 
   /* SECTION TITLES */
   h2.section-title {{
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: #0f172a;
     font-size: 10pt;
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.7px;
     border-bottom: 1.5px solid #0284c7;
     padding-bottom: 2px;
-    margin-top: 10px;
-    margin-bottom: 6px;
+    margin-top: 9px;
+    margin-bottom: 5px;
     page-break-after: avoid;
   }}
 
   /* SUMMARY & CALLOUT */
   .summary-text {{
-    font-size: 8.7pt;
+    font-size: 9.1pt;
+    font-weight: 350;
     color: #334155;
-    line-height: 1.4;
+    line-height: 1.44;
     margin-bottom: 5px;
     text-align: justify;
+  }}
+  .summary-text strong {{
+    font-weight: 500;
+    color: #0f172a;
   }}
 
   /* SKILLS MATRIX */
   .skills-container {{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px 12px;
-    margin-bottom: 8px;
+    gap: 5px 12px;
+    margin-bottom: 7px;
   }}
   .skill-group {{
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-left: 3px solid #0284c7;
     border-radius: 4px;
-    padding: 5px 8px;
+    padding: 4.5px 7.5px;
     page-break-inside: avoid;
   }}
   .skill-group strong {{
     display: block;
-    font-size: 8.4pt;
+    font-size: 8.7pt;
+    font-weight: 600;
     color: #0f172a;
     margin-bottom: 1px;
   }}
   .skill-group span {{
-    font-size: 7.9pt;
+    font-size: 8.2pt;
+    font-weight: 350;
     color: #475569;
-    line-height: 1.3;
+    line-height: 1.32;
     display: block;
   }}
 
@@ -183,25 +203,26 @@ def generate_html_and_pdf():
     margin-bottom: 1px;
   }}
   .exp-role {{
-    font-size: 9.2pt;
-    font-weight: 700;
+    font-size: 9.5pt;
+    font-weight: 600;
     color: #0f172a;
   }}
   .exp-company {{
-    font-size: 9.2pt;
-    font-weight: 700;
+    font-size: 9.5pt;
+    font-weight: 600;
     color: #0284c7;
   }}
   .exp-tenure {{
-    font-size: 8.2pt;
-    font-weight: 600;
+    font-size: 8.4pt;
+    font-weight: 400;
     color: #64748b;
     white-space: nowrap;
   }}
   .exp-subhead {{
-    font-size: 8.1pt;
+    font-size: 8.3pt;
+    font-weight: 350;
     color: #64748b;
-    font-style: italic;
+    font-style: normal;
     margin-bottom: 2px;
   }}
   ul.exp-bullets {{
@@ -209,12 +230,14 @@ def generate_html_and_pdf():
     padding: 0;
   }}
   ul.exp-bullets li {{
-    font-size: 8.5pt;
+    font-size: 8.9pt;
+    font-weight: 350;
     color: #334155;
-    line-height: 1.34;
+    line-height: 1.4;
     margin-bottom: 2px;
   }}
   ul.exp-bullets li strong {{
+    font-weight: 500;
     color: #0f172a;
   }}
 
@@ -227,8 +250,8 @@ def generate_html_and_pdf():
     margin: 3px 0 4px 0;
   }}
   .sub-division-title {{
-    font-size: 8.6pt;
-    font-weight: 700;
+    font-size: 8.8pt;
+    font-weight: 600;
     color: #0369a1;
     margin-bottom: 2px;
   }}
@@ -249,13 +272,14 @@ def generate_html_and_pdf():
   }}
   .edu-card h4, .award-card h4 {{
     margin: 0 0 1px 0;
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     color: #0f172a;
-    font-weight: 700;
+    font-weight: 600;
   }}
   .edu-card p, .award-card p {{
     margin: 0;
-    font-size: 8pt;
+    font-size: 8.2pt;
+    font-weight: 350;
     color: #475569;
   }}
 
@@ -585,7 +609,7 @@ def add_heading_with_bottom_border(doc, text):
     p.paragraph_format.keep_with_next = True
     run = p.add_run(text.upper())
     run.bold = True
-    run.font.name = "Arial"
+    run.font.name = "Segoe UI"
     run.font.size = Pt(10.5)
     run.font.color.rgb = RGBColor(15, 23, 42) # Slate 900
     
@@ -605,12 +629,12 @@ def add_bullet_item(doc, title, text, sub_bullets=None):
     if title:
         r_title = p.add_run(title)
         r_title.bold = True
-        r_title.font.name = "Arial"
+        r_title.font.name = "Segoe UI"
         r_title.font.size = Pt(9.5)
         r_title.font.color.rgb = RGBColor(15, 23, 42)
     if text:
         r_text = p.add_run(text)
-        r_text.font.name = "Arial"
+        r_text.font.name = "Segoe UI"
         r_text.font.size = Pt(9.5)
         r_text.font.color.rgb = RGBColor(51, 65, 85)
 
@@ -623,12 +647,12 @@ def add_bullet_item(doc, title, text, sub_bullets=None):
             if sb_title:
                 s_title = sp.add_run(sb_title)
                 s_title.bold = True
-                s_title.font.name = "Arial"
+                s_title.font.name = "Segoe UI"
                 s_title.font.size = Pt(9)
                 s_title.font.color.rgb = RGBColor(15, 23, 42)
             if sb_text:
                 s_text = sp.add_run(sb_text)
-                s_text.font.name = "Arial"
+                s_text.font.name = "Segoe UI"
                 s_text.font.size = Pt(9)
                 s_text.font.color.rgb = RGBColor(51, 65, 85)
 
@@ -665,7 +689,7 @@ def generate_docx():
     p_name.paragraph_format.space_before = Pt(0)
     p_name.paragraph_format.space_after = Pt(2)
     r_name = p_name.add_run("MAHESHCHANDRA HEGDE")
-    r_name.font.name = "Arial"
+    r_name.font.name = "Segoe UI"
     r_name.font.size = Pt(19)
     r_name.bold = True
     r_name.font.color.rgb = RGBColor(15, 23, 42)
@@ -675,7 +699,7 @@ def generate_docx():
     p_title.paragraph_format.space_before = Pt(0)
     p_title.paragraph_format.space_after = Pt(4)
     r_title = p_title.add_run("Fractional CTO | Technical Architect | Creative Technologist")
-    r_title.font.name = "Arial"
+    r_title.font.name = "Segoe UI"
     r_title.font.size = Pt(11)
     r_title.bold = True
     r_title.font.color.rgb = RGBColor(2, 132, 199)
@@ -686,11 +710,11 @@ def generate_docx():
     p_contact.paragraph_format.space_after = Pt(0)
     p_contact.paragraph_format.line_spacing = 1.25
     r_c1 = p_contact.add_run("Bangalore, India  |  +91 9535253329 / 7022407280  |  hid.mahesh@gmail.com\n")
-    r_c1.font.name = "Arial"
+    r_c1.font.name = "Segoe UI"
     r_c1.font.size = Pt(9)
     r_c1.font.color.rgb = RGBColor(71, 85, 105)
     r_c2 = p_contact.add_run("Portfolio: hegdemahesh.in  |  Technoyana: technoyana.in  |  LinkedIn: linkedin.com/in/maheshchandrahegde")
-    r_c2.font.name = "Arial"
+    r_c2.font.name = "Segoe UI"
     r_c2.font.size = Pt(9)
     r_c2.font.color.rgb = RGBColor(2, 132, 199)
 
@@ -718,11 +742,11 @@ def generate_docx():
     p_sum1.paragraph_format.line_spacing = 1.2
     r_s1_b = p_sum1.add_run("Versatile Technology Leader, Principal Architect, and Product Strategist ")
     r_s1_b.bold = True
-    r_s1_b.font.name = "Arial"
+    r_s1_b.font.name = "Segoe UI"
     r_s1_b.font.size = Pt(9.5)
     r_s1_b.font.color.rgb = RGBColor(15, 23, 42)
     r_s1 = p_sum1.add_run("with 18+ years of track record architecting high-performance digital products, distributed cloud platforms, and immersive spatial 3D systems. Expert in React, Angular, TypeScript, Node.js, Web Components (LitElement), Cloud architectures (GCP/Firebase, AWS), and resilient offline-first PWAs. Dual-disciplined background blending Human Interface Design (M.S. in Computing, UK) with Electronics & Communication Engineering (B.E.), bridging high-level executive vision with hands-on architectural rigor.")
-    r_s1.font.name = "Arial"
+    r_s1.font.name = "Segoe UI"
     r_s1.font.size = Pt(9.5)
     r_s1.font.color.rgb = RGBColor(51, 65, 85)
 
@@ -731,7 +755,7 @@ def generate_docx():
     p_sum2.paragraph_format.space_after = Pt(8)
     p_sum2.paragraph_format.line_spacing = 1.2
     r_s2 = p_sum2.add_run("Currently serving as Fractional CTO at eBodhya Technologies (advancing AI-powered Academic Intelligence Operating System for schools) and Founder & CTO at Technoyana Digital Transformation Services, incubating deep-tech product studios including SrushtiLabs (generative 3D asset platforms, VoxelForge AI, Ayam3d) and Twitan (high-reliability sports tournament management OS, Shutlify & Twicket). Proven background executing mission-critical enterprise modernizations (4-year zero-downtime migration of Cisco Stadium Vision Director), clinical ICU software (Philips Healthcare ICCA), and cross-framework UI design systems. Available for fractional leadership, architecture governance, and technical consulting.")
-    r_s2.font.name = "Arial"
+    r_s2.font.name = "Segoe UI"
     r_s2.font.size = Pt(9.5)
     r_s2.font.color.rgb = RGBColor(51, 65, 85)
 
@@ -752,11 +776,11 @@ def generate_docx():
         p_sk.paragraph_format.line_spacing = 1.15
         r_c = p_sk.add_run(cat)
         r_c.bold = True
-        r_c.font.name = "Arial"
+        r_c.font.name = "Segoe UI"
         r_c.font.size = Pt(9.3)
         r_c.font.color.rgb = RGBColor(15, 23, 42)
         r_i = p_sk.add_run(items)
-        r_i.font.name = "Arial"
+        r_i.font.name = "Segoe UI"
         r_i.font.size = Pt(9.3)
         r_i.font.color.rgb = RGBColor(51, 65, 85)
 
@@ -771,18 +795,18 @@ def generate_docx():
         p.paragraph_format.keep_with_next = True
         r1 = p.add_run(f"{role}  |  ")
         r1.bold = True
-        r1.font.name = "Arial"
+        r1.font.name = "Segoe UI"
         r1.font.size = Pt(10)
         r1.font.color.rgb = RGBColor(15, 23, 42)
         
         r2 = p.add_run(company)
         r2.bold = True
-        r2.font.name = "Arial"
+        r2.font.name = "Segoe UI"
         r2.font.size = Pt(10)
         r2.font.color.rgb = RGBColor(2, 132, 199)
         
         r3 = p.add_run(f"  ({tenure})")
-        r3.font.name = "Arial"
+        r3.font.name = "Segoe UI"
         r3.font.size = Pt(9)
         r3.font.color.rgb = RGBColor(100, 116, 139)
         
@@ -792,7 +816,7 @@ def generate_docx():
             p_sub.paragraph_format.space_after = Pt(3)
             p_sub.paragraph_format.keep_with_next = True
             r_sub = p_sub.add_run(location_desc)
-            r_sub.font.name = "Arial"
+            r_sub.font.name = "Segoe UI"
             r_sub.font.size = Pt(8.5)
             r_sub.italic = True
             r_sub.font.color.rgb = RGBColor(100, 116, 139)
@@ -877,21 +901,21 @@ def generate_docx():
     p_e.paragraph_format.space_after = Pt(2)
     r1 = p_e.add_run("Master of Science (M.S.) in Computing\n")
     r1.bold = True
-    r1.font.name = "Arial"
+    r1.font.name = "Segoe UI"
     r1.font.size = Pt(9.5)
     r1.font.color.rgb = RGBColor(15, 23, 42)
     r2 = p_e.add_run("Robert Gordon University, Scotland, UK (2005–2006)\nSpecialization: Human Interface Design & Development\n\n")
-    r2.font.name = "Arial"
+    r2.font.name = "Segoe UI"
     r2.font.size = Pt(8.5)
     r2.font.color.rgb = RGBColor(71, 85, 105)
     
     r3 = p_e.add_run("Bachelor of Engineering (B.E.) in ECE\n")
     r3.bold = True
-    r3.font.name = "Arial"
+    r3.font.name = "Segoe UI"
     r3.font.size = Pt(9.5)
     r3.font.color.rgb = RGBColor(15, 23, 42)
     r4 = p_e.add_run("Bapuji Institute of Engineering & Technology, Davanagere (1999–2003)\nElectronics & Communication Engineering")
-    r4.font.name = "Arial"
+    r4.font.name = "Segoe UI"
     r4.font.size = Pt(8.5)
     r4.font.color.rgb = RGBColor(71, 85, 105)
 
@@ -901,26 +925,31 @@ def generate_docx():
     p_a.paragraph_format.space_after = Pt(2)
     ra1 = p_a.add_run("Cisco Certificate of Appreciation (2010)\n")
     ra1.bold = True
-    ra1.font.name = "Arial"
+    ra1.font.name = "Segoe UI"
     ra1.font.size = Pt(9.5)
     ra1.font.color.rgb = RGBColor(15, 23, 42)
     ra2 = p_a.add_run("Excellence in UX design and engineering for Cisco Campus Unified BMS Facility Dashboard.\n\n")
-    ra2.font.name = "Arial"
+    ra2.font.name = "Segoe UI"
     ra2.font.size = Pt(8.5)
     ra2.font.color.rgb = RGBColor(71, 85, 105)
     
     ra3 = p_a.add_run("UST Global Certificates of Excellence (2015, 2016, 2018)\n")
     ra3.bold = True
-    ra3.font.name = "Arial"
+    ra3.font.name = "Segoe UI"
     ra3.font.size = Pt(9.5)
     ra3.font.color.rgb = RGBColor(15, 23, 42)
     ra4 = p_a.add_run("Triple recognition for technical leadership, zero-downtime migration, and delivery on Cisco Stadium Vision.")
-    ra4.font.name = "Arial"
+    ra4.font.name = "Segoe UI"
     ra4.font.size = Pt(8.5)
     ra4.font.color.rgb = RGBColor(71, 85, 105)
 
-    doc.save(DOCX_PATH)
-    print(f"[OK] Generated DOCX ({os.path.getsize(DOCX_PATH)} bytes) at: {DOCX_PATH}")
+    try:
+        doc.save(DOCX_PATH)
+        print(f"[OK] Generated DOCX ({os.path.getsize(DOCX_PATH)} bytes) at: {DOCX_PATH}")
+    except PermissionError:
+        fallback_path = os.path.join(script_dir, "CV_maheshchandra_hegde_updated.docx")
+        doc.save(fallback_path)
+        print(f"[NOTE] '{DOCX_PATH}' is currently open in Microsoft Word. Saved updated file to: {fallback_path}")
 
 
 def main():
