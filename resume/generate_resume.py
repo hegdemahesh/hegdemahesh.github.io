@@ -338,7 +338,7 @@ def generate_html_and_pdf():
         <span class="exp-role">Fractional Chief Technology Officer (CTO)</span> — 
         <span class="exp-company">eBodhya Technologies Private Limited</span>
       </div>
-      <span class="exp-tenure">2025 – Present</span>
+      <span class="exp-tenure">Sep 2026 – Present</span>
     </div>
     <div class="exp-subhead">Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform</div>
     <ul class="exp-bullets">
@@ -798,7 +798,7 @@ def generate_docx():
             r_sub.font.color.rgb = RGBColor(100, 116, 139)
 
     # eBodhya
-    add_job_header("Fractional Chief Technology Officer (CTO)", "eBodhya Technologies Private Limited", "2025 – Present", "Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform")
+    add_job_header("Fractional Chief Technology Officer (CTO)", "eBodhya Technologies Private Limited", "Sep 2026 – Present", "Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform")
     add_bullet_item(doc, "", "Drive technical leadership and architectural vision for an interconnected Academic Intelligence OS designed to streamline school operations, curriculum workflows, and assessment processes.")
     add_bullet_item(doc, "", "Architect curriculum-aware AI workflows and evaluation engines linking question banks, automated grading, and real-time student analytics into a unified source of truth.")
     add_bullet_item(doc, "", "Establish modular full-stack architecture, scalability guidelines, and automated deployment pipelines, empowering educators and accelerating product-market rollout.")
