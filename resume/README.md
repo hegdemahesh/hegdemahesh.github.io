@@ -1,7 +1,7 @@
 # Executive Resume Package — Maheshchandra Hegde
 
 > **Candidate**: Maheshchandra Hegde  
-> **Target Roles**: Fractional CTO / Technical Architect / Principal Consultant  
+> **Headline / Role**: Chief Technology Officer (CTO) | Enterprise Architect | Creative Technologist  
 > **Approach**: Balanced Executive Profile (UI/UX Systems, Enterprise Cloud Architecture, Spatial AI & 3D Web)  
 > **Contact**: Bangalore, India | +91 9535253329 / 7022407280 | hid.mahesh@gmail.com  
 > **Portfolios & Profiles**: [hegdemahesh.in](https://hegdemahesh.in/) | [technoyana.in](https://technoyana.in/) | [LinkedIn](https://www.linkedin.com/in/maheshchandrahegde/)
@@ -30,7 +30,7 @@
 - **Technoyana Digital Transformation Services Pvt. Ltd.** (Founder & CTO | May 2021 – Present):
   - **SrushtiLabs (Spatial AI & 3D Tech)**: *VoxelForge AI* (generative modular 3D for real-time engines) & *Ayam3d* (parametric prompt-to-3D mesh & PBR texture pipeline).
   - **Twitan (Sports SaaS Studio)**: *Shutlify* (Badminton OS — automated brackets, real-time court scoring, offline-first PWA) & *Twicket* (live cricket scoring engine).
-  - **Specialized Multi-Disciplinary Engineering**: Customized CNC machine controller interfaces, CAD/CAM automation, 3D simulations, and IoT parking telemetry.
+  - **Specialized Multi-Disciplinary Engineering**: Customized CNC machine controller interfaces, CAD/CAM automation, 3D simulations, and an escrow-backed financial parking payment application with secure transaction settlement.
 
 ### Page 2: Mission-Critical Enterprise & Scale Experience
 - **Cyient Limited / Philips Healthcare** (Senior Technical Lead | Nov 2023 – Mar 2025): Philips IntelliSpace Critical Care & Anesthesia (ICCA) clinical software in 24/7 ICU environments, zero memory-leak continuous clinical uptime, and strict healthcare security compliance (MFA, RBAC, XSS prevention, medical privacy).

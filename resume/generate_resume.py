@@ -294,7 +294,7 @@ def generate_html_and_pdf():
 <header class="header-card">
   <div class="header-info">
     <h1>MAHESHCHANDRA HEGDE</h1>
-    <div class="header-headline">Fractional CTO | Technical Architect | Creative Technologist</div>
+    <div class="header-headline">Chief Technology Officer (CTO) | Enterprise Architect | Creative Technologist</div>
     <div class="header-meta">
       <strong>Bangalore, India</strong> &nbsp;|&nbsp; 
       <span>+91 9535253329 / +91 7022407280</span> &nbsp;|&nbsp; 
@@ -313,10 +313,10 @@ def generate_html_and_pdf():
 <section>
   <h2 class="section-title">Executive Profile & Summary</h2>
   <div class="summary-text">
-    <strong>Versatile Technology Leader, Principal Architect, and Product Strategist</strong> with <strong>18+ years</strong> of track record architecting high-performance digital products, distributed cloud platforms, and immersive spatial 3D systems. Expert in <strong>React, Angular, TypeScript, Node.js, Web Components (LitElement), Cloud architectures (GCP/Firebase, AWS)</strong>, and resilient offline-first PWAs. Dual-disciplined background blending Human Interface Design (<strong>M.S. in Computing, UK</strong>) with Electronics & Communication Engineering (<strong>B.E.</strong>), uniquely bridging high-level executive business strategy with deep, hands-on architectural rigor.
+    <strong>Versatile Technology Leader, Enterprise Architect, and Product Strategist</strong> with <strong>18+ years</strong> of track record architecting high-performance digital products, distributed cloud platforms, and immersive spatial 3D systems. Expert in <strong>React, Angular, TypeScript, Node.js, Web Components (LitElement), Cloud architectures (GCP/Firebase, AWS)</strong>, and resilient offline-first PWAs. Dual-disciplined background blending Human Interface Design (<strong>M.S. in Computing, UK</strong>) with Electronics & Communication Engineering (<strong>B.E.</strong>), uniquely bridging high-level executive business strategy with deep, hands-on architectural rigor.
   </div>
   <div class="summary-text">
-    Currently serving as <strong>Fractional CTO at eBodhya Technologies</strong> (leading AI-assisted Academic Intelligence & school management systems) and <strong>Founder & CTO at Technoyana Digital Transformation Services</strong>, incubating deep-tech product studios including <strong>SrushtiLabs</strong> (generative 3D asset platforms, VoxelForge AI, Ayam3d) and <strong>Twitan</strong> (high-reliability sports tournament management OS, Shutlify & Twicket). Proven background executing mission-critical enterprise modernizations (4-year zero-downtime migration of Cisco Stadium Vision Director), clinical ICU software (Philips Healthcare ICCA), and cross-framework UI design systems. Available for fractional leadership, architecture governance, and technical consulting.
+    Currently serving as <strong>Chief Technology Officer (CTO) at eBodhya Technologies</strong>, spearheading the platform architecture, AI evaluation engines, and engineering execution for an Academic Intelligence Operating System, alongside leading <strong>Technoyana Digital Transformation Services</strong> as Founder & CTO (incubating deep-tech product studios including <strong>SrushtiLabs</strong>' generative 3D platforms, VoxelForge AI, Ayam3d, and <strong>Twitan</strong>'s high-reliability sports SaaS suite, Shutlify & Twicket). Proven background executing mission-critical enterprise modernizations (4-year zero-downtime migration of Cisco Stadium Vision Director), clinical ICU software (Philips Healthcare ICCA), and cross-framework UI design systems.
   </div>
 </section>
 
@@ -326,7 +326,7 @@ def generate_html_and_pdf():
   <div class="skills-container">
     <div class="skill-group">
       <strong>Executive & Technical Leadership</strong>
-      <span>Fractional CTO, Technical Architecture, System Modernization, Product Strategy, Agile/Scrum, Mentorship, Engineering Roadmaps</span>
+      <span>Chief Technology Officer (CTO), Enterprise Architecture, System Modernization, AI Roadmaps, Agile/Scrum, Engineering Governance</span>
     </div>
     <div class="skill-group">
       <strong>Frontend & Web Systems</strong>
@@ -359,16 +359,16 @@ def generate_html_and_pdf():
   <div class="exp-item">
     <div class="exp-header">
       <div>
-        <span class="exp-role">Fractional Chief Technology Officer (CTO)</span> — 
+        <span class="exp-role">Chief Technology Officer (CTO)</span> — 
         <span class="exp-company">eBodhya Technologies Private Limited</span>
       </div>
       <span class="exp-tenure">Sep 2026 – Present</span>
     </div>
     <div class="exp-subhead">Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform</div>
     <ul class="exp-bullets">
-      <li>Drive technical leadership and architectural vision for an interconnected Academic Intelligence OS designed to streamline school operations, curriculum workflows, and assessment processes.</li>
-      <li>Architect curriculum-aware AI workflows and evaluation engines linking question banks, automated grading, and real-time student analytics into a unified source of truth.</li>
-      <li>Establish modular full-stack architecture, scalability guidelines, and automated deployment pipelines, empowering educators and accelerating product-market rollout.</li>
+      <li>Spearhead the long-term technology vision, system architecture, and product engineering roadmap for eBodhya's proprietary Academic Intelligence Operating System.</li>
+      <li>Architect core generative and structured AI evaluation workflows—unifying dynamic question banks, automated grading pipelines, and real-time student learning analytics into an institutional source of truth.</li>
+      <li>Direct end-to-end cloud infrastructure, API architectures, data protection standards, and CI/CD automation, ensuring high-concurrency reliability and rapid deployment across educational institutions.</li>
     </ul>
   </div>
 
@@ -398,7 +398,7 @@ def generate_html_and_pdf():
           <li>Developed <strong>Twicket</strong>, a high-fidelity real-time scoring and match statistics engine for cricket tournaments.</li>
         </ul>
       </li>
-      <li><strong>Specialized Multi-Disciplinary Engineering</strong>: Designed customized CNC machine controller interfaces and automated CAD/CAM toolpath generation pipelines; delivered architectural 3D simulations and consumer IoT parking payment applications.</li>
+      <li><strong>Specialized Multi-Disciplinary Engineering</strong>: Designed customized CNC machine controller interfaces and automated CAD/CAM toolpath generation pipelines; delivered architectural 3D simulations and an escrow-backed financial parking payment application with secure transaction settlement.</li>
     </ul>
   </div>
 
@@ -698,7 +698,7 @@ def generate_docx():
     p_title = cell_info.add_paragraph()
     p_title.paragraph_format.space_before = Pt(0)
     p_title.paragraph_format.space_after = Pt(4)
-    r_title = p_title.add_run("Fractional CTO | Technical Architect | Creative Technologist")
+    r_title = p_title.add_run("Chief Technology Officer (CTO) | Enterprise Architect | Creative Technologist")
     r_title.font.name = "Segoe UI"
     r_title.font.size = Pt(11)
     r_title.bold = True
@@ -740,7 +740,7 @@ def generate_docx():
     p_sum1.paragraph_format.space_before = Pt(2)
     p_sum1.paragraph_format.space_after = Pt(4)
     p_sum1.paragraph_format.line_spacing = 1.2
-    r_s1_b = p_sum1.add_run("Versatile Technology Leader, Principal Architect, and Product Strategist ")
+    r_s1_b = p_sum1.add_run("Versatile Technology Leader, Enterprise Architect, and Product Strategist ")
     r_s1_b.bold = True
     r_s1_b.font.name = "Segoe UI"
     r_s1_b.font.size = Pt(9.5)
@@ -754,7 +754,7 @@ def generate_docx():
     p_sum2.paragraph_format.space_before = Pt(2)
     p_sum2.paragraph_format.space_after = Pt(8)
     p_sum2.paragraph_format.line_spacing = 1.2
-    r_s2 = p_sum2.add_run("Currently serving as Fractional CTO at eBodhya Technologies (advancing AI-powered Academic Intelligence Operating System for schools) and Founder & CTO at Technoyana Digital Transformation Services, incubating deep-tech product studios including SrushtiLabs (generative 3D asset platforms, VoxelForge AI, Ayam3d) and Twitan (high-reliability sports tournament management OS, Shutlify & Twicket). Proven background executing mission-critical enterprise modernizations (4-year zero-downtime migration of Cisco Stadium Vision Director), clinical ICU software (Philips Healthcare ICCA), and cross-framework UI design systems. Available for fractional leadership, architecture governance, and technical consulting.")
+    r_s2 = p_sum2.add_run("Currently serving as Chief Technology Officer (CTO) at eBodhya Technologies, spearheading the platform architecture, AI evaluation engines, and engineering execution for an Academic Intelligence Operating System, alongside leading Technoyana Digital Transformation Services as Founder & CTO (incubating deep-tech product studios including SrushtiLabs' generative 3D platforms, VoxelForge AI, Ayam3d, and Twitan's high-reliability sports SaaS suite, Shutlify & Twicket). Proven background executing mission-critical enterprise modernizations (4-year zero-downtime migration of Cisco Stadium Vision Director), clinical ICU software (Philips Healthcare ICCA), and cross-framework UI design systems.")
     r_s2.font.name = "Segoe UI"
     r_s2.font.size = Pt(9.5)
     r_s2.font.color.rgb = RGBColor(51, 65, 85)
@@ -762,7 +762,7 @@ def generate_docx():
     # 2. CORE SKILLS
     add_heading_with_bottom_border(doc, "Core Competencies & Technical Skills")
     skills = [
-        ("Executive & Technical Leadership: ", "Fractional CTO, Technical Architecture, System Modernization, Product Strategy, Agile/Scrum, Mentorship, Engineering Roadmaps"),
+        ("Executive & Technical Leadership: ", "Chief Technology Officer (CTO), Enterprise Architecture, System Modernization, AI Roadmaps, Agile/Scrum, Engineering Governance"),
         ("Frontend & Web Systems: ", "React, TypeScript, Angular, Web Components (LitElement), Next.js, Vite, Redux, Modern JavaScript (ES6+), HTML5/CSS3, WCAG 2.1 AA"),
         ("AI, Spatial Computing & 3D: ", "Generative 3D Asset Creation, Mesh Synthesis, Automated Retopology, Tileable PBR Textures & Upscaling, Three.js, WebGL, 3ds Max, Blender"),
         ("Cloud, Backend & Offline: ", "Node.js, Express, Firebase / Google Cloud Platform (GCP), AWS, REST APIs, Micro-frontends, PWA (Offline-first / IndexedDB)"),
@@ -822,10 +822,10 @@ def generate_docx():
             r_sub.font.color.rgb = RGBColor(100, 116, 139)
 
     # eBodhya
-    add_job_header("Fractional Chief Technology Officer (CTO)", "eBodhya Technologies Private Limited", "Sep 2026 – Present", "Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform")
-    add_bullet_item(doc, "", "Drive technical leadership and architectural vision for an interconnected Academic Intelligence OS designed to streamline school operations, curriculum workflows, and assessment processes.")
-    add_bullet_item(doc, "", "Architect curriculum-aware AI workflows and evaluation engines linking question banks, automated grading, and real-time student analytics into a unified source of truth.")
-    add_bullet_item(doc, "", "Establish modular full-stack architecture, scalability guidelines, and automated deployment pipelines, empowering educators and accelerating product-market rollout.")
+    add_job_header("Chief Technology Officer (CTO)", "eBodhya Technologies Private Limited", "Sep 2026 – Present", "Bengaluru, India · Academic Intelligence Operating System & EdTech SaaS Platform")
+    add_bullet_item(doc, "", "Spearhead the long-term technology vision, system architecture, and product engineering roadmap for eBodhya's proprietary Academic Intelligence Operating System.")
+    add_bullet_item(doc, "", "Architect core generative and structured AI evaluation workflows—unifying dynamic question banks, automated grading pipelines, and real-time student learning analytics into an institutional source of truth.")
+    add_bullet_item(doc, "", "Direct end-to-end cloud infrastructure, API architectures, data protection standards, and CI/CD automation, ensuring high-concurrency reliability and rapid deployment across educational institutions.")
 
     # Technoyana
     add_job_header("Founder & Chief Technology Officer (CTO)", "Technoyana Digital Transformation Services Pvt. Ltd.", "May 2021 – Present", "Bengaluru, India · Enterprise Product Engineering, Spatial AI & High-Reliability SaaS Studio")
@@ -836,7 +836,7 @@ def generate_docx():
     add_bullet_item(doc, "Twitan (Sports SaaS Studio): ", "Architected Shutlify (Badminton OS - twitan.com), an end-to-end tournament management platform featuring automated knockout/round-robin fixture engines, live court arbitration, multi-court scheduling, and offline-first PWA resilience for venue Wi-Fi drops (deployed at tournaments like HBL Sirsi).", [
         ("Twicket: ", "Developed high-fidelity real-time scoring and match statistics engine for cricket tournaments.")
     ])
-    add_bullet_item(doc, "Specialized Engineering Solutions: ", "Designed customized CNC machine controller interfaces and automated CAD/CAM toolpath pipelines; delivered architectural 3D simulations and consumer IoT parking payment applications.")
+    add_bullet_item(doc, "Specialized Engineering Solutions: ", "Designed customized CNC machine controller interfaces and automated CAD/CAM toolpath pipelines; delivered architectural 3D simulations and an escrow-backed financial parking payment application with secure transaction settlement.")
 
     # Cyient / Philips
     add_job_header("Senior Technical Lead (React / Node.js)", "Cyient Limited / Philips Healthcare", "Nov 2023 – Mar 2025", "Bengaluru, India · Philips IntelliSpace Critical Care & Anesthesia (ICCA) · Mission-Critical ICU Software")
