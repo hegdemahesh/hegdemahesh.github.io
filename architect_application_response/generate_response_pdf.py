@@ -1,0 +1,502 @@
+"""
+Executive PDF Generator for Full Stack Architect Application Response
+Candidate: Maheshchandra Hegde
+Generates:
+1. Full_Stack_Architect_Response_Maheshchandra_Hegde.html
+2. Full_Stack_Architect_Response_Maheshchandra_Hegde.pdf (via Headless Edge/Chrome)
+"""
+
+import os
+import subprocess
+import sys
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.abspath(os.path.join(script_dir, ".."))
+
+photo_path = os.path.join(root_dir, "maheshForResume.jpg")
+if not os.path.exists(photo_path):
+    photo_path = os.path.join(root_dir, "resume", "maheshForResume.jpg")
+
+html_file = os.path.join(script_dir, "Full_Stack_Architect_Response_Maheshchandra_Hegde.html")
+pdf_file = os.path.join(script_dir, "Full_Stack_Architect_Response_Maheshchandra_Hegde.pdf")
+
+html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Full Stack Architect Response - Maheshchandra Hegde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @page {{
+    size: A4 portrait;
+    margin: 12mm 14mm 12mm 14mm;
+    @bottom-right {{
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 7.5pt;
+      color: #94a3b8;
+      font-family: 'Inter', sans-serif;
+    }}
+  }}
+  * {{
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }}
+  body {{
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1e293b;
+    line-height: 1.48;
+    font-size: 9pt;
+    font-weight: 350;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }}
+  a {{
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 500;
+  }}
+  
+  /* HEADER CARD */
+  .header-card {{
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #0284c7;
+  }}
+  .header-info h1 {{
+    font-size: 18pt;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+  }}
+  .header-tagline {{
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #38bdf8;
+    margin-bottom: 5px;
+  }}
+  .header-meta {{
+    font-size: 8.2pt;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }}
+  .header-meta a {{
+    color: #7dd3fc;
+  }}
+  .photo-box {{
+    width: 72px;
+    height: 90px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid #38bdf8;
+  }}
+  .photo-box img {{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }}
+
+  /* NOTICE / CONTEXT BANNER */
+  .callout-box {{
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #16a34a;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 8.5pt;
+    color: #166534;
+  }}
+  .callout-box strong {{
+    color: #14532d;
+  }}
+
+  /* LOGISTICS TABLE */
+  .table-container {{
+    margin-bottom: 12px;
+  }}
+  table.logistics-table {{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+  }}
+  table.logistics-table th {{
+    background: #f1f5f9;
+    color: #0f172a;
+    text-align: left;
+    padding: 6px 10px;
+    font-weight: 600;
+    border-bottom: 1.5px solid #cbd5e1;
+    font-size: 8.5pt;
+  }}
+  table.logistics-table td {{
+    padding: 5.5px 10px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }}
+  table.logistics-table tr:nth-child(even) {{
+    background: #fafafa;
+  }}
+  table.logistics-table td strong {{
+    color: #0f172a;
+  }}
+
+  /* SECTION HEADERS */
+  h2.section-header {{
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 3px;
+    margin-top: 13px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }}
+
+  h3.question-title {{
+    font-size: 9.6pt;
+    font-weight: 600;
+    color: #0369a1;
+    margin: 9px 0 4px 0;
+    page-break-after: avoid;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }}
+  h3.question-title .num-badge {{
+    background: #0284c7;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 8pt;
+    font-weight: 700;
+  }}
+
+  .content-block {{
+    font-size: 8.7pt;
+    color: #334155;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }}
+  .content-block ul {{
+    margin: 3px 0 4px 16px;
+    padding: 0;
+  }}
+  .content-block li {{
+    margin-bottom: 3px;
+  }}
+  .content-block strong {{
+    color: #0f172a;
+    font-weight: 600;
+  }}
+
+  /* ARCHITECTURE CARD */
+  .arch-card {{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3.5px solid #0284c7;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    page-break-inside: avoid;
+  }}
+  .arch-card-title {{
+    font-size: 9.1pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+  }}
+  .arch-meta {{
+    font-size: 8pt;
+    color: #64748b;
+    margin-bottom: 4px;
+  }}
+
+  .badge {{
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 7.5pt;
+    font-weight: 600;
+    margin-right: 4px;
+  }}
+
+  .page-break {{
+    page-break-before: always;
+  }}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header-card">
+  <div class="header-info">
+    <h1>MAHESHCHANDRA HEGDE</h1>
+    <div class="header-tagline">Full Stack Architect &amp; Technology Leader | 18+ Years Experience</div>
+    <div class="header-meta">
+      <strong>Bangalore, India</strong> &nbsp;•&nbsp; 
+      <span>+91 9535253329 / +91 7022407280</span> &nbsp;•&nbsp; 
+      <a href="mailto:hid.mahesh@gmail.com">hid.mahesh@gmail.com</a><br>
+      Portfolios: <a href="https://hegdemahesh.in" target="_blank">hegdemahesh.in</a> &nbsp;•&nbsp; 
+      <a href="https://technoyana.in" target="_blank">technoyana.in</a> &nbsp;•&nbsp; 
+      LinkedIn: <a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank">linkedin.com/in/maheshchandrahegde</a>
+    </div>
+  </div>
+  <div class="photo-box">
+    <img src="{photo_path.replace(os.sep, '/')}" alt="Maheshchandra Hegde">
+  </div>
+</div>
+
+<div class="callout-box">
+  <strong>Application Dossier:</strong> Comprehensive technical validation, system design depth, architecture trade-offs, and Claude/AI-assisted engineering responses for the <strong>Full Stack Architect</strong> opportunity. Ready for evaluation via <strong>PramitiHR.ai</strong>.
+</div>
+
+<!-- PART 1: CANDIDATE LOGISTICS -->
+<h2 class="section-header">Candidate Profile &amp; Logistics Confirmation</h2>
+<div class="table-container">
+  <table class="logistics-table">
+    <thead>
+      <tr>
+        <th style="width: 32%;">Evaluation Parameter</th>
+        <th style="width: 68%;">Candidate Confirmation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Current Location</strong></td>
+        <td>Bangalore, India</td>
+      </tr>
+      <tr>
+        <td><strong>Work from Bangalore (Hybrid)</strong></td>
+        <td><strong>Yes</strong> (Fully committed to working from Bangalore on-site / hybrid)</td>
+      </tr>
+      <tr>
+        <td><strong>Notice Period</strong></td>
+        <td><strong>30 Days / Immediate to 15 Days</strong> (Negotiable based on project start timeline)</td>
+      </tr>
+      <tr>
+        <td><strong>Current &amp; Expected CTC</strong></td>
+        <td>Current: <em>[Competitive / Available on request]</em> &nbsp;|&nbsp; Expected: <em>[Aligned with Architect Market Benchmark]</em></td>
+      </tr>
+      <tr>
+        <td><strong>LinkedIn Profile</strong></td>
+        <td><a href="https://www.linkedin.com/in/maheshchandrahegde/" target="_blank">https://www.linkedin.com/in/maheshchandrahegde/</a></td>
+      </tr>
+      <tr>
+        <td><strong>Updated Resume</strong></td>
+        <td>Attached alongside this submission (<code>CV_maheshchandra_hegde.pdf</code>)</td>
+      </tr>
+      <tr>
+        <td><strong>Hands-on vs. Architecture Split</strong></td>
+        <td><strong>65% Hands-on Coding</strong> &nbsp;|&nbsp; <strong>35% System Architecture &amp; Governance</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Product / SaaS Engineering</strong></td>
+        <td><strong>10+ Years</strong> dedicated SaaS platform engineering (18+ Years overall)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PART 2: TECHNICAL VALIDATION -->
+<h2 class="section-header">Technical Validation &amp; Domain Expertise</h2>
+
+<h3 class="question-title"><span class="num-badge">1</span> Hands-on Experience: TypeScript, Node.js, React.js, Next.js</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>TypeScript (8+ Years)</strong>: Production architect designing strict type systems across frontend (React, Next.js, Angular) and backend (NestJS, Node.js). Extensive expertise in generic type constraints, branded types, discriminated unions, and AST-level validations to enforce end-to-end data safety from PostgreSQL database schemas to client state.</li>
+    <li><strong>Node.js (10+ Years)</strong>: Architecting event-driven REST and GraphQL APIs, Backend-for-Frontend (BFF) layers, asynchronous worker pools, WebSockets, and real-time streaming telemetry with zero-blocking event loop optimization.</li>
+    <li><strong>React.js (9+ Years)</strong>: Enterprise React architecture starting with React 0.14/15 during Cisco Stadium Vision modernization through to modern React 18/19 (Hooks, Suspense, Concurrent rendering, Zustand, Redux Toolkit, and virtualized high-frequency streams).</li>
+    <li><strong>Next.js (5+ Years)</strong>: Deep architectural implementations using App Router, SSR, SSG, ISR, React Server Components (RSC), and edge middleware for high-performance SaaS landing, interactive dashboards, and e-commerce portals.</li>
+  </ul>
+</div>
+
+<h3 class="question-title"><span class="num-badge">2</span> Backend Frameworks: NestJS, Express, Fastify</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>NestJS (3+ Years)</strong>: Enterprise microservice architecture utilizing TypeScript decorators, Dependency Injection (DI), Domain-Driven Design (DDD), custom Guards for RBAC/ABAC, Interceptors for distributed tracing, and validation Pipes with Zod/class-validator.</li>
+    <li><strong>Express (8+ Years)</strong>: Core REST services, authentication gateways, rate limiters, middleware pipelines, and webhook ingestion engines.</li>
+    <li><strong>Fastify (2+ Years)</strong>: High-throughput, ultra-low-latency microservices leveraging Ajv JSON schema pre-compilation for thousands of requests per second with minimal CPU footprints.</li>
+  </ul>
+</div>
+
+<h3 class="question-title"><span class="num-badge">3</span> Data &amp; Communication: GraphQL, gRPC, PostgreSQL, MongoDB</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>PostgreSQL (10+ Years)</strong>: Primary transactional engine (ACID). Schema design, advanced indexing (B-Tree, GIN, GiST), JSONB indexing for semi-structured payloads, query optimization (<code>EXPLAIN ANALYZE</code>), connection pooling (PgBouncer), and multi-tenant Row-Level Security (RLS).</li>
+    <li><strong>MongoDB (7+ Years)</strong>: Document database for dynamic schemas, unstructured event logs, and high-velocity match scoring. Aggregation pipelines, sharding keys, and replica set configuration.</li>
+    <li><strong>GraphQL (5+ Years)</strong>: Schema-first API design using Apollo Server and GraphQL Yoga. Unified federated schemas across web and mobile clients, eliminating over/under-fetching. Implemented <code>DataLoader</code> batching to permanently resolve N+1 query performance bottlenecks.</li>
+    <li><strong>gRPC &amp; Protobuf (3+ Years)</strong>: Low-latency inter-service communication within Kubernetes clusters, binary payload serialization, and bidirectional streaming for real-time telemetry synchronization.</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<h2 class="section-header">End-to-End Architecture Ownership (HLD &amp; LLD)</h2>
+
+<div class="arch-card">
+  <div class="arch-card-title">1. Shutlify (Badminton OS / Sports SaaS Studio — Twitan / Technoyana)</div>
+  <div class="arch-meta"><span class="badge">Offline-First PWA</span><span class="badge">NestJS</span><span class="badge">PostgreSQL</span><span class="badge">Redis</span><span class="badge">WebSocket</span></div>
+  <div class="content-block">
+    <ul>
+      <li><strong>High-Level Design (HLD)</strong>: Multi-tenant sports operations platform serving tournament directors, courtside referees/umpires, and thousands of concurrent mobile spectators.</li>
+      <li><strong>Low-Level Design (LLD)</strong>: Built an offline-first PWA using React, TypeScript, and IndexedDB local persistence. Umpires score matches courtside without network latency; an asynchronous background worker replays idempotent scoring events with conflict resolution upon reconnection. Backend built with NestJS, PostgreSQL (fixture trees &amp; audit trails), and Redis Pub/Sub for sub-10ms score broadcasts via WebSockets.</li>
+      <li><strong>Scalability &amp; Rationale</strong>: PostgreSQL guarantees ACID transactional integrity during bracket progression; Redis handles volatile court states; static CDN caching protects the core database from heavy public spectator spikes.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="arch-card">
+  <div class="arch-card-title">2. Cisco Stadium Vision Director Platform Modernization (UST Global / Cisco Systems)</div>
+  <div class="arch-meta"><span class="badge">Strangler-Fig Migration</span><span class="badge">Micro-Frontends</span><span class="badge">Angular &amp; React</span><span class="badge">Zero-Downtime</span></div>
+  <div class="content-block">
+    <ul>
+      <li><strong>High-Level Design (HLD)</strong>: Enterprise digital media distribution and live venue dynamic video display platform deployed across premier international stadiums (NFL, NBA, Europe).</li>
+      <li><strong>Low-Level Design (LLD)</strong>: Led the multi-year Strangler-Fig migration from legacy Adobe Flash/Flex to modern Angular and React micro-frontends. Engineered a custom cross-runtime event bridge allowing legacy SWFs and modern web components to share state seamlessly in real-time.</li>
+      <li><strong>Scalability &amp; Recognition</strong>: Maintained continuous live stadium game-day operations without a single minute of downtime. Awarded 3 consecutive UST Global Certificates of Excellence (2015, 2016, 2018).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="arch-card">
+  <div class="arch-card-title">3. Philips IntelliSpace Critical Care &amp; Anesthesia — ICCA (Cyient / Philips Healthcare)</div>
+  <div class="arch-meta"><span class="badge">Healthcare 24/7 ICU</span><span class="badge">Web Workers</span><span class="badge">Zero Memory Leaks</span><span class="badge">Strict RBAC/MFA</span></div>
+  <div class="content-block">
+    <ul>
+      <li><strong>High-Level Design (HLD)</strong>: Continuous 24/7 clinical software deployed in hospital ICUs and anesthesia suites globally for real-time patient monitoring and clinical alerts.</li>
+      <li><strong>Low-Level Design (LLD)</strong>: React/TypeScript frontend handling dense bedside telemetry streams (ventilators, arterial pressure, ECG). Delegated heavy stream computation to dedicated Web Workers, rendering to virtualized Canvas elements to ensure zero memory leaks over weeks of continuous operation. Enforced strict MFA, XSS prevention, and granular RBAC complying with hospital HIPAA/PHI regulations.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="section-header">Architecture Trade-offs &amp; Critical Design Decisions</h2>
+<div class="content-block">
+  <ul>
+    <li><strong>Trade-off 1: Offline-First Local State vs. Cloud-Only WebSockets (Shutlify Sports OS)</strong><br>
+    <em>Challenge</em>: Congested stadium Wi-Fi caused cloud-dependent scorekeeping to freeze.<br>
+    <em>Decision &amp; Trade-off</em>: Implemented local-first write-ahead logging in IndexedDB with optimistic UI updates. Accepted higher client-side synchronization and conflict-resolution complexity in exchange for 100% operational uptime courtside.</li>
+    <li><strong>Trade-off 2: Incremental Strangler-Fig Migration vs. Greenfield Full Rewrite (Cisco Stadium Vision)</strong><br>
+    <em>Challenge</em>: Complete rewrite risked 2 years of frozen roadmap and immense regression risk for major stadiums.<br>
+    <em>Decision &amp; Trade-off</em>: Architected hybrid micro-frontend bridges. Accepted temporary dual-runtime overhead in exchange for zero downtime, continuous revenue, and incremental feature delivery every sprint.</li>
+    <li><strong>Trade-off 3: Web Workers + Virtualized Rendering vs. Standard React State (Philips ICCA ICU Software)</strong><br>
+    <em>Challenge</em>: Ingesting 50Hz clinical telemetry directly into React component state caused frame drops and garbage collection pauses.<br>
+    <em>Decision &amp; Trade-off</em>: Bypassed standard React state reconciliation for high-frequency waveforms, isolating ingestion into Web Workers and rendering directly to Canvas via typed arrays (<code>Float32Array</code>). Sacrificed idiomatic React simplicity for rock-solid 60 FPS and zero memory leaks.</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<h2 class="section-header">Claude, Claude Code &amp; AI-Assisted Engineering Depth</h2>
+
+<h3 class="question-title"><span class="num-badge">7</span> Experience with Claude, Claude Code, and Agentic Engineering</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>Daily Terminal &amp; IDE Workflow</strong>: Power user of <strong>Claude 3.5 Sonnet / 3.7 Sonnet</strong> and <strong>Claude Code CLI</strong> for terminal-driven agentic engineering. Routinely utilize Claude Code for repository-wide AST indexing, multi-file architectural refactoring, end-to-end test suite generation (Vitest, Playwright), and drafting Architecture Decision Records (ADRs).</li>
+    <li><strong>Production AI Products Architected</strong>:
+      <ul>
+        <li><strong>Technoyana / SrushtiLabs (VoxelForge AI &amp; Ayam3d)</strong>: Generative AI platform transforming natural language prompts into production modular 3D assets, automated retopology, and tileable PBR texture maps (<a href="https://srushtilabs.com/voxelforge/" target="_blank">srushtilabs.com/voxelforge</a>).</li>
+        <li><strong>eBodhya Technologies</strong>: Academic Intelligence OS integrating LLM pipelines for curriculum-aware dynamic question generation, automated rubric-based grading, and student analytics.</li>
+      </ul>
+    </li>
+    <li><strong>AI Architecture Rigor</strong>: Deep expertise in structured JSON schema generation (<code>response_format</code> / tool calling), Chain-of-Thought prompting, prompt chaining, context window budget management, and hallucination guardrails.</li>
+  </ul>
+</div>
+
+<h3 class="question-title"><span class="num-badge">8</span> Reviewing, Validating &amp; Improving AI-Generated Architecture &amp; Code</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>Validation 1: Concurrency &amp; Race Conditions</strong>: Identified that an AI-generated match slot reservation service in Node.js used naive <code>SELECT ... THEN UPDATE</code> logic, causing double-booking under load. Refactored the architecture to use PostgreSQL row-level locks (<code>SELECT ... FOR UPDATE</code>), atomic transactions, and Redis distributed locks (Redlock).</li>
+    <li><strong>Validation 2: Security &amp; Hallucinated Vulnerabilities</strong>: Caught an AI output recommending deprecated npm packages with known CVEs and naive client-side file MIME validation. Replaced with server-side magic-byte inspection, cryptographic RS256 JWT validation with JWKS rotation, and automated Snyk/npm audit CI checks.</li>
+    <li><strong>Validation 3: Memory Optimization in Rendering Loops</strong>: Corrected an AI-generated Three.js rendering pipeline that recreated geometry buffers and materials inside the <code>requestAnimationFrame</code> loop. Re-engineered with object pooling and explicit memory disposal (<code>dispose()</code>), cutting memory consumption by 80%.</li>
+  </ul>
+</div>
+
+<h2 class="section-header">DevOps, Cloud, SaaS Experience &amp; Global Clients</h2>
+
+<h3 class="question-title"><span class="num-badge">9</span> Infrastructure: Terraform, Istio, ArgoCD, Helm, Kustomize</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>Terraform (5+ Years)</strong>: Modular Infrastructure as Code (IaC) provisioning AWS (EKS, VPC, Aurora RDS, CloudFront) and GCP (GKE, Cloud SQL) with remote state locking and environment parity.</li>
+    <li><strong>Helm &amp; Kustomize (4+ Years)</strong>: Parameterized Helm charts for third-party tools; Kustomize overlays for declarative dev/stage/prod configurations without template duplication.</li>
+    <li><strong>ArgoCD (3+ Years)</strong>: GitOps continuous delivery workflows, automated drift detection, self-healing, and canary deployments with Argo Rollouts.</li>
+    <li><strong>Istio (2+ Years)</strong>: Service mesh traffic routing, mTLS zero-trust communication, circuit breaking, and OpenTelemetry distributed tracing.</li>
+  </ul>
+</div>
+
+<h3 class="question-title"><span class="num-badge">10 &amp; 11</span> SaaS Experience &amp; Japanese / Global Enterprise Background</h3>
+<div class="content-block">
+  <ul>
+    <li><strong>10+ Years Product/SaaS Engineering</strong>: End-to-end multi-tenant SaaS lifecycle leadership across Technoyana, Twitan (Shutlify Sports OS), SrushtiLabs (VoxelForge AI), eBodhya, Cisco Stadium Vision, and Philips ICCA.</li>
+    <li><strong>Japanese Corporate Experience (Obayashi Corporation)</strong>: Direct technical engagement with Japanese leadership at <strong>Obayashi Corporation</strong> (premier Japanese general contractor and engineering conglomerate). Prepared and delivered high-standard architectural dossiers and technical presentations aligned with Japanese business culture (*monozukuri* quality, rigorous security, and zero-defect delivery).</li>
+    <li><strong>Global Enterprise Experience</strong>: 4+ years collaborating with <strong>Cisco Systems (USA)</strong>, <strong>Philips Healthcare (Netherlands/Global)</strong>, <strong>Vodafone (UK/Europe)</strong>, and <strong>CAE (Canada)</strong>. Holder of a Master of Science (M.S.) in Computing from <strong>Robert Gordon University, Scotland, UK</strong>.</li>
+  </ul>
+</div>
+
+<div style="margin-top: 14px; padding: 10px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 8.5pt;">
+  <strong>Closing Note:</strong> Ready to complete the <strong>PramitiHR.ai</strong> AI skill evaluation immediately upon link dispatch. Full architectural portfolio, GitHub repositories, and code samples available upon request.<br>
+  <strong>Contact:</strong> Maheshchandra Hegde &nbsp;•&nbsp; +91 9535253329 / +91 7022407280 &nbsp;•&nbsp; <a href="mailto:hid.mahesh@gmail.com">hid.mahesh@gmail.com</a> &nbsp;•&nbsp; <a href="https://hegdemahesh.in">hegdemahesh.in</a>
+</div>
+
+</body>
+</html>
+"""
+
+def generate_pdf():
+    with open(html_file, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"Generated HTML template at: {html_file}")
+
+    browser_exe = None
+    candidates = [
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            browser_exe = c
+            break
+
+    if not browser_exe:
+        print("Error: Headless browser not found.")
+        return False
+
+    cmd = [
+        browser_exe,
+        "--headless",
+        "--disable-gpu",
+        "--no-pdf-header-footer",
+        f"--print-to-pdf={pdf_file}",
+        html_file
+    ]
+    print(f"Running command: {' '.join(cmd)}")
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if os.path.exists(pdf_file) and os.path.getsize(pdf_file) > 0:
+        print(f"SUCCESS: Generated PDF at {pdf_file} (Size: {os.path.getsize(pdf_file)} bytes)")
+        return True
+    else:
+        print("Failed to generate PDF. Output:", res.stderr)
+        return False
+
+if __name__ == "__main__":
+    generate_pdf()
